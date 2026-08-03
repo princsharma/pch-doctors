@@ -75,7 +75,7 @@ export function SafeSecure() {
               ))}
             </div>
 
-            <Button className="mt-10 rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-white hover:bg-[#f2a83c]/90">
+            <Button className="mt-10 rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
               Schedule Your Consultation Now
             </Button>
           </div>

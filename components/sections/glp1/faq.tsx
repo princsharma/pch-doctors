@@ -70,7 +70,7 @@ export function Glp1Faq() {
         </Accordion>
 
         <div className="mt-10 flex flex-col items-center gap-3">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-white hover:bg-[#f2a83c]/90">
+          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
             Still Got Questions
           </Button>
           <p className="flex items-center gap-1.5 text-xs text-neutral-500">

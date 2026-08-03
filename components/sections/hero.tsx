@@ -38,11 +38,10 @@ export function Hero() {
           our trusted telemedicine platform.
         </p>
 
-        <Button className="mt-8 rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-white hover:bg-[#f2a83c]/90">
+        <Button className="mt-8 rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
           Book Your Doctor Consultation Today
         </Button>
 
-        {/* Mock consultation window */}
         <div className="relative mt-16 w-full max-w-4xl overflow-hidden rounded-2xl bg-white text-left shadow-2xl ring-1 ring-black/5">
           <div className="flex items-center gap-1.5 border-b px-4 py-3">
             <span className="size-2.5 rounded-full bg-[#e0342a]" />

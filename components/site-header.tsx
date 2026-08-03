@@ -128,7 +128,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button className="rounded-full bg-[#f2a83c] px-6 py-6 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-shadow hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]">
+            <Button className="rounded-full bg-[#f2a83c] px-6 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-shadow hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]">
               Book Your Consultation
             </Button>
           </div>
@@ -136,6 +136,7 @@ export function SiteHeader() {
           <button
             className="rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-[#0d6e74]/15 backdrop-blur-md lg:hidden"
             aria-label="Toggle menu"
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? <X className="size-5 text-[#0a2733]" /> : <Menu className="size-5 text-[#0a2733]" />}
@@ -182,7 +183,7 @@ export function SiteHeader() {
               </a>
             )
           )}
-          <Button className="mt-1 w-full rounded-full bg-[#f2a83c] py-6 text-sm font-semibold text-white hover:bg-[#f2a83c]/90">
+          <Button className="mt-1 w-full rounded-full bg-[#f2a83c] py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
             Book Your Consultation
           </Button>
         </div>

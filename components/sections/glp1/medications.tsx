@@ -87,7 +87,7 @@ export function Glp1Medications() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-3 text-center">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-white hover:bg-[#f2a83c]/90">
+          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
             Schedule Medical Evaluation
           </Button>
           <p className="max-w-2xl text-xs text-neutral-500">

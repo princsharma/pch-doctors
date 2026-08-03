@@ -34,7 +34,7 @@ export function Glp1Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Button className="rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-white hover:bg-[#f2a83c]/90">
+            <Button className="rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
               Schedule Medical Evaluation
             </Button>
             <div className="flex items-center gap-2">

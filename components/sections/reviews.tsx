@@ -43,10 +43,10 @@ const reviews = [
 ];
 
 const avatarTones = [
-  "bg-[#0d6e74]",
-  "bg-[#f2a83c]",
-  "bg-[#e0342a]",
-  "bg-[#0a4f54]",
+  "bg-[#0d6e74] text-white",
+  "bg-[#f2a83c] text-[#0a2733]",
+  "bg-[#e0342a] text-white",
+  "bg-[#0a4f54] text-white",
 ];
 
 function Stars({ count = 5 }: { count?: number }) {
@@ -68,7 +68,7 @@ function ReviewCard({ review, i }: { review: (typeof reviews)[number]; i: number
         <div className="flex items-center gap-2.5">
           <span
             className={cn(
-              "flex size-8 items-center justify-center rounded-full text-xs font-semibold text-white",
+              "flex size-8 items-center justify-center rounded-full text-xs font-semibold",
               avatarTones[i % avatarTones.length]
             )}
           >
@@ -157,7 +157,7 @@ export function Reviews() {
         </div>
 
         <div className="mt-4 flex flex-col items-center gap-3">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-white hover:bg-[#f2a83c]/90">
+          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
             Read More Reviews
           </Button>
           <p className="text-xs text-neutral-500">

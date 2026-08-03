@@ -70,7 +70,7 @@ export function Faq() {
                 Need clarity before booking? Speak with our support team and
                 get direct answers tailored to your situation.
               </p>
-              <button className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[#f2a83c] py-1 pl-1 pr-6 text-base font-semibold text-white transition-colors hover:bg-[#f2a83c]/90">
+              <button className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[#f2a83c] py-1 pl-1 pr-6 text-base font-semibold text-[#0a2733] transition-colors hover:bg-[#f2a83c]/90">
                 <span className="flex size-11 items-center justify-center rounded-full bg-white text-[#0a2733] transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="size-4.5" />
                 </span>
