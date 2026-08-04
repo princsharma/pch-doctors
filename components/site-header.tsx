@@ -3,26 +3,36 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const GLP1_PATH = "/services/glp-1-weight-loss-treatment";
+const MMJ_PATH = "/services/medical-marijuana-consultation";
+const GLP1_PATH = "/services/glp-1-medications";
 
 const services = [
-  { label: "Medical Marijuana Consultation", href: "/" },
-  { label: "GLP-1 Weight Loss Treatment", href: GLP1_PATH },
+  { label: "Medical Marijuana Consultation", href: MMJ_PATH },
+  { label: "GLP-1 Medications", href: GLP1_PATH },
 ];
 
 const homeNavLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/", children: services },
+  { label: "Services", href: "/#services", children: services },
   { label: "Process", href: "/#process" },
-  { label: "Consultations", href: "/#consultations" },
   { label: "Reviews", href: "/#reviews" },
   { label: "Pricing", href: "/#pricing" },
   { label: "FAQs", href: "/#faqs" },
+];
+
+const mmjNavLinks = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: MMJ_PATH, children: services },
+  { label: "Process", href: `${MMJ_PATH}#process` },
+  { label: "Consultations", href: `${MMJ_PATH}#consultations` },
+  { label: "Reviews", href: `${MMJ_PATH}#reviews` },
+  { label: "Pricing", href: `${MMJ_PATH}#pricing` },
+  { label: "FAQs", href: `${MMJ_PATH}#faqs` },
 ];
 
 const glp1NavLinks = [
@@ -37,29 +47,59 @@ const glp1NavLinks = [
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isGlp1 = pathname?.startsWith(GLP1_PATH);
-  const navLinks = isGlp1 ? glp1NavLinks : homeNavLinks;
+  const isGlp1 = pathname?.startsWith(GLP1_PATH) || pathname?.startsWith("/services/glp-1-weight-loss-treatment");
+  const isMmj = pathname?.startsWith(MMJ_PATH);
+  const navLinks = isGlp1 ? glp1NavLinks : isMmj ? mmjNavLinks : homeNavLinks;
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="w-full">
-      <div className="hidden items-center justify-center gap-2 bg-gradient-to-r from-[#0a4f54] via-[#0d6e74] to-[#0a4f54] px-6 py-3.5 text-sm text-white sm:flex">
-        <Sparkles className="size-4 text-[#f2a83c]" />
-        <p>
-          Now also accepting patients for our clinician-guided{" "}
-          <a
-            href="#"
-            className="font-semibold text-[#f2a83c] underline decoration-[#f2a83c]/40 underline-offset-2 transition-colors hover:text-white"
-          >
-            weight loss program
-          </a>
-          .
-        </p>
+    <header className="sticky top-0 z-50 w-full">
+      <div
+        className={cn(
+          "overflow-hidden bg-gradient-to-r from-[#0a4f54] via-[#0d6e74] to-[#0a4f54] text-sm text-white transition-all duration-300",
+          scrolled
+            ? "max-h-0 opacity-0"
+            : "max-h-14 opacity-100"
+        )}
+      >
+        <div className="hidden items-center justify-center gap-2 px-6 py-3.5 sm:flex">
+          <Sparkles className="size-4 text-[#f2a83c]" />
+          <p>
+            Now also accepting patients for our clinician-guided{" "}
+            <Link
+              href={GLP1_PATH}
+              className="font-semibold text-[#f2a83c] underline decoration-[#f2a83c]/40 underline-offset-2 transition-colors hover:text-white"
+            >
+              weight loss program
+            </Link>
+            {" "}and{" "}
+            <Link
+              href={MMJ_PATH}
+              className="font-semibold text-[#f2a83c] underline decoration-[#f2a83c]/40 underline-offset-2 transition-colors hover:text-white"
+            >
+              MMJ certifications
+            </Link>
+            .
+          </p>
+        </div>
       </div>
 
-      <div className="sticky top-0 z-50 bg-[#dcf0f1]/90 backdrop-blur-md">
+      <div
+        className={cn(
+          "bg-[#dcf0f1]/90 backdrop-blur-md transition-shadow duration-300",
+          scrolled && "shadow-sm"
+        )}
+      >
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <Link href="/" className="flex items-center">
             <Image
@@ -104,13 +144,13 @@ export function SiteHeader() {
                   >
                     <div className="overflow-hidden rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
                       {link.children.map((child) => (
-                        <a
+                        <Link
                           key={child.label}
                           href={child.href}
                           className="block rounded-lg px-3 py-2.5 text-sm text-[#0a2733]/80 transition-colors hover:bg-[#0d6e74] hover:text-white"
                         >
                           {child.label}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -119,7 +159,10 @@ export function SiteHeader() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="rounded-full px-4 py-2 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                  className={cn(
+                    "rounded-full px-4 py-2 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]",
+                    link.href === "/" && pathname === "/" && "bg-white text-[#0d6e74]"
+                  )}
                 >
                   {link.label}
                 </a>
@@ -161,14 +204,14 @@ export function SiteHeader() {
                 </a>
                 <div className="ml-3 flex flex-col gap-1 border-l border-[#0d6e74]/15 pl-3">
                   {link.children.map((child) => (
-                    <a
+                    <Link
                       key={child.label}
                       href={child.href}
                       className="rounded-lg px-2 py-1.5 text-sm text-[#0a2733]/60 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
                       onClick={() => setOpen(false)}
                     >
                       {child.label}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>

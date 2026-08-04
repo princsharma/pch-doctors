@@ -1,15 +1,19 @@
+import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight, Mail, Phone, MapPin } from "lucide-react";
 
 const quickLinks = [
-  { label: "Home", href: "#" },
-  { label: "Process", href: "#process" },
-  { label: "Consultations", href: "#consultations" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Home", href: "/" },
+  { label: "Process", href: "/#process" },
+  { label: "Services", href: "/#services" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Pricing", href: "/#pricing" },
 ];
 
-const services = ["Medical Marijuana Evaluation", "GLP 1 Weight Loss Program"];
+const services = [
+  { label: "Medical Marijuana Evaluation", href: "/services/medical-marijuana-consultation" },
+  { label: "GLP-1 Medications", href: "/services/glp-1-medications" },
+];
 
 export function SiteFooter() {
   return (
@@ -30,8 +34,8 @@ export function SiteFooter() {
               />
             </div>
             <p className="mt-4 text-sm text-white/60">
-              Nationwide medical marijuana consultations with licensed doctors
-              via secure telemedicine.
+              Providing high-standard clinician-guided medical solutions through
+              a modern, secure telehealth ecosystem.
             </p>
           </div>
 
@@ -61,9 +65,14 @@ export function SiteFooter() {
               </h3>
               <ul className="mt-4 space-y-3">
                 {services.map((service) => (
-                  <li key={service} className="flex items-center gap-2 text-sm text-white/80">
-                    <ChevronRight className="size-3.5 text-[#f2a83c]" />
-                    {service}
+                  <li key={service.label}>
+                    <Link
+                      href={service.href}
+                      className="flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-[#f2a83c]"
+                    >
+                      <ChevronRight className="size-3.5 text-[#f2a83c]" />
+                      {service.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -101,11 +110,10 @@ export function SiteFooter() {
 
         <p className="border-t border-white/10 pb-10 pt-6 text-xs text-white/40">
           Medical Disclaimer: This website provides general information about
-          medical marijuana and is not intended as medical advice. Individual
-          results may vary. Cannabis affects everyone differently. Please
-          consult with a licensed physician to determine if medical marijuana
-          is right for your specific condition. The information provided has
-          not been evaluated by the FDA.
+          medical marijuana and GLP-1 treatments and is not intended as medical
+          advice. Medications are only prescribed by licensed healthcare
+          providers after a clinical evaluation. Individual results may vary.
+          The information provided has not been evaluated by the FDA.
         </p>
       </div>
 

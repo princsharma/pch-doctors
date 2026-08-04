@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Online Medical Cannabis Doctors Consultations - PCH Doctors",
+  title: "PCH Doctors | Clinician-Guided Medical Solutions",
   description:
-    "Connect with qualified doctors nationwide for safe, legal medical marijuana consultations. Same-day certifications available with our trusted telemedicine platform.",
+    "Secure, HIPAA-compliant medical marijuana certifications and GLP-1 weight management programs — 100% online.",
 };
 
 export default function RootLayout({
