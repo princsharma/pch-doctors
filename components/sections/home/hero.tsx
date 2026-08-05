@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import {
@@ -12,11 +11,10 @@ import {
   Headphones,
   Stethoscope,
 } from "lucide-react";
+import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 import { cn } from "@/lib/utils";
-
-const MMJ_PATH = "/services/medical-marijuana-consultation";
-const GLP1_PATH = "/services/glp-1-medications";
 
 export function HomeHero() {
   const [active, setActive] = useState<"mmj" | "glp1" | null>(null);
@@ -65,14 +63,14 @@ export function HomeHero() {
             physicians. Get certified in minutes from home.
           </p>
 
-          <Button
-            nativeButton={false}
-            render={<Link href={MMJ_PATH} />}
-            className="mt-8 h-auto gap-2 rounded-full bg-[#f2a83c] px-8 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-all hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]"
-          >
-            Get My Recommendation
-            <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
-          </Button>
+          <MmjLeadModal
+            trigger={
+              <Button className="mt-8 h-auto gap-2 rounded-full bg-[#f2a83c] px-8 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-all hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]">
+                Get My Recommendation
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Button>
+            }
+          />
 
           <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-medium text-neutral-500">
             <span className="flex items-center gap-1.5">
@@ -131,7 +129,7 @@ export function HomeHero() {
 
           <Button
             nativeButton={false}
-            render={<Link href={GLP1_PATH} />}
+            render={<a href={ONGO_WEIGHT_LOSS_URL} />}
             className="mt-8 h-auto gap-2 rounded-full bg-[#0d6e74] px-8 py-6 text-sm font-semibold text-white shadow-[0_8px_24px_rgba(13,110,116,0.3)] transition-all hover:bg-[#0a4f54] hover:shadow-[0_10px_28px_rgba(13,110,116,0.4)]"
           >
             Start Weight Loss Journey

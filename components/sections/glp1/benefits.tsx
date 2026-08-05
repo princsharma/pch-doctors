@@ -3,6 +3,7 @@ import { Check, Stethoscope, ClipboardCheck, Utensils, Activity, Clock, Star } f
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 const benefits = [
   {
@@ -70,7 +71,11 @@ export function Glp1Benefits() {
             ))}
           </div>
 
-          <Button className="mt-8 rounded-full bg-[#0d6e74] px-7 py-6 text-sm font-semibold text-white hover:bg-[#0d6e74]/90">
+          <Button
+            nativeButton={false}
+            render={<a href={ONGO_WEIGHT_LOSS_URL} />}
+            className="mt-8 rounded-full bg-[#0d6e74] px-7 py-6 text-sm font-semibold text-white hover:bg-[#0d6e74]/90"
+          >
             Schedule Medical Evaluation
           </Button>
           <p className="mt-3 text-xs text-neutral-500">

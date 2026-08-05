@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { ShieldCheck, BadgeCheck, CalendarClock, Laptop2 } from "lucide-react";
+import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
@@ -75,9 +78,13 @@ export function SafeSecure() {
               ))}
             </div>
 
-            <Button className="mt-10 rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
-              Schedule Your Consultation Now
-            </Button>
+            <MmjLeadModal
+              trigger={
+                <Button className="mt-10 rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
+                  Schedule Your Consultation Now
+                </Button>
+              }
+            />
           </div>
 
           <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">

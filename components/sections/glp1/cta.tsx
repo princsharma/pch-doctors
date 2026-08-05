@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 export function Glp1Cta() {
   return (
@@ -24,7 +25,11 @@ export function Glp1Cta() {
             </span>
           </div>
         </div>
-        <Button className="shrink-0 rounded-full bg-[#0d6e74] px-8 py-7 text-base font-semibold text-white hover:bg-[#0d6e74]/90">
+        <Button
+          nativeButton={false}
+          render={<a href={ONGO_WEIGHT_LOSS_URL} />}
+          className="shrink-0 rounded-full bg-[#0d6e74] px-8 py-7 text-base font-semibold text-white hover:bg-[#0d6e74]/90"
+        >
           Book Consultation
         </Button>
       </div>

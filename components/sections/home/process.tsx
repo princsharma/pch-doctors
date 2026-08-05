@@ -1,5 +1,7 @@
-import Link from "next/link";
+"use client";
+
 import { UserPlus, Video, ClipboardCheck, ArrowRight, BadgeCheck } from "lucide-react";
+import { ConsultationModal } from "@/components/consultation-modal";
 import { Button } from "@/components/ui/button";
 
 const steps = [
@@ -74,14 +76,14 @@ export function HomeProcess() {
         </div>
 
         <div className="mt-16 text-center">
-          <Button
-            nativeButton={false}
-            render={<Link href="/services/medical-marijuana-consultation" />}
-            className="h-auto rounded-full bg-[#f2a83c] px-10 py-6 text-base font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] hover:bg-[#f2a83c]/90"
-          >
-            Start Your Online Consultation
-            <ArrowRight className="size-4" />
-          </Button>
+          <ConsultationModal
+            trigger={
+              <Button className="h-auto rounded-full bg-[#f2a83c] px-10 py-6 text-base font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] hover:bg-[#f2a83c]/90">
+                Start Your Online Consultation
+                <ArrowRight className="size-4" />
+              </Button>
+            }
+          />
           <p className="mt-4 flex items-center justify-center gap-1.5 text-xs text-neutral-500">
             <BadgeCheck className="size-4 text-[#0d6e74]" />
             100% Money-Back Guarantee if not approved.

@@ -2,6 +2,7 @@ import { Pill, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 const medications = [
   {
@@ -87,7 +88,11 @@ export function Glp1Medications() {
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-3 text-center">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
+          <Button
+            nativeButton={false}
+            render={<a href={ONGO_WEIGHT_LOSS_URL} />}
+            className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90"
+          >
             Schedule Medical Evaluation
           </Button>
           <p className="max-w-2xl text-xs text-neutral-500">

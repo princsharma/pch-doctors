@@ -5,8 +5,17 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
+import { ConsultationModal } from "@/components/consultation-modal";
+import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 import { cn } from "@/lib/utils";
+
+const headerCtaClassName =
+  "rounded-full bg-[#f2a83c] px-6 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-shadow hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]";
+
+const headerMobileCtaClassName =
+  "mt-1 w-full rounded-full bg-[#f2a83c] py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90";
 
 const MMJ_PATH = "/services/medical-marijuana-consultation";
 const GLP1_PATH = "/services/glp-1-medications";
@@ -171,9 +180,31 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button className="rounded-full bg-[#f2a83c] px-6 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-shadow hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]">
-              Book Your Consultation
-            </Button>
+            {isMmj ? (
+              <MmjLeadModal
+                trigger={
+                  <Button className={headerCtaClassName}>
+                    Book Your Consultation
+                  </Button>
+                }
+              />
+            ) : isGlp1 ? (
+              <Button
+                nativeButton={false}
+                render={<a href={ONGO_WEIGHT_LOSS_URL} />}
+                className={headerCtaClassName}
+              >
+                Book Your Consultation
+              </Button>
+            ) : (
+              <ConsultationModal
+                trigger={
+                  <Button className={headerCtaClassName}>
+                    Book Your Consultation
+                  </Button>
+                }
+              />
+            )}
           </div>
 
           <button
@@ -226,9 +257,37 @@ export function SiteHeader() {
               </a>
             )
           )}
-          <Button className="mt-1 w-full rounded-full bg-[#f2a83c] py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
-            Book Your Consultation
-          </Button>
+          {isMmj ? (
+            <MmjLeadModal
+              trigger={
+                <Button
+                  className={headerMobileCtaClassName}
+                  onClick={() => setOpen(false)}
+                >
+                  Book Your Consultation
+                </Button>
+              }
+            />
+          ) : isGlp1 ? (
+            <Button
+              nativeButton={false}
+              render={<a href={ONGO_WEIGHT_LOSS_URL} onClick={() => setOpen(false)} />}
+              className={headerMobileCtaClassName}
+            >
+              Book Your Consultation
+            </Button>
+          ) : (
+            <ConsultationModal
+              trigger={
+                <Button
+                  className={headerMobileCtaClassName}
+                  onClick={() => setOpen(false)}
+                >
+                  Book Your Consultation
+                </Button>
+              }
+            />
+          )}
         </div>
       </div>
     </header>

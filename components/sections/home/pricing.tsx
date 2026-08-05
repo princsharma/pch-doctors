@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 const plans = [
   {
@@ -8,6 +9,7 @@ const plans = [
     price: "149",
     unit: "/visit",
     href: "/services/medical-marijuana-consultation",
+    external: false,
     cta: "Get Certified Now",
     headerClass: "bg-[#f2a83c] text-[#0a2733]",
     checkClass: "text-[#f2a83c]",
@@ -22,7 +24,8 @@ const plans = [
     name: "Weight Management",
     price: "299",
     unit: "/month",
-    href: "/services/glp-1-medications",
+    href: ONGO_WEIGHT_LOSS_URL,
+    external: true,
     cta: "Start My Program",
     headerClass: "bg-gradient-to-br from-[#0a4f54] to-[#0d6e74] text-white",
     checkClass: "text-[#0d6e74]",
@@ -82,7 +85,13 @@ export function HomePricing() {
                 </ul>
                 <Button
                   nativeButton={false}
-                  render={<Link href={plan.href} />}
+                  render={
+                    plan.external ? (
+                      <a href={plan.href} />
+                    ) : (
+                      <Link href={plan.href} />
+                    )
+                  }
                   className="h-auto w-full rounded-full bg-white py-5 text-sm font-semibold text-[#0a2733] hover:bg-white/90"
                 >
                   {plan.cta}

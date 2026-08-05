@@ -1,4 +1,7 @@
+"use client";
+
 import { UserPlus, Video, FileCheck, ArrowRight } from "lucide-react";
+import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -104,12 +107,16 @@ export function Process() {
             </p>
           </div>
 
-          <Button className="group gap-3 rounded-full bg-white py-7 pl-2 pr-6 text-sm font-semibold text-[#0a2733] hover:bg-white/90">
-            <span className="flex size-10 items-center justify-center rounded-full bg-[#f2a83c] text-[#0a2733] transition-transform group-hover:translate-x-0.5">
-              <ArrowRight className="size-4.5" />
-            </span>
-            Start Your Certification Process
-          </Button>
+          <MmjLeadModal
+            trigger={
+              <Button className="group gap-3 rounded-full bg-white py-7 pl-2 pr-6 text-sm font-semibold text-[#0a2733] hover:bg-white/90">
+                <span className="flex size-10 items-center justify-center rounded-full bg-[#f2a83c] text-[#0a2733] transition-transform group-hover:translate-x-0.5">
+                  <ArrowRight className="size-4.5" />
+                </span>
+                Start Your Certification Process
+              </Button>
+            }
+          />
         </div>
       </div>
     </section>

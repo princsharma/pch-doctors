@@ -3,6 +3,7 @@ import { ShieldCheck, BadgeCheck, Star, TrendingDown, Users } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 export function Glp1Hero() {
   return (
@@ -34,7 +35,11 @@ export function Glp1Hero() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-6">
-            <Button className="rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
+            <Button
+              nativeButton={false}
+              render={<a href={ONGO_WEIGHT_LOSS_URL} />}
+              className="rounded-full bg-[#f2a83c] px-9 py-7 text-base font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90"
+            >
               Schedule Medical Evaluation
             </Button>
             <div className="flex items-center gap-2">
