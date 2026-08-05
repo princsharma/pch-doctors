@@ -1,4 +1,5 @@
-import { Pill, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -10,36 +11,54 @@ const medications = [
     tag: "Off-Label for Weight Loss",
     description:
       "An FDA-approved medication for type 2 diabetes that helps lower A1C levels and is often prescribed off-label for weight management.",
+    image:
+      "/images/ozempic-semaglutide-prefilled-injection-pen-with-medication-packaging-for-type-2-diabetes.webp",
+    alt: "Ozempic semaglutide prefilled injection pen with medication packaging",
   },
   {
     name: "Zepbound®",
     tag: "Weight Management",
     description:
       "An FDA-approved GLP-1/GIP weekly injection for chronic weight management in adults with BMI ≥27 with weight-related conditions or ≥30 with obesity.",
+    image:
+      "/images/zepbound-tirzepatide-prefilled-injection-pen-with-medication-packaging-for-weight-loss.webp",
+    alt: "Zepbound tirzepatide prefilled injection pen with medication packaging",
   },
   {
     name: "Wegovy®",
     tag: "Weight Management",
     description:
       "An FDA-approved GLP-1 for chronic weight management in adults with BMI ≥27 with weight-related conditions or ≥30 with obesity.",
+    image:
+      "/images/wegovy-semaglutide-prefilled-injection-pen-with-medication-box-for-chronic-weight-management.webp",
+    alt: "Wegovy semaglutide prefilled injection pen with medication box",
   },
   {
     name: "Rybelsus®",
     tag: "Daily Oral Tablet",
     description:
       "An FDA-approved medication for type 2 diabetes, taken as a once-daily oral tablet and used alongside diet and exercise.",
+    image:
+      "/images/rybelsus-semaglutide-7-mg-tablets-bottle-with-medication-box-for-type-2-diabetes-treatment.webp",
+    alt: "Rybelsus semaglutide 7 mg tablets bottle with medication box",
   },
   {
     name: "Mounjaro®",
     tag: "Off-Label for Weight Loss",
     description:
       "An FDA-approved medication for type 2 diabetes that helps lower A1C levels and is sometimes prescribed off-label for weight management.",
+    image:
+      "/images/mounjaro-tirzepatide-prefilled-injection-pen-with-medication-box-for-type-2-diabetes-treatment.webp",
+    alt: "Mounjaro tirzepatide prefilled injection pen with medication box",
   },
   {
     name: "Liraglutide",
     tag: "Saxenda® / Victoza®",
     description:
       "FDA-approved for weight loss (Saxenda®) and for type 2 diabetes (Victoza®), used alongside diet and exercise.",
+    image:
+      "/images/liraglutide-saxenda-prefilled-injection-pen-with-medication-box-for-weight-management.webp",
+    alt: "Liraglutide Saxenda prefilled injection pen with medication box",
   },
 ];
 
@@ -69,20 +88,26 @@ export function Glp1Medications() {
           {medications.map((med) => (
             <Card
               key={med.name}
-              className="p-6 shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-md"
+              className="overflow-hidden p-0 shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-md"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex size-11 items-center justify-center rounded-xl bg-[#0d6e74]/10 text-[#0d6e74]">
-                  <Pill className="size-5" />
-                </div>
-                <span className="rounded-full bg-[#f2a83c]/10 px-2.5 py-1 text-[10px] font-medium text-[#f2a83c]">
+              <div className="relative aspect-4/3 w-full bg-[#f7f9f9]">
+                <Image
+                  src={med.image}
+                  alt={med.alt}
+                  fill
+                  className="object-contain p-4"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <span className="absolute right-3 bottom-3 rounded-full bg-white/95 px-2.5 py-1 text-[10px] font-medium text-[#f2a83c] shadow-sm ring-1 ring-[#f2a83c]/20">
                   {med.tag}
                 </span>
               </div>
-              <h3 className="font-heading mt-4 text-lg font-medium text-[#0a2733]">
-                {med.name}
-              </h3>
-              <p className="mt-2 text-sm text-neutral-600">{med.description}</p>
+              <div className="p-6 pt-4">
+                <h3 className="font-heading text-lg font-medium text-[#0a2733]">
+                  {med.name}
+                </h3>
+                <p className="mt-2 text-sm text-neutral-600">{med.description}</p>
+              </div>
             </Card>
           ))}
         </div>

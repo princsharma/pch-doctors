@@ -47,11 +47,9 @@ const mmjNavLinks = [
 const glp1NavLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: GLP1_PATH, children: services },
-  { label: "Process", href: `${GLP1_PATH}#process` },
   { label: "Benefits", href: `${GLP1_PATH}#benefits` },
   { label: "Why Choose Us", href: `${GLP1_PATH}#why-choose-us` },
   { label: "Pricing", href: `${GLP1_PATH}#pricing` },
-  { label: "FAQs", href: `${GLP1_PATH}#faqs` },
 ];
 
 export function SiteHeader() {
