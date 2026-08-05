@@ -1,6 +1,21 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ChevronRight, Mail, Phone, MapPin } from "lucide-react";
+import {
+  ChevronRight,
+  Mail,
+  Phone,
+  MapPin,
+  EyeOff,
+  ShieldCheck,
+  Video,
+  CheckCheck,
+  HandCoins,
+  Accessibility,
+  Pencil,
+  TriangleAlert,
+  Truck,
+} from "lucide-react";
+import { LEGAL_PAGES } from "@/lib/legal-pages";
 
 const quickLinks = [
   { label: "Home", href: "/" },
@@ -14,6 +29,18 @@ const services = [
   { label: "Medical Marijuana Evaluation", href: "/services/medical-marijuana-consultation" },
   { label: "GLP-1 Medications", href: "/services/glp-1-medications" },
 ];
+
+const legalIcons = {
+  "privacy-policy": EyeOff,
+  "hipaa-compliance": ShieldCheck,
+  "consent-for-telehealth": Video,
+  "terms-of-use": CheckCheck,
+  "refund-policy": HandCoins,
+  "accessibility-statement": Accessibility,
+  "editorial-policy": Pencil,
+  disclaimer: TriangleAlert,
+  "shipping-policy": Truck,
+} as const;
 
 export function SiteFooter() {
   return (
@@ -102,10 +129,38 @@ export function SiteFooter() {
           </div>
         </div>
 
+        <div className="mt-12 border-t border-white/10 pt-10">
+          <h3 className="font-heading text-xs font-semibold tracking-[0.18em] text-[#8fd0d4] uppercase">
+            Legal, Compliance &amp; Editorial
+          </h3>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {LEGAL_PAGES.map((page) => {
+              const Icon = legalIcons[page.slug as keyof typeof legalIcons];
+              return (
+                <li key={page.slug}>
+                  <Link
+                    href={`/${page.slug}`}
+                    className="flex items-center gap-2.5 text-sm text-white/80 transition-colors hover:text-[#f2a83c]"
+                  >
+                    <Icon className="size-4 shrink-0 text-[#8fd0d4]" />
+                    {page.title}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+
         <div className="mt-10 flex flex-col-reverse items-center gap-4 border-t border-white/10 py-6 sm:flex-row sm:justify-between">
           <p className="text-xs text-white/50">
             © 2025 PCH Doctors. All rights reserved.
           </p>
+          <Link
+            href="/sitemap"
+            className="text-xs text-white/50 transition-colors hover:text-[#f2a83c]"
+          >
+            Sitemap
+          </Link>
         </div>
 
         <p className="border-t border-white/10 pb-10 pt-6 text-xs text-white/40">
