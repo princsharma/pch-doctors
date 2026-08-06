@@ -6,7 +6,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-const faqs = [
+export const MMJ_FAQS = [
   {
     question: "How long does the certification process take?",
     answer:
@@ -41,20 +41,20 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section id="faqs" className="relative overflow-hidden bg-[#eef6f6] py-20">
-      <div className="pointer-events-none absolute -right-24 top-10 size-72 rounded-full bg-[#0d6e74]/5 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#f2a83c]/5 blur-3xl" />
+    <section id="faqs" className="relative overflow-hidden bg-[var(--service-section-bg)] py-20">
+      <div className="pointer-events-none absolute -right-24 top-10 size-72 rounded-full bg-[var(--service-brand)]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[var(--service-accent)]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:items-start">
           <div>
-            <div className="flex items-center gap-2 text-xs font-semibold tracking-widest text-[#0a2733]/70">
-              <Sparkles className="size-3.5 text-[#f2a83c]" />
+            <div className="flex items-center gap-2 text-xs font-semibold tracking-widest text-[var(--ds-ink)]/70">
+              <Sparkles className="size-3.5 text-[var(--service-accent)]" />
               QUESTIONS &amp; ANSWERS
             </div>
 
-            <h2 className="font-heading mt-4 whitespace-nowrap text-2xl font-medium leading-tight tracking-normal text-[#0a2733] sm:text-3xl lg:text-4xl">
-              Clear <span className="text-[#0d6e74]">Answers</span> for Your Care
+            <h2 className="font-heading mt-4 whitespace-nowrap text-2xl font-medium leading-tight tracking-normal text-[var(--ds-ink)] sm:text-3xl lg:text-4xl">
+              Clear <span className="text-[var(--service-brand)]">Answers</span> for Your Care
             </h2>
 
             <p className="mt-6 max-w-sm text-neutral-600">
@@ -63,15 +63,15 @@ export function Faq() {
             </p>
 
             <div className="mt-10 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5">
-              <h3 className="font-heading text-xl font-medium text-[#0a2733]">
+              <h3 className="font-heading text-xl font-medium text-[var(--ds-ink)]">
                 Still have questions?
               </h3>
               <p className="mt-2 text-sm text-neutral-600">
                 Need clarity before booking? Speak with our support team and
                 get direct answers tailored to your situation.
               </p>
-              <button className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[#f2a83c] py-1 pl-1 pr-6 text-base font-semibold text-[#0a2733] transition-colors hover:bg-[#f2a83c]/90">
-                <span className="flex size-11 items-center justify-center rounded-full bg-white text-[#0a2733] transition-transform group-hover:translate-x-0.5">
+              <button className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[var(--service-accent)] py-1 pl-1 pr-6 text-base font-semibold text-[var(--ds-ink)] transition-colors hover:bg-[var(--service-accent)]/90">
+                <span className="flex size-11 items-center justify-center rounded-full bg-white text-[var(--ds-ink)] transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="size-4.5" />
                 </span>
                 Contact Us
@@ -80,13 +80,13 @@ export function Faq() {
           </div>
 
           <Accordion className="gap-4 rounded-none border-none">
-            {faqs.map((faq) => (
+            {MMJ_FAQS.map((faq) => (
               <AccordionItem
                 key={faq.question}
                 value={faq.question}
                 className="rounded-2xl bg-white px-6 shadow-sm ring-1 ring-black/5 not-last:mb-4 not-last:border-b-0 data-open:bg-white"
               >
-                <AccordionTrigger className="py-6 text-base font-medium text-[#0a2733] hover:no-underline **:data-[slot=accordion-trigger-icon]:!size-8 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-[#f7f9f9] **:data-[slot=accordion-trigger-icon]:p-2 **:data-[slot=accordion-trigger-icon]:text-[#0a2733]">
+                <AccordionTrigger className="py-6 text-base font-medium text-[var(--ds-ink)] hover:no-underline **:data-[slot=accordion-trigger-icon]:!size-8 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-[var(--ds-bg-subtle)] **:data-[slot=accordion-trigger-icon]:p-2 **:data-[slot=accordion-trigger-icon]:text-[var(--ds-ink)]">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="pb-6 text-sm text-neutral-600">

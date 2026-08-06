@@ -29,10 +29,16 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
 function AccordionTrigger({
   className,
   children,
+  asHeading = "h3",
   ...props
-}: AccordionPrimitive.Trigger.Props) {
+}: AccordionPrimitive.Trigger.Props & {
+  /** Semantic heading level for the accordion item header. Default h3. */
+  asHeading?: "h2" | "h3";
+}) {
+  const HeadingTag = asHeading;
+
   return (
-    <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Header render={<HeadingTag className="flex" />}>
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
@@ -42,8 +48,16 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <ChevronDownIcon data-slot="accordion-trigger-icon" className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden" />
-        <ChevronUpIcon data-slot="accordion-trigger-icon" className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
+        <ChevronDownIcon
+          data-slot="accordion-trigger-icon"
+          aria-hidden
+          className="pointer-events-none shrink-0 group-aria-expanded/accordion-trigger:hidden"
+        />
+        <ChevronUpIcon
+          data-slot="accordion-trigger-icon"
+          aria-hidden
+          className="pointer-events-none hidden shrink-0 group-aria-expanded/accordion-trigger:inline"
+        />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

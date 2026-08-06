@@ -1,8 +1,8 @@
-import { SITE_URL } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/seo";
 
 export const SITE = {
   name: "PCH Doctors",
-  url: SITE_URL,
+  url: absoluteUrl("/"),
   email: "contact@pchdoctors.com",
   phone: "+1 (424) 424-1618",
   phoneDisplay: "+1 (424) 424 – 1618",

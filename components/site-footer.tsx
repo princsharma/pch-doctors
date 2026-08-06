@@ -19,6 +19,8 @@ import { LEGAL_PAGES } from "@/lib/legal-pages";
 
 const quickLinks = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
   { label: "Process", href: "/#process" },
   { label: "Services", href: "/#services" },
   { label: "Reviews", href: "/#reviews" },
@@ -44,9 +46,9 @@ const legalIcons = {
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-[#0a2733] via-[#0d3f45] to-[#0a2733] text-white">
-      <div className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-[#0d6e74]/20 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 top-1/2 size-96 -translate-y-1/2 rounded-full bg-[#f2a83c]/10 blur-3xl" />
+    <footer className="relative overflow-hidden bg-gradient-to-br from-[var(--ds-brand-dark)] via-[var(--ds-brand-dark)] to-[var(--ds-brand-dark)] text-white">
+      <div className="pointer-events-none absolute -right-24 top-0 size-96 rounded-full bg-[var(--ds-brand)]/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 top-1/2 size-96 -translate-y-1/2 rounded-full bg-[var(--ds-warning)]/10 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
@@ -54,7 +56,7 @@ export function SiteFooter() {
             <div className="w-fit rounded-lg bg-white p-2">
               <Image
                 src="/pch-doctors-logo.png"
-                alt="PCH Doctors"
+                alt="PCH Doctors logo"
                 width={1251}
                 height={512}
                 className="h-9 w-auto"
@@ -67,59 +69,76 @@ export function SiteFooter() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 sm:gap-x-12">
-            <div className="min-w-0">
-              <h3 className="font-heading text-sm font-medium text-white/50">
+            <nav aria-label="Footer quick links" className="min-w-0">
+              <p className="font-heading text-sm font-medium text-white/50">
                 Quick Links
-              </h3>
+              </p>
               <ul className="mt-4 space-y-3">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-[#f2a83c]"
+                      className="flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-[var(--ds-warning)]"
                     >
-                      <ChevronRight className="size-3.5 text-[#f2a83c]" />
+                      <ChevronRight className="size-3.5 text-[var(--ds-warning)]" aria-hidden />
                       {link.label}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
-            <div className="min-w-0">
-              <h3 className="font-heading text-sm font-medium text-white/50">
+            <nav aria-label="Footer services" className="min-w-0">
+              <p className="font-heading text-sm font-medium text-white/50">
                 Services
-              </h3>
+              </p>
               <ul className="mt-4 space-y-3">
                 {services.map((service) => (
                   <li key={service.label}>
                     <Link
                       href={service.href}
-                      className="flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-[#f2a83c]"
+                      className="flex items-center gap-2 text-sm text-white/80 transition-colors hover:text-[var(--ds-warning)]"
                     >
-                      <ChevronRight className="size-3.5 text-[#f2a83c]" />
+                      <ChevronRight className="size-3.5 text-[var(--ds-warning)]" aria-hidden />
                       {service.label}
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
             <div className="min-w-0">
-              <h3 className="font-heading text-sm font-medium text-white/50">
-                Contact Us
-              </h3>
-              <ul className="mt-4 space-y-3">
+              <p className="font-heading text-sm font-medium text-white/50">
+                <Link
+                  href="/contact"
+                  className="transition-colors hover:text-[var(--ds-warning)]"
+                >
+                  Contact Us
+                </Link>
+              </p>
+              <ul className="mt-4 space-y-3" aria-label="Contact information">
                 <li className="flex min-w-0 items-center gap-2 text-sm text-white/80">
-                  <Mail className="size-4 shrink-0 text-[#f2a83c]" />
-                  <span className="break-all">contact@pchdoctors.com</span>
+                  <Mail className="size-4 shrink-0 text-[var(--ds-warning)]" aria-hidden />
+                  <a
+                    href="mailto:contact@pchdoctors.com"
+                    className="break-all transition-colors hover:text-[var(--ds-warning)]"
+                    aria-label="Email contact@pchdoctors.com"
+                  >
+                    contact@pchdoctors.com
+                  </a>
                 </li>
                 <li className="flex min-w-0 items-center gap-2 text-sm text-white/80">
-                  <Phone className="size-4 shrink-0 text-[#f2a83c]" />
-                  <span className="break-words">+1 (424) 424 – 1618</span>
+                  <Phone className="size-4 shrink-0 text-[var(--ds-warning)]" aria-hidden />
+                  <a
+                    href="tel:+14244241618"
+                    className="break-words transition-colors hover:text-[var(--ds-warning)]"
+                    aria-label="Call +1 424 424 1618"
+                  >
+                    +1 (424) 424 – 1618
+                  </a>
                 </li>
                 <li className="flex min-w-0 items-start gap-2 text-sm text-white/80">
-                  <MapPin className="size-4 shrink-0 text-[#f2a83c]" />
+                  <MapPin className="size-4 shrink-0 text-[var(--ds-warning)]" aria-hidden />
                   <span className="break-words">
                     910 W Pacific Coast Hwy Unit D Wilmington, CA 90744
                   </span>
@@ -129,10 +148,13 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-10">
-          <h3 className="font-heading text-xs font-semibold tracking-[0.18em] text-[#8fd0d4] uppercase">
+        <nav
+          aria-label="Legal, compliance, and editorial"
+          className="mt-12 border-t border-white/10 pt-10"
+        >
+          <p className="font-heading text-xs font-semibold tracking-[0.18em] text-[var(--ds-brand-mid)] uppercase">
             Legal, Compliance &amp; Editorial
-          </h3>
+          </p>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {LEGAL_PAGES.map((page) => {
               const Icon = legalIcons[page.slug as keyof typeof legalIcons];
@@ -140,24 +162,25 @@ export function SiteFooter() {
                 <li key={page.slug}>
                   <Link
                     href={`/${page.slug}`}
-                    className="flex items-center gap-2.5 text-sm text-white/80 transition-colors hover:text-[#f2a83c]"
+                    className="flex items-center gap-2.5 text-sm text-white/80 transition-colors hover:text-[var(--ds-warning)]"
                   >
-                    <Icon className="size-4 shrink-0 text-[#8fd0d4]" />
+                    <Icon className="size-4 shrink-0 text-[var(--ds-brand-mid)]" aria-hidden />
                     {page.title}
                   </Link>
                 </li>
               );
             })}
           </ul>
-        </div>
+        </nav>
 
         <div className="mt-10 flex flex-col-reverse items-center gap-4 border-t border-white/10 py-6 sm:flex-row sm:justify-between">
           <p className="text-xs text-white/50">
-            © 2025 PCH Doctors. All rights reserved.
+            © {new Date().getFullYear()} PCH Doctors. All rights reserved.
           </p>
           <Link
             href="/sitemap"
-            className="text-xs text-white/50 transition-colors hover:text-[#f2a83c]"
+            className="text-xs text-white/50 transition-colors hover:text-[var(--ds-warning)]"
+            aria-label="View website sitemap"
           >
             Sitemap
           </Link>
@@ -172,8 +195,13 @@ export function SiteFooter() {
         </p>
       </div>
 
-      <div className="pointer-events-none relative overflow-hidden pb-4">
-        <p className="font-heading select-none text-center text-[16vw] font-medium leading-none text-white/5">
+      <div className="pointer-events-none relative overflow-hidden pb-6" aria-hidden>
+        {/* Depth layer */}
+        <p className="font-heading absolute inset-x-0 top-[0.08em] select-none text-center text-[16vw] font-medium leading-none text-black/40 blur-[2px]">
+          PCH Doctors
+        </p>
+        {/* Embossed brand wordmark */}
+        <p className="font-heading relative select-none bg-[linear-gradient(185deg,#b8ecc9_0%,#52b788_28%,#2f8a62_58%,#1f6b4a_82%,#154c35_100%)] bg-clip-text text-center text-[16vw] font-medium leading-none text-transparent drop-shadow-[0_12px_24px_rgb(0_0_0/0.35)]">
           PCH Doctors
         </p>
       </div>

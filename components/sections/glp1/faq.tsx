@@ -7,7 +7,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 
-const faqs = [
+export const GLP1_FAQS = [
   {
     question: "What are GLP-1 Medications and How Do They Help With Weight Loss?",
     answer:
@@ -37,14 +37,14 @@ const faqs = [
 
 export function Glp1Faq() {
   return (
-    <section id="faqs" className="relative overflow-hidden bg-[#eef6f6] py-20">
-      <div className="pointer-events-none absolute -right-24 top-10 size-72 rounded-full bg-[#0d6e74]/5 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[#f2a83c]/5 blur-3xl" />
+    <section id="faqs" className="relative overflow-hidden bg-[var(--service-section-bg)] py-20">
+      <div className="pointer-events-none absolute -right-24 top-10 size-72 rounded-full bg-[var(--service-brand)]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-10 size-72 rounded-full bg-[var(--service-accent)]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-4xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-medium tracking-normal text-[#0a2733] sm:text-4xl">
-            Frequently Asked <span className="text-[#0d6e74]">Questions</span>
+          <h2 className="font-heading text-3xl font-medium tracking-normal text-[var(--ds-ink)] sm:text-4xl">
+            Frequently Asked <span className="text-[var(--service-brand)]">Questions</span>
           </h2>
           <p className="mt-4 text-neutral-600">
             Get answers to the most common questions about our GLP-1
@@ -53,13 +53,13 @@ export function Glp1Faq() {
         </div>
 
         <Accordion className="mt-10 gap-3 rounded-none border-none">
-          {faqs.map((faq) => (
+          {GLP1_FAQS.map((faq) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
-              className="rounded-xl border bg-white px-2 not-last:mb-3 not-last:border-b-0"
+              className="rounded-xl border border-[var(--service-border)] bg-[var(--color-surface)] px-2 not-last:mb-3 not-last:border-b-0"
             >
-              <AccordionTrigger className="py-4 text-sm font-medium text-[#0a2733] hover:no-underline">
+              <AccordionTrigger className="py-4 text-sm font-medium text-[var(--ds-ink)] hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent className="text-sm text-neutral-600">
@@ -70,11 +70,11 @@ export function Glp1Faq() {
         </Accordion>
 
         <div className="mt-10 flex flex-col items-center gap-3">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
+          <Button className="rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-white hover:bg-[var(--service-warm)]">
             Still Got Questions
           </Button>
           <p className="flex items-center gap-1.5 text-xs text-neutral-500">
-            <Headset className="size-3.5 text-[#0d6e74]" />
+            <Headset className="size-3.5 text-[var(--service-brand)]" />
             Our support team is here to help you
           </p>
         </div>

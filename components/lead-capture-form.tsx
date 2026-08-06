@@ -8,14 +8,25 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { GLP1_STATES } from "@/lib/glp1-states";
 import { MMJ_STATES } from "@/lib/mmj-states";
+import { ONGO_PREFILL_URL, ONGO_UTM_SOURCE } from "@/lib/ongo";
 import { SITE_URL } from "@/lib/seo";
 
 const HEALLY_PREFILL_URL = "https://mymmj.getheally.com/patient_admin/prefill";
 
+export type LeadCaptureVariant = "mmj" | "glp1";
+
 function getHeallyUtmSource() {
   const hostname = SITE_URL.replace(/^https?:\/\//, "").replace(/\/$/, "");
   return `utm-${hostname}`;
+}
+
+function toPreset(payload: Record<string, unknown>) {
+  return btoa(JSON.stringify(payload))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
 }
 
 function validateName(value: string) {
@@ -51,13 +62,6 @@ function formatPhone(raw: string) {
   return digits;
 }
 
-function toHeallyPreset(payload: Record<string, unknown>) {
-  return btoa(JSON.stringify(payload))
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
-}
-
 type LeadErrors = {
   name?: string;
   email?: string;
@@ -67,11 +71,15 @@ type LeadErrors = {
 };
 
 const fieldClassName =
-  "h-12 w-full min-w-0 rounded-xl border-[#0d6e74]/15 bg-[#eef6f6] px-3.5 text-base text-[#0a2733] shadow-none placeholder:text-[#0a2733]/40 transition-[border-color,box-shadow,background-color] focus-visible:border-[#0d6e74] focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-[#0d6e74]/30 md:text-base";
+  "h-12 w-full min-w-0 rounded-xl border-[var(--service-brand)]/15 bg-[var(--service-section-bg)] px-3.5 text-base text-[var(--ds-ink)] shadow-none placeholder:text-[var(--ds-ink)]/40 transition-[border-color,box-shadow,background-color] focus-visible:border-[var(--service-brand)] focus-visible:bg-white focus-visible:ring-2 focus-visible:ring-[var(--service-brand)]/30 md:text-base";
 
 const selectClassName = `${fieldClassName} appearance-none pr-10`;
 
-export function LeadCaptureForm() {
+type LeadCaptureFormProps = {
+  variant?: LeadCaptureVariant;
+};
+
+export function LeadCaptureForm({ variant = "mmj" }: LeadCaptureFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -79,6 +87,8 @@ export function LeadCaptureForm() {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [errors, setErrors] = useState<LeadErrors>({});
   const [submitting, setSubmitting] = useState(false);
+  const idPrefix = variant === "glp1" ? "glp1" : "lead";
+  const states = variant === "glp1" ? GLP1_STATES : MMJ_STATES;
 
   function handleNameChange(e: ChangeEvent<HTMLInputElement>) {
     const value = e.target.value;
@@ -121,7 +131,7 @@ export function LeadCaptureForm() {
     const nameError = validateName(name);
     const emailError = validateEmail(email);
     const phoneError = validatePhone(phone);
-    const selectedState = MMJ_STATES.find((s) => s.code === stateCode);
+    const selectedState = states.find((s) => s.code === stateCode);
     const stateError = selectedState ? null : "Please select your state.";
     const termsAcceptedError = termsAccepted
       ? null
@@ -141,9 +151,12 @@ export function LeadCaptureForm() {
 
     setSubmitting(true);
 
-    const stateSlug = selectedState.name.replace(/\s+/g, "-");
-    const heallyUtmSource = `${getHeallyUtmSource()}-${stateSlug}`;
     const nameParts = name.trim().split(/\s+/);
+    const isGlp1 = variant === "glp1";
+    const utmSource = isGlp1
+      ? ONGO_UTM_SOURCE
+      : `${getHeallyUtmSource()}-${selectedState.name.replace(/\s+/g, "-")}`;
+
     const payload = {
       first_name: nameParts[0],
       last_name: nameParts.slice(1).join(" "),
@@ -155,50 +168,65 @@ export function LeadCaptureForm() {
       extra_data: {
         "contact[contact_type]": "Web Form",
         "product[name]": "Eva",
-        utm_source: heallyUtmSource,
+        utm_source: utmSource,
       },
     };
 
-    const preset = toHeallyPreset(payload);
+    const preset = toPreset(payload);
     const params = new URLSearchParams({
       redirect: "sched",
       state: selectedState.code,
       state_of_evaluation: selectedState.code,
       timezone: selectedState.timezone,
-      utm_source: heallyUtmSource,
+      utm_source: utmSource,
       preset,
     });
 
-    window.location.href = `${HEALLY_PREFILL_URL}?${params.toString()}`;
+    const prefillUrl = isGlp1 ? ONGO_PREFILL_URL : HEALLY_PREFILL_URL;
+    window.location.href = `${prefillUrl}?${params.toString()}`;
   }
 
   return (
-    <form className="flex flex-col gap-3.5 sm:gap-4" onSubmit={handleSubmit} noValidate>
+    <form
+      className="flex flex-col gap-3.5 sm:gap-4"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-label={
+        variant === "glp1"
+          ? "GLP-1 weight loss lead form"
+          : "Medical marijuana lead form"
+      }
+    >
       <div className="grid gap-1.5">
-        <Label htmlFor="leadName" className="text-sm font-semibold text-[#0a2733]">
+        <Label htmlFor={`${idPrefix}Name`} className="text-sm font-semibold text-[var(--ds-ink)]">
           Name (First &amp; Last)*
         </Label>
         <Input
-          id="leadName"
-          name="leadName"
+          id={`${idPrefix}Name`}
+          name={`${idPrefix}Name`}
           placeholder="Jane Doe"
           autoComplete="name"
           enterKeyHint="next"
           value={name}
           onChange={handleNameChange}
           aria-invalid={!!errors.name}
+          aria-describedby={errors.name ? `${idPrefix}Name-error` : undefined}
           className={fieldClassName}
         />
-        {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
+        {errors.name && (
+          <p id={`${idPrefix}Name-error`} className="text-sm text-destructive" role="alert">
+            {errors.name}
+          </p>
+        )}
       </div>
 
       <div className="grid gap-1.5">
-        <Label htmlFor="leadEmail" className="text-sm font-semibold text-[#0a2733]">
+        <Label htmlFor={`${idPrefix}Email`} className="text-sm font-semibold text-[var(--ds-ink)]">
           Email*
         </Label>
         <Input
-          id="leadEmail"
-          name="leadEmail"
+          id={`${idPrefix}Email`}
+          name={`${idPrefix}Email`}
           type="email"
           placeholder="jane@example.com"
           autoComplete="email"
@@ -206,18 +234,23 @@ export function LeadCaptureForm() {
           value={email}
           onChange={handleEmailChange}
           aria-invalid={!!errors.email}
+          aria-describedby={errors.email ? `${idPrefix}Email-error` : undefined}
           className={fieldClassName}
         />
-        {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
+        {errors.email && (
+          <p id={`${idPrefix}Email-error`} className="text-sm text-destructive" role="alert">
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div className="grid gap-1.5">
-        <Label htmlFor="leadPhone" className="text-sm font-semibold text-[#0a2733]">
+        <Label htmlFor={`${idPrefix}Phone`} className="text-sm font-semibold text-[var(--ds-ink)]">
           Phone Number*
         </Label>
         <Input
-          id="leadPhone"
-          name="leadPhone"
+          id={`${idPrefix}Phone`}
+          name={`${idPrefix}Phone`}
           type="tel"
           inputMode="numeric"
           placeholder="555-555-5555"
@@ -226,59 +259,72 @@ export function LeadCaptureForm() {
           value={phone}
           onChange={handlePhoneChange}
           aria-invalid={!!errors.phone}
+          aria-describedby={errors.phone ? `${idPrefix}Phone-error` : undefined}
           className={fieldClassName}
         />
-        {errors.phone && <p className="text-sm text-destructive">{errors.phone}</p>}
+        {errors.phone && (
+          <p id={`${idPrefix}Phone-error`} className="text-sm text-destructive" role="alert">
+            {errors.phone}
+          </p>
+        )}
       </div>
 
       <div className="grid gap-1.5">
-        <Label htmlFor="leadState" className="text-sm font-semibold text-[#0a2733]">
+        <Label htmlFor={`${idPrefix}State`} className="text-sm font-semibold text-[var(--ds-ink)]">
           State*
         </Label>
         <div className="relative">
           <select
-            id="leadState"
-            name="leadState"
+            id={`${idPrefix}State`}
+            name={`${idPrefix}State`}
             value={stateCode}
             onChange={handleStateChange}
             aria-invalid={!!errors.state}
+            aria-describedby={errors.state ? `${idPrefix}State-error` : undefined}
             className={selectClassName}
           >
             <option value="" disabled>
               Select your state
             </option>
-            {MMJ_STATES.map((state) => (
+            {states.map((state) => (
               <option key={state.code} value={state.code}>
                 {state.name}
               </option>
             ))}
           </select>
           <ChevronDown
-            className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-[#0a2733]/50"
+            className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-[var(--ds-ink)]/50"
             aria-hidden
           />
         </div>
-        {errors.state && <p className="text-sm text-destructive">{errors.state}</p>}
+        {errors.state && (
+          <p id={`${idPrefix}State-error`} className="text-sm text-destructive" role="alert">
+            {errors.state}
+          </p>
+        )}
       </div>
 
       <div className="mt-0.5 grid gap-1.5">
         <div className="flex items-start gap-2.5">
           <Checkbox
-            id="leadTermsAccepted"
-            name="leadTermsAccepted"
-            className="mt-0.5 size-4 shrink-0 rounded-[4px] border-[#0a2733]/40 bg-white data-checked:border-[#0d6e74] data-checked:bg-[#0d6e74]"
+            id={`${idPrefix}TermsAccepted`}
+            name={`${idPrefix}TermsAccepted`}
+            className="mt-0.5 size-4 shrink-0 rounded-[4px] border-[var(--ds-ink)]/40 bg-white data-checked:border-[var(--service-brand)] data-checked:bg-[var(--service-brand)]"
             checked={termsAccepted}
             onCheckedChange={(checked) => handleTermsAcceptedChange(checked === true)}
             aria-invalid={!!errors.termsAccepted}
+            aria-describedby={
+              errors.termsAccepted ? `${idPrefix}TermsAccepted-error` : undefined
+            }
           />
           <Label
-            htmlFor="leadTermsAccepted"
-            className="min-w-0 flex-1 text-sm leading-snug font-normal text-[#0a2733]/85"
+            htmlFor={`${idPrefix}TermsAccepted`}
+            className="min-w-0 flex-1 text-sm leading-snug font-normal text-[var(--ds-ink)]/85"
           >
             I accept the{" "}
             <Link
               href="/terms-of-use/"
-              className="font-medium underline underline-offset-2 decoration-[#0a2733]/35 transition hover:decoration-[#0a2733]"
+              className="font-medium underline underline-offset-2 decoration-[var(--ds-ink)]/35 transition hover:decoration-[var(--ds-ink)]"
               onClick={(e) => e.stopPropagation()}
             >
               Terms and Conditions
@@ -286,20 +332,26 @@ export function LeadCaptureForm() {
           </Label>
         </div>
         {errors.termsAccepted && (
-          <p className="text-sm text-destructive">{errors.termsAccepted}</p>
+          <p
+            id={`${idPrefix}TermsAccepted-error`}
+            className="text-sm text-destructive"
+            role="alert"
+          >
+            {errors.termsAccepted}
+          </p>
         )}
       </div>
 
       <Button
         type="submit"
         disabled={submitting}
-        className="group mt-1 h-12 w-full touch-manipulation gap-2 rounded-full bg-[#f2a83c] px-6 text-base font-semibold text-[#0a2733] shadow-[0_14px_28px_-12px_rgba(242,168,60,0.55)] transition-all hover:-translate-y-0.5 hover:bg-[#f2a83c]/90 hover:shadow-[0_18px_32px_-12px_rgba(242,168,60,0.65)] active:translate-y-0 disabled:translate-y-0 disabled:opacity-70 sm:h-auto sm:px-7 sm:py-4 sm:text-[15px]"
+        className="group mt-1 h-12 w-full touch-manipulation gap-2 rounded-full bg-[var(--service-accent)] px-6 text-base font-semibold text-[var(--service-cta-secondary-ink)] shadow-[0_14px_28px_-12px_rgb(var(--service-accent-rgb)/0.55)] transition-all hover:-translate-y-0.5 hover:bg-[var(--service-accent)]/90 hover:shadow-[0_18px_32px_-12px_rgb(var(--service-accent-rgb)/0.65)] active:translate-y-0 disabled:translate-y-0 disabled:opacity-70 sm:h-auto sm:px-7 sm:py-4 sm:text-[15px]"
       >
         {submitting ? (
           "Processing..."
         ) : (
           <>
-            Get Your Card
+            {variant === "glp1" ? "Start My Program" : "Get Your Card"}
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </>
         )}

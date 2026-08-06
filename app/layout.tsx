@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import { buildPageMetadata } from "@/lib/metadata";
+import { SITE_URL } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
@@ -15,10 +17,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "PCH Doctors | Clinician-Guided Medical Solutions",
-  description:
-    "Secure, HIPAA-compliant medical marijuana certifications and GLP-1 weight management programs — 100% online.",
+  metadataBase: new URL(SITE_URL),
+  verification: {
+    google: "WQ-kc6twMNvglAy1P5IBpPZl7GOX_Wolyy2Aba9H5rI",
+  },
+  ...buildPageMetadata("home"),
 };
 
 export default function RootLayout({

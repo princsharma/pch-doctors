@@ -1,0 +1,444 @@
+/*
+  PCH Doctors — Unified MMJ + GLP-1 Design System
+  ------------------------------------------------
+  Architecture:
+  - :root          → shared neutrals, semantics, bridge brand (site chrome)
+  - [data-service="mmj"] / .theme-mmj     → deep forest greens + amber
+  - [data-service="glp1"] / .theme-glp1   → sage greens + coral/warm
+
+  Reasoning:
+  - One premium healthcare brand via shared ink, surfaces, and bridge green.
+  - Service identity via scoped --service-* tokens (not a flat color dump).
+  - MMJ: nature / medical cannabis / calm trust (deeper greens + amber CTA).
+  - GLP-1: transformation / energy / optimism (sage + coral accents).
+  - Purple gradients omitted to keep a single clean healthcare language.
+  - Text pairs aim for WCAG AA (ink on white, white on brand-dark, etc.).
+*/
+
+/* ==========================================================================
+   SHARED TOKENS (:root) — used sitewide (header, footer, legal, defaults)
+   ========================================================================== */
+:root {
+  /* Bridge brand — site chrome primary (between MMJ forest & GLP sage) */
+  --ds-brand: #1f6b4a;
+  --ds-brand-mid: #2f8a62;
+  --ds-brand-dark: #154c35;
+  --ds-brand-light: #e6f3ec;
+  --ds-brand-xlight: #f3faf6;
+
+  /* Shared neutrals — text hierarchy */
+  --ds-ink: #1a1a1a; /* primary text — AA on white */
+  --ds-ink-mid: #5c6b73; /* secondary / body muted */
+  --ds-ink-soft: #8a9a9e; /* captions, meta */
+  --ds-ink-inverse: #ffffff;
+
+  /* Shared backgrounds & surfaces */
+  --ds-bg: #ffffff;
+  --ds-bg-subtle: #f7f9f8; /* default soft section band (green-tint neutral) */
+  --ds-bg-warm: #fffbf5; /* optional marketing canvas (use sparingly) */
+  --ds-surface: #ffffff;
+  --ds-surface-alt: #f4f1ec;
+  --ds-card: #ffffff;
+  --ds-card-muted: #f7f9f8;
+
+  /* Shared borders */
+  --ds-border: #e5e8e6;
+  --ds-border-strong: #c9d2ce;
+  --ds-border-hover: #a8b8b0;
+
+  /* Semantic (shared across both services) */
+  --ds-success: #2f9e6b;
+  --ds-success-soft: #e6f6ee;
+  --ds-success-ink: #0f5132;
+  --ds-warning: #f4a261;
+  --ds-warning-soft: #fff4e8;
+  --ds-warning-ink: #8a5700;
+  --ds-warning-rgb: 244 162 97;
+  --ds-error: #d62828;
+  --ds-error-soft: #fdecec;
+  --ds-error-ink: #7a1212;
+  --ds-info: #2a6f97;
+  --ds-info-soft: #e8f3f8;
+  --ds-info-ink: #0d3b54;
+
+  /* Focus / interactive (shared) */
+  --ds-focus-ring: #1f6b4a;
+  --ds-focus-ring-offset: #ffffff;
+  --ds-disabled-bg: #eef1ef;
+  --ds-disabled-ink: #8a9a9e;
+  --ds-overlay: rgb(26 26 26 / 45%);
+
+  /* Shared CTA (chrome / legal / generic) */
+  --ds-cta: linear-gradient(314.64deg, #2f8a62 0.31%, #154c35 99.69%);
+  --ds-cta-hover: linear-gradient(314.64deg, #3a9b70 0.31%, #1f6b4a 99.69%);
+  --ds-cta-ink: #ffffff;
+
+  /* RGB channels for shadows / rgba() utilities */
+  --ds-brand-rgb: 31 107 74;
+  --ds-ink-rgb: 26 26 26;
+  --service-brand-rgb: 31 107 74;
+  --service-accent-rgb: 47 138 98;
+
+  /* Default service tokens = bridge (overridden in scopes) */
+  --service-brand: var(--ds-brand);
+  --service-brand-mid: var(--ds-brand-mid);
+  --service-brand-dark: var(--ds-brand-dark);
+  --service-brand-light: var(--ds-brand-light);
+  --service-brand-xlight: var(--ds-brand-xlight);
+  --service-border: var(--ds-border);
+  --service-border-hover: var(--ds-border-hover);
+  --service-accent: var(--ds-brand-mid);
+  --service-accent-soft: var(--ds-brand-light);
+  --service-accent-dark: var(--ds-brand-dark);
+  --service-accent-ink: var(--ds-ink-inverse);
+  --service-section-bg: var(--ds-bg-subtle);
+  --service-section-bg-alt: var(--ds-brand-xlight);
+  --service-cta: var(--ds-cta);
+  --service-cta-hover: var(--ds-cta-hover);
+  --service-cta-ink: var(--ds-cta-ink);
+  --service-cta-secondary-bg: var(--service-accent);
+  --service-cta-secondary-ink: #1a1a1a;
+  --service-badge-bg: var(--ds-brand-light);
+  --service-badge-ink: var(--ds-brand-dark);
+  --service-badge-accent-bg: var(--service-accent-soft);
+  --service-badge-accent-ink: var(--service-accent-dark);
+
+  /* Charts (default / shared) */
+  --ds-chart-1: #1f6b4a;
+  --ds-chart-2: #2f8a62;
+  --ds-chart-3: #5c6b73;
+  --ds-chart-4: #f4a261;
+  --ds-chart-5: #2a6f97;
+
+  /* Radius + elevation */
+  --ds-radius-sm: 0.5rem;
+  --ds-radius-md: 0.75rem;
+  --ds-radius-lg: 1rem;
+  --ds-radius-xl: 1.25rem;
+  --ds-radius-pill: 999px;
+  --ds-shadow-sm: 0 1px 2px rgb(26 26 26 / 6%);
+  --ds-shadow-md: 0 8px 24px rgb(26 26 26 / 8%);
+  --ds-shadow-lg: 0 16px 40px rgb(26 26 26 / 12%);
+}
+
+/* ==========================================================================
+   MMJ SCOPE — deep forest greens + amber
+   Use for: MMJ service pages, MMJ hero panels, MMJ pricing/CTAs/badges
+   ========================================================================== */
+[data-service="mmj"],
+.theme-mmj {
+  --service-brand: #0e8140;
+  --service-brand-mid: #3fa066;
+  --service-brand-dark: #0a6332;
+  --service-brand-light: #e8f5ee;
+  --service-brand-xlight: #f3fbf6;
+  --service-border: #d0e8da;
+  --service-border-hover: #a8d4bc;
+
+  /* Amber = MMJ energy / CTA accent (not coral) */
+  --service-accent: #f59e0b;
+  --service-accent-soft: #fff8e6;
+  --service-accent-dark: #8a5700;
+  --service-accent-ink: #1a1a1a;
+
+  --service-section-bg: #f3fbf6;
+  --service-section-bg-alt: #e8f5ee;
+
+  --service-cta: linear-gradient(314.64deg, #3fa066 0.31%, #0a6332 99.69%);
+  --service-cta-hover: linear-gradient(314.64deg, #4aaf72 0.31%, #0e8140 99.69%);
+  --service-cta-ink: #ffffff;
+  --service-cta-secondary-bg: #f59e0b;
+  --service-cta-secondary-ink: #1a1a1a;
+
+  --service-badge-bg: #e8f5ee;
+  --service-badge-ink: #0a6332;
+  --service-badge-accent-bg: #fff8e6;
+  --service-badge-accent-ink: #8a5700;
+
+  --ds-chart-1: #0e8140;
+  --ds-chart-2: #3fa066;
+  --ds-chart-3: #0a6332;
+  --ds-chart-4: #f59e0b;
+  --ds-chart-5: #5c6b73;
+
+  --ds-focus-ring: #0e8140;
+  --service-brand-rgb: 14 129 64;
+  --service-accent-rgb: 245 158 11;
+}
+
+/* ==========================================================================
+   GLP-1 SCOPE — cream canvas + coral / warm + sage CTA
+   Exact palette from product design:
+     accent #e76f51, bg #fffbf5, surface-alt #f4f1ec, warm family,
+     gradient-cta sage, gradient-cta-hover coral
+   ========================================================================== */
+[data-service="glp1"],
+.theme-glp1 {
+  /* Named aliases (source of truth) */
+  --color-accent: #e76f51;
+  --color-accent-soft: #fce4dc;
+  --color-bg: #fffbf5;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f4f1ec;
+  --color-text: #1a1a1a;
+  --color-text-muted: #5c6b73;
+  --color-text-soft: #8a9a9e;
+  --color-border: #e5e0d8;
+  --color-success: #52b788;
+  --color-warning: #f4a261;
+  --color-error: #d62828;
+  --color-warm: #ee8a4f;
+  --color-warm-deep: #d97441;
+  --color-warm-soft: #f4a978;
+  --color-warm-glow: #ffffff1f;
+  --gradient-purple: linear-gradient(#b39ffe, #725ebd);
+  --gradient-cta: linear-gradient(314.64deg, #3e8d69 0.31%, #24553f 99.69%);
+  --gradient-cta-hover: linear-gradient(314.64deg, #e76f51 0.31%, #f4a261 99.69%);
+
+  /* Service token mapping */
+  --service-brand: #3e8d69;
+  --service-brand-mid: #52b788;
+  --service-brand-dark: #24553f;
+  --service-brand-light: #fce4dc;
+  --service-brand-xlight: #fffbf5;
+  --service-border: #e5e0d8;
+  --service-border-hover: #cfc7bb;
+
+  --service-accent: #e76f51;
+  --service-accent-soft: #fce4dc;
+  --service-accent-dark: #d97441;
+  --service-accent-ink: #ffffff;
+  --service-warm: #ee8a4f;
+  --service-warm-deep: #d97441;
+  --service-warm-soft: #f4a978;
+  --service-warm-glow: #ffffff1f;
+
+  --service-section-bg: #fffbf5;
+  --service-section-bg-alt: #f4f1ec;
+
+  --service-cta: var(--gradient-cta);
+  --service-cta-hover: var(--gradient-cta-hover);
+  --service-cta-ink: #ffffff;
+  --service-cta-secondary-bg: #e76f51;
+  --service-cta-secondary-ink: #ffffff;
+
+  --service-badge-bg: #fce4dc;
+  --service-badge-ink: #9a3d28;
+  --service-badge-accent-bg: #fce4dc;
+  --service-badge-accent-ink: #9a3d28;
+
+  --ds-ink: #1a1a1a;
+  --ds-ink-mid: #5c6b73;
+  --ds-ink-soft: #8a9a9e;
+  --ds-success: #52b788;
+  --ds-warning: #f4a261;
+  --ds-error: #d62828;
+
+  --ds-chart-1: #3e8d69;
+  --ds-chart-2: #52b788;
+  --ds-chart-3: #24553f;
+  --ds-chart-4: #e76f51;
+  --ds-chart-5: #ee8a4f;
+
+  --ds-focus-ring: #e76f51;
+  --service-brand-rgb: 62 141 105;
+  --service-accent-rgb: 231 111 81;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES — use tokens, not hardcoded hex
+   ========================================================================== */
+
+.ds-section {
+  background: var(--service-section-bg);
+  color: var(--ds-ink);
+}
+
+.ds-section-alt {
+  background: var(--service-section-bg-alt);
+  color: var(--ds-ink);
+}
+
+.ds-section-bridge {
+  background: var(--ds-bg-subtle);
+  color: var(--ds-ink);
+}
+
+.ds-section-dark {
+  background: linear-gradient(
+    160deg,
+    var(--service-brand-dark) 0%,
+    color-mix(in srgb, var(--service-brand) 55%, var(--service-brand-dark)) 45%,
+    var(--service-brand-dark) 100%
+  );
+  color: var(--ds-ink-inverse);
+}
+
+.ds-card {
+  background: var(--ds-card);
+  color: var(--ds-ink);
+  border: 1px solid var(--service-border);
+  border-radius: var(--ds-radius-xl);
+  box-shadow: var(--ds-shadow-sm);
+}
+
+.ds-card:hover {
+  border-color: var(--service-border-hover);
+}
+
+.ds-text {
+  color: var(--ds-ink);
+}
+
+.ds-text-muted {
+  color: var(--ds-ink-mid);
+}
+
+.ds-text-soft {
+  color: var(--ds-ink-soft);
+}
+
+.ds-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--ds-radius-pill);
+  border: none;
+  background: var(--service-cta);
+  color: var(--service-cta-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    filter 160ms ease,
+    transform 160ms ease,
+    box-shadow 160ms ease;
+  box-shadow: var(--ds-shadow-sm);
+}
+
+.ds-btn-primary:hover {
+  background: var(--service-cta-hover);
+  filter: brightness(1.02);
+}
+
+.ds-btn-primary:focus-visible {
+  outline: 2px solid var(--ds-focus-ring);
+  outline-offset: 3px;
+}
+
+.ds-btn-accent {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--ds-radius-pill);
+  border: none;
+  background: var(--service-cta-secondary-bg);
+  color: var(--service-cta-secondary-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    filter 160ms ease,
+    transform 160ms ease;
+}
+
+.ds-btn-accent:hover {
+  filter: brightness(0.96);
+}
+
+.ds-btn-accent:focus-visible {
+  outline: 2px solid var(--ds-focus-ring);
+  outline-offset: 3px;
+}
+
+.ds-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid var(--service-border-hover);
+  background: var(--ds-surface);
+  color: var(--ds-ink);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.ds-btn-outline:hover {
+  background: var(--service-brand-xlight);
+  border-color: var(--service-brand-mid);
+}
+
+.ds-btn-outline:focus-visible {
+  outline: 2px solid var(--ds-focus-ring);
+  outline-offset: 3px;
+}
+
+.ds-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--ds-radius-pill);
+  background: var(--service-badge-bg);
+  color: var(--service-badge-ink);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.ds-badge-accent {
+  background: var(--service-badge-accent-bg);
+  color: var(--service-badge-accent-ink);
+}
+
+.ds-alert {
+  border-radius: var(--ds-radius-md);
+  padding: 0.85rem 1rem;
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+}
+
+.ds-alert-success {
+  background: var(--ds-success-soft);
+  color: var(--ds-success-ink);
+  border-color: color-mix(in srgb, var(--ds-success) 28%, white);
+}
+
+.ds-alert-warning {
+  background: var(--ds-warning-soft);
+  color: var(--ds-warning-ink);
+  border-color: color-mix(in srgb, var(--ds-warning) 35%, white);
+}
+
+.ds-alert-error {
+  background: var(--ds-error-soft);
+  color: var(--ds-error-ink);
+  border-color: color-mix(in srgb, var(--ds-error) 28%, white);
+}
+
+.ds-alert-info {
+  background: var(--ds-info-soft);
+  color: var(--ds-info-ink);
+  border-color: color-mix(in srgb, var(--ds-info) 28%, white);
+}
+
+.ds-swatch {
+  width: 100%;
+  min-height: 4.5rem;
+  border-radius: var(--ds-radius-md);
+  border: 1px solid var(--ds-border);
+  box-shadow: var(--ds-shadow-sm);
+}
+
+/* Focus helper for custom controls */
+.ds-focusable:focus-visible {
+  outline: 2px solid var(--ds-focus-ring);
+  outline-offset: 3px;
+}

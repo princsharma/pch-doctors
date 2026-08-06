@@ -3,19 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
 import { ConsultationModal } from "@/components/consultation-modal";
+import { Glp1LeadModal } from "@/components/glp1-lead-modal";
 import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
-import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 import { cn } from "@/lib/utils";
 
 const headerCtaClassName =
-  "rounded-full bg-[#f2a83c] px-6 py-6 text-sm font-semibold text-[#0a2733] shadow-[0_8px_24px_rgba(242,168,60,0.35)] transition-shadow hover:bg-[#f2a83c]/90 hover:shadow-[0_10px_28px_rgba(242,168,60,0.45)]";
+  "rounded-full bg-[var(--ds-brand)] px-6 py-6 text-sm font-semibold text-white shadow-[0_8px_24px_rgb(var(--ds-brand-rgb)/0.35)] transition-shadow hover:bg-[var(--ds-brand-dark)] hover:shadow-[0_10px_28px_rgb(var(--ds-brand-rgb)/0.45)]";
 
 const headerMobileCtaClassName =
-  "mt-1 w-full rounded-full bg-[#f2a83c] py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90";
+  "mt-1 w-full rounded-full bg-[var(--ds-brand)] py-6 text-sm font-semibold text-white hover:bg-[var(--ds-brand-dark)]";
 
 const MMJ_PATH = "/services/medical-marijuana-consultation";
 const GLP1_PATH = "/services/glp-1-medications";
@@ -25,74 +25,46 @@ const services = [
   { label: "GLP-1 Medications", href: GLP1_PATH },
 ];
 
-const homeNavLinks = [
+const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services", children: services },
-  { label: "Process", href: "/#process" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Pricing", href: "/#pricing" },
-  { label: "FAQs", href: "/#faqs" },
-];
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
+] as const;
 
-const mmjNavLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: MMJ_PATH, children: services },
-  { label: "Process", href: `${MMJ_PATH}#process` },
-  { label: "Consultations", href: `${MMJ_PATH}#consultations` },
-  { label: "Reviews", href: `${MMJ_PATH}#reviews` },
-  { label: "Pricing", href: `${MMJ_PATH}#pricing` },
-  { label: "FAQs", href: `${MMJ_PATH}#faqs` },
-];
-
-const glp1NavLinks = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: GLP1_PATH, children: services },
-  { label: "Benefits", href: `${GLP1_PATH}#benefits` },
-  { label: "Why Choose Us", href: `${GLP1_PATH}#why-choose-us` },
-  { label: "Pricing", href: `${GLP1_PATH}#pricing` },
-];
+function isActivePath(pathname: string | null, href: string) {
+  if (!pathname) return false;
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isGlp1 = pathname?.startsWith(GLP1_PATH) || pathname?.startsWith("/services/glp-1-weight-loss-treatment");
+  const isGlp1 =
+    pathname?.startsWith(GLP1_PATH) ||
+    pathname?.startsWith("/services/glp-1-weight-loss-treatment");
   const isMmj = pathname?.startsWith(MMJ_PATH);
-  const navLinks = isGlp1 ? glp1NavLinks : isMmj ? mmjNavLinks : homeNavLinks;
 
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div
-        className={cn(
-          "overflow-hidden bg-gradient-to-r from-[#0a4f54] via-[#0d6e74] to-[#0a4f54] text-sm text-white transition-all duration-300",
-          scrolled
-            ? "max-h-0 opacity-0"
-            : "max-h-14 opacity-100"
-        )}
-      >
+      <div className="bg-gradient-to-r from-[var(--ds-brand-dark)] via-[var(--ds-brand)] to-[var(--ds-brand-dark)] text-sm text-white">
         <div className="hidden items-center justify-center gap-2 px-6 py-3.5 sm:flex">
-          <Sparkles className="size-4 text-[#f2a83c]" />
+          <Sparkles className="size-4 text-[var(--ds-warning)]" />
           <p>
             Now also accepting patients for our clinician-guided{" "}
             <Link
               href={GLP1_PATH}
-              className="font-semibold text-[#f2a83c] underline decoration-[#f2a83c]/40 underline-offset-2 transition-colors hover:text-white"
+              className="font-semibold text-[var(--ds-warning)] underline decoration-[var(--ds-warning)]/40 underline-offset-2 transition-colors hover:text-white"
             >
               weight loss program
-            </Link>
-            {" "}and{" "}
+            </Link>{" "}
+            and{" "}
             <Link
               href={MMJ_PATH}
-              className="font-semibold text-[#f2a83c] underline decoration-[#f2a83c]/40 underline-offset-2 transition-colors hover:text-white"
+              className="font-semibold text-[var(--ds-warning)] underline decoration-[var(--ds-warning)]/40 underline-offset-2 transition-colors hover:text-white"
             >
               MMJ certifications
             </Link>
@@ -101,17 +73,12 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <div
-        className={cn(
-          "bg-[#dcf0f1]/90 backdrop-blur-md transition-shadow duration-300",
-          scrolled && "shadow-sm"
-        )}
-      >
+      <div className="bg-[var(--ds-brand-light)]/90 shadow-sm backdrop-blur-md">
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center" aria-label="PCH Doctors home">
             <Image
               src="/pch-doctors-logo.png"
-              alt="PCH Doctors"
+              alt="PCH Doctors logo"
               width={1251}
               height={512}
               priority
@@ -119,9 +86,12 @@ export function SiteHeader() {
             />
           </Link>
 
-          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-white/60 p-1 text-sm font-medium text-[#0a2733]/70 backdrop-blur-md lg:flex">
+          <nav
+            aria-label="Primary"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-white/60 p-1 text-sm font-medium text-[var(--ds-ink)]/70 backdrop-blur-md lg:flex"
+          >
             {navLinks.map((link) =>
-              link.children ? (
+              "children" in link && link.children ? (
                 <div
                   key={link.label}
                   className="relative"
@@ -130,10 +100,14 @@ export function SiteHeader() {
                 >
                   <a
                     href={link.href}
-                    className="flex items-center gap-1 rounded-full px-4 py-2 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                    className={cn(
+                      "flex items-center gap-1 rounded-full px-4 py-2 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]",
+                      (isMmj || isGlp1) && "bg-white text-[var(--ds-brand)]"
+                    )}
                   >
                     {link.label}
                     <ChevronDown
+                      aria-hidden
                       className={cn(
                         "size-3.5 transition-transform",
                         servicesOpen && "rotate-180"
@@ -154,7 +128,7 @@ export function SiteHeader() {
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block rounded-lg px-3 py-2.5 text-sm text-[#0a2733]/80 transition-colors hover:bg-[#0d6e74] hover:text-white"
+                          className="block rounded-lg px-3 py-2.5 text-sm text-[var(--ds-ink)]/80 transition-colors hover:bg-[var(--ds-brand)] hover:text-white"
                         >
                           {child.label}
                         </Link>
@@ -163,16 +137,17 @@ export function SiteHeader() {
                   </div>
                 </div>
               ) : (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    "rounded-full px-4 py-2 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]",
-                    link.href === "/" && pathname === "/" && "bg-white text-[#0d6e74]"
+                    "rounded-full px-4 py-2 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]",
+                    isActivePath(pathname, link.href) &&
+                      "bg-white text-[var(--ds-brand)]"
                   )}
                 >
                   {link.label}
-                </a>
+                </Link>
               )
             )}
           </nav>
@@ -187,13 +162,13 @@ export function SiteHeader() {
                 }
               />
             ) : isGlp1 ? (
-              <Button
-                nativeButton={false}
-                render={<a href={ONGO_WEIGHT_LOSS_URL} />}
-                className={headerCtaClassName}
-              >
-                Book Your Consultation
-              </Button>
+              <Glp1LeadModal
+                trigger={
+                  <Button className={headerCtaClassName}>
+                    Book Your Consultation
+                  </Button>
+                }
+              />
             ) : (
               <ConsultationModal
                 trigger={
@@ -206,37 +181,45 @@ export function SiteHeader() {
           </div>
 
           <button
-            className="rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-[#0d6e74]/15 backdrop-blur-md lg:hidden"
-            aria-label="Toggle menu"
+            type="button"
+            className="rounded-full bg-white/80 p-2 shadow-sm ring-1 ring-[var(--ds-brand)]/15 backdrop-blur-md lg:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
+            aria-controls="mobile-primary-nav"
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="size-5 text-[#0a2733]" /> : <Menu className="size-5 text-[#0a2733]" />}
+            {open ? (
+              <X className="size-5 text-[var(--ds-ink)]" aria-hidden />
+            ) : (
+              <Menu className="size-5 text-[var(--ds-ink)]" aria-hidden />
+            )}
           </button>
         </div>
 
-        <div
+        <nav
+          id="mobile-primary-nav"
+          aria-label="Primary"
           className={cn(
-            "mx-4 flex flex-col gap-1 overflow-hidden rounded-2xl bg-white/90 px-4 shadow-md ring-1 ring-[#0d6e74]/15 backdrop-blur-md transition-all lg:hidden",
+            "mx-4 flex flex-col gap-1 overflow-hidden rounded-2xl bg-white/90 px-4 shadow-md ring-1 ring-[var(--ds-brand)]/15 backdrop-blur-md transition-all lg:hidden",
             open ? "mb-2 max-h-[32rem] py-3" : "max-h-0 py-0"
           )}
         >
           {navLinks.map((link) =>
-            link.children ? (
+            "children" in link && link.children ? (
               <div key={link.label} className="flex flex-col">
                 <a
                   href={link.href}
-                  className="rounded-lg px-2 py-2 text-sm font-medium text-[#0a2733]/70 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                  className="rounded-lg px-2 py-2 text-sm font-medium text-[var(--ds-ink)]/70 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </a>
-                <div className="ml-3 flex flex-col gap-1 border-l border-[#0d6e74]/15 pl-3">
+                <div className="ml-3 flex flex-col gap-1 border-l border-[var(--ds-brand)]/15 pl-3">
                   {link.children.map((child) => (
                     <Link
                       key={child.label}
                       href={child.href}
-                      className="rounded-lg px-2 py-1.5 text-sm text-[#0a2733]/60 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                      className="rounded-lg px-2 py-1.5 text-sm text-[var(--ds-ink)]/60 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]"
                       onClick={() => setOpen(false)}
                     >
                       {child.label}
@@ -245,14 +228,17 @@ export function SiteHeader() {
                 </div>
               </div>
             ) : (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
-                className="rounded-lg px-2 py-2 text-sm font-medium text-[#0a2733]/70 transition-colors hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                className={cn(
+                  "rounded-lg px-2 py-2 text-sm font-medium text-[var(--ds-ink)]/70 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]",
+                  isActivePath(pathname, link.href) && "bg-[var(--ds-bg-subtle)] text-[var(--ds-brand)]"
+                )}
                 onClick={() => setOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             )
           )}
           {isMmj ? (
@@ -267,13 +253,16 @@ export function SiteHeader() {
               }
             />
           ) : isGlp1 ? (
-            <Button
-              nativeButton={false}
-              render={<a href={ONGO_WEIGHT_LOSS_URL} onClick={() => setOpen(false)} />}
-              className={headerMobileCtaClassName}
-            >
-              Book Your Consultation
-            </Button>
+            <Glp1LeadModal
+              trigger={
+                <Button
+                  className={headerMobileCtaClassName}
+                  onClick={() => setOpen(false)}
+                >
+                  Book Your Consultation
+                </Button>
+              }
+            />
           ) : (
             <ConsultationModal
               trigger={
@@ -286,7 +275,7 @@ export function SiteHeader() {
               }
             />
           )}
-        </div>
+        </nav>
       </div>
     </header>
   );

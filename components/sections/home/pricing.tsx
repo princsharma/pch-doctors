@@ -1,18 +1,17 @@
-import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
+import { Glp1LeadModal } from "@/components/glp1-lead-modal";
+import { MmjLeadModal } from "@/components/mmj-lead-modal";
 import { Button } from "@/components/ui/button";
-import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 const plans = [
   {
     name: "MMJ Certification",
+    service: "mmj" as const,
     price: "149",
     unit: "/visit",
-    href: "/services/medical-marijuana-consultation",
-    external: false,
     cta: "Get Certified Now",
-    headerClass: "bg-[#f2a83c] text-[#0a2733]",
-    checkClass: "text-[#f2a83c]",
+    headerClass:
+      "bg-[var(--service-brand)] text-white border-b border-[var(--service-border)]",
     features: [
       "New or Renewal patients",
       "Instant digital delivery",
@@ -22,13 +21,12 @@ const plans = [
   },
   {
     name: "Weight Management",
+    service: "glp1" as const,
     price: "299",
     unit: "/month",
-    href: ONGO_WEIGHT_LOSS_URL,
-    external: true,
     cta: "Start My Program",
-    headerClass: "bg-gradient-to-br from-[#0a4f54] to-[#0d6e74] text-white",
-    checkClass: "text-[#0d6e74]",
+    headerClass:
+      "bg-[var(--service-accent)] text-white border-b border-[var(--service-border)]",
     features: [
       "Dedicated physician support",
       "GLP-1 Medication prescription",
@@ -36,22 +34,27 @@ const plans = [
       "Nutritional guidance & support",
     ],
   },
-];
+] as const;
 
 export function HomePricing() {
   return (
     <section
       id="pricing"
-      className="relative overflow-hidden bg-gradient-to-br from-[#0a2733] via-[#0d3f45] to-[#0a2733] py-20"
+      className="relative overflow-hidden bg-gradient-to-br from-[#0a6332] via-[#154c35] to-[#24553f] py-20"
     >
-      <div className="pointer-events-none absolute -left-32 top-1/2 size-96 -translate-y-1/2 rounded-full bg-[#0d6e74]/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 -bottom-32 size-96 rounded-full bg-[#f2a83c]/10 blur-3xl" />
+      <div
+        data-service="mmj"
+        className="pointer-events-none absolute -left-32 top-1/2 size-96 -translate-y-1/2 rounded-full bg-[var(--service-accent)]/25 blur-3xl"
+      />
+      <div
+        data-service="glp1"
+        className="pointer-events-none absolute -right-32 -bottom-32 size-96 rounded-full bg-[var(--service-accent)]/25 blur-3xl"
+      />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mb-16 text-center">
           <h2 className="font-heading text-3xl font-medium tracking-normal text-white sm:text-4xl">
-            Transparent{" "}
-            <span className="text-[#f2a83c]">Pricing</span>
+            Transparent Pricing
           </h2>
           <p className="mt-4 text-white/60">
             Simple, straightforward costs. No hidden fees or surprise charges.
@@ -62,7 +65,8 @@ export function HomePricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="flex flex-col overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10"
+              data-service={plan.service}
+              className="flex flex-col overflow-hidden rounded-2xl bg-gradient-to-b from-white to-[var(--service-section-bg)] shadow-lg ring-1 ring-white/70"
             >
               <div className={`p-8 text-center ${plan.headerClass}`}>
                 <h3 className="font-heading text-xl font-medium">{plan.name}</h3>
@@ -77,25 +81,32 @@ export function HomePricing() {
               <div className="flex flex-1 flex-col p-8">
                 <ul className="mb-8 flex-1 space-y-4">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-sm text-white/80">
-                      <CheckCircle2 className={`size-5 shrink-0 ${plan.checkClass}`} />
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 text-sm text-[var(--ds-ink)]/80"
+                    >
+                      <CheckCircle2 className="size-5 shrink-0 text-[var(--service-accent)]" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Button
-                  nativeButton={false}
-                  render={
-                    plan.external ? (
-                      <a href={plan.href} />
-                    ) : (
-                      <Link href={plan.href} />
-                    )
-                  }
-                  className="h-auto w-full rounded-full bg-white py-5 text-sm font-semibold text-[#0a2733] hover:bg-white/90"
-                >
-                  {plan.cta}
-                </Button>
+                {plan.service === "mmj" ? (
+                  <MmjLeadModal
+                    trigger={
+                      <Button className="h-auto w-full rounded-full bg-[var(--service-accent)] py-5 text-sm font-semibold text-[var(--service-cta-secondary-ink)] hover:bg-[var(--service-accent)]/90">
+                        {plan.cta}
+                      </Button>
+                    }
+                  />
+                ) : (
+                  <Glp1LeadModal
+                    trigger={
+                      <Button className="h-auto w-full rounded-full bg-[var(--service-accent)] py-5 text-sm font-semibold text-white hover:bg-[var(--service-warm)]">
+                        {plan.cta}
+                      </Button>
+                    }
+                  />
+                )}
               </div>
             </div>
           ))}

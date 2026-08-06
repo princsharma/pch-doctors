@@ -43,10 +43,10 @@ const reviews = [
 ];
 
 const avatarTones = [
-  "bg-[#0d6e74] text-white",
-  "bg-[#f2a83c] text-[#0a2733]",
+  "bg-[var(--service-brand)] text-white",
+  "bg-[var(--service-accent)] text-[var(--ds-ink)]",
   "bg-[#e0342a] text-white",
-  "bg-[#0a4f54] text-white",
+  "bg-[var(--service-brand-dark)] text-white",
 ];
 
 function Stars({ count = 5 }: { count?: number }) {
@@ -62,7 +62,7 @@ function Stars({ count = 5 }: { count?: number }) {
 function ReviewCard({ review, i }: { review: (typeof reviews)[number]; i: number }) {
   return (
     <Card className="relative mb-6 overflow-hidden p-5 shadow-sm ring-1 ring-black/5">
-      <Quote className="pointer-events-none absolute -right-2 -top-2 size-14 text-[#0d6e74]/5" />
+      <Quote className="pointer-events-none absolute -right-2 -top-2 size-14 text-[var(--service-brand)]/5" />
 
       <div className="relative flex items-center justify-between">
         <div className="flex items-center gap-2.5">
@@ -75,10 +75,10 @@ function ReviewCard({ review, i }: { review: (typeof reviews)[number]; i: number
             {review.name.charAt(0)}
           </span>
           <div>
-            <p className="font-heading text-sm font-medium text-[#0a2733]">
+            <p className="font-heading text-sm font-medium text-[var(--ds-ink)]">
               {review.name}
             </p>
-            <span className="text-[10px] text-[#0d6e74]">Verified</span>
+            <span className="text-[10px] text-[var(--service-brand)]">Verified</span>
           </div>
         </div>
         <Stars />
@@ -128,13 +128,13 @@ export function Reviews() {
 
   return (
     <section id="reviews" className="relative overflow-hidden py-20">
-      <div className="pointer-events-none absolute -right-24 top-0 size-72 rounded-full bg-[#0d6e74]/5 blur-3xl" />
-      <div className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-[#f2a83c]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 top-0 size-72 rounded-full bg-[var(--service-brand)]/5 blur-3xl" />
+      <div className="pointer-events-none absolute -left-24 bottom-0 size-80 rounded-full bg-[var(--service-accent)]/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-heading text-3xl font-medium tracking-normal text-[#0a2733] sm:text-4xl">
-            What Our <span className="text-[#0d6e74]">Customers</span> Say?
+          <h2 className="font-heading text-3xl font-medium tracking-normal text-[var(--ds-ink)] sm:text-4xl">
+            What Our <span className="text-[var(--service-brand)]">Customers</span> Say?
           </h2>
           <p className="mt-4 text-neutral-600">
             Trusted by thousands – real stories of fast, affordable, and
@@ -157,7 +157,7 @@ export function Reviews() {
         </div>
 
         <div className="mt-4 flex flex-col items-center gap-3">
-          <Button className="rounded-full bg-[#f2a83c] px-7 py-6 text-sm font-semibold text-[#0a2733] hover:bg-[#f2a83c]/90">
+          <Button className="rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90">
             Read More Reviews
           </Button>
           <p className="text-xs text-neutral-500">

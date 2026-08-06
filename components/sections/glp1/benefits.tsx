@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Check, Stethoscope, ClipboardCheck, Utensils, Activity, Clock, Star } from "lucide-react";
+import { Glp1LeadModal } from "@/components/glp1-lead-modal";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { ONGO_WEIGHT_LOSS_URL } from "@/lib/ongo";
 
 const benefits = [
   {
@@ -34,16 +34,16 @@ const benefits = [
 
 export function Glp1Benefits() {
   return (
-    <section id="benefits" className="relative overflow-hidden bg-[#eef6f6] py-20">
-      <div className="pointer-events-none absolute -right-24 top-0 size-72 rounded-full bg-[#0d6e74]/10 blur-3xl" />
+    <section id="benefits" className="relative overflow-hidden bg-[var(--service-section-bg)] py-20">
+      <div className="pointer-events-none absolute -right-24 top-0 size-72 rounded-full bg-[var(--service-brand)]/10 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
         <div>
           <Badge variant="outline" className="mb-4 h-7 gap-1.5 rounded-full bg-white px-3 text-xs">
-            <Check className="size-3.5 text-[#0d6e74]" /> Holistic & Science-Backed
+            <Check className="size-3.5 text-[var(--service-brand)]" /> Holistic & Science-Backed
           </Badge>
-          <h2 className="font-heading text-3xl font-medium tracking-normal text-[#0a2733] sm:text-4xl">
-            Benefits of <span className="text-[#0d6e74]">Our Weight Loss</span> Program
+          <h2 className="font-heading text-3xl font-medium tracking-normal text-[var(--ds-ink)] sm:text-4xl">
+            Benefits of <span className="text-[var(--service-brand)]">Our Weight Loss</span> Program
           </h2>
           <p className="mt-4 text-neutral-600">
             Our program is designed to offer a holistic approach backed by
@@ -54,13 +54,13 @@ export function Glp1Benefits() {
             {benefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="flex items-start gap-3 rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5"
+                className="flex items-start gap-3 rounded-xl bg-[var(--color-surface)] p-4 shadow-sm ring-1 ring-[var(--service-border)]"
               >
-                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#0d6e74] shadow-sm ring-1 ring-black/5">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-white text-[var(--service-brand)] shadow-sm ring-1 ring-black/5">
                   <benefit.icon className="size-4.5" />
                 </div>
                 <div>
-                  <p className="font-heading text-sm font-medium text-[#0a2733]">
+                  <p className="font-heading text-sm font-medium text-[var(--ds-ink)]">
                     {benefit.title}
                   </p>
                   <p className="mt-1 text-xs text-neutral-600">
@@ -71,13 +71,16 @@ export function Glp1Benefits() {
             ))}
           </div>
 
-          <Button
-            nativeButton={false}
-            render={<a href={ONGO_WEIGHT_LOSS_URL} />}
-            className="mt-8 rounded-full bg-[#0d6e74] px-7 py-6 text-sm font-semibold text-white hover:bg-[#0d6e74]/90"
-          >
-            Schedule Medical Evaluation
-          </Button>
+          <Glp1LeadModal
+            trigger={
+              <Button
+                className="mt-8 rounded-full px-7 py-6 text-sm font-semibold text-white hover:opacity-95"
+                style={{ background: "var(--service-cta)" }}
+              >
+                Schedule Medical Evaluation
+              </Button>
+            }
+          />
           <p className="mt-3 text-xs text-neutral-500">
             Weight Loss Program Enrollment Fee: $75
           </p>
@@ -94,16 +97,16 @@ export function Glp1Benefits() {
             />
           </div>
           <Card className="absolute -left-4 top-8 flex-row items-center gap-2 px-3 py-2 shadow-lg">
-            <Clock className="size-4 text-[#0d6e74]" />
+            <Clock className="size-4 text-[var(--service-brand)]" />
             <div>
-              <p className="text-xs font-semibold text-[#0a2733]">10+ Years</p>
+              <p className="text-xs font-semibold text-[var(--ds-ink)]">10+ Years</p>
               <p className="text-[10px] text-neutral-500">of clinical experience</p>
             </div>
           </Card>
           <Card className="absolute -right-4 bottom-8 flex-row items-center gap-2 px-3 py-2 shadow-lg">
-            <Star className="size-4 fill-[#f2a83c] text-[#f2a83c]" />
+            <Star className="size-4 fill-[var(--service-accent)] text-[var(--service-accent)]" />
             <div>
-              <p className="text-xs font-semibold text-[#0a2733]">Trusted Reviews</p>
+              <p className="text-xs font-semibold text-[var(--ds-ink)]">Trusted Reviews</p>
               <p className="text-[10px] text-neutral-500">Rated 4.9/5 by patients</p>
             </div>
           </Card>

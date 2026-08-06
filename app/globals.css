@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "./styles/design-tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -49,38 +50,39 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* Map design-system shared tokens into shadcn base vars (safe defaults) */
+  --background: var(--ds-bg);
+  --foreground: var(--ds-ink);
+  --card: var(--ds-card);
+  --card-foreground: var(--ds-ink);
+  --popover: var(--ds-surface);
+  --popover-foreground: var(--ds-ink);
+  --primary: var(--ds-brand);
+  --primary-foreground: var(--ds-ink-inverse);
+  --secondary: var(--ds-bg-subtle);
+  --secondary-foreground: var(--ds-ink);
+  --muted: var(--ds-bg-subtle);
+  --muted-foreground: var(--ds-ink-mid);
+  --accent: var(--ds-brand-light);
+  --accent-foreground: var(--ds-brand-dark);
+  --destructive: var(--ds-error);
+  --border: var(--ds-border);
+  --input: var(--ds-border);
+  --ring: var(--ds-focus-ring);
+  --chart-1: var(--ds-chart-1);
+  --chart-2: var(--ds-chart-2);
+  --chart-3: var(--ds-chart-3);
+  --chart-4: var(--ds-chart-4);
+  --chart-5: var(--ds-chart-5);
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: var(--ds-bg-subtle);
+  --sidebar-foreground: var(--ds-ink);
+  --sidebar-primary: var(--ds-brand);
+  --sidebar-primary-foreground: var(--ds-ink-inverse);
+  --sidebar-accent: var(--ds-brand-light);
+  --sidebar-accent-foreground: var(--ds-brand-dark);
+  --sidebar-border: var(--ds-border);
+  --sidebar-ring: var(--ds-focus-ring);
 }
 
 .dark {
@@ -132,6 +134,43 @@
   }
   to {
     transform: translateY(0);
+  }
+}
+
+@keyframes home-hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes home-hero-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+.home-hero-float {
+  animation: home-hero-float 7s ease-in-out infinite;
+}
+
+.home-hero-pulse {
+  animation: home-hero-pulse 3.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-hero-float,
+  .home-hero-pulse {
+    animation: none;
   }
 }
 

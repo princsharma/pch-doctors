@@ -1,0 +1,38 @@
+# PCH Doctors
+
+> Secure, HIPAA-compliant telehealth for medical marijuana certifications and clinician-guided GLP-1 weight management — 100% online.
+
+PCH Doctors connects patients with state-licensed clinicians for medical marijuana recommendations and GLP-1 weight loss programs. Care is provided through a modern telehealth platform; recommendations and prescriptions are made only by licensed healthcare professionals when clinically appropriate.
+
+## Main pages
+
+- [Home](https://pchdoctors.com/): Combined overview of medical marijuana certifications and GLP-1 weight loss programs
+- [About](https://pchdoctors.com/about/): Who PCH Doctors is, care values, clinicians, and services
+- [Contact](https://pchdoctors.com/contact/): Phone, email, and Wilmington CA address for PCH Doctors
+- [Medical Marijuana Consultation](https://pchdoctors.com/services/medical-marijuana-consultation/): Same-day online MMJ evaluations with state-licensed physicians
+- [GLP-1 Medications](https://pchdoctors.com/services/glp-1-medications/): Clinician-guided GLP-1 weight management and medication options
+- [Sitemap](https://pchdoctors.com/sitemap/): HTML index of main site pages
+
+## Legal & compliance
+
+- [Privacy Policy](https://pchdoctors.com/privacy-policy/): How personal and health information is collected and used
+- [HIPAA Compliance](https://pchdoctors.com/hipaa-compliance/): How protected health information is safeguarded
+- [Consent for Telehealth](https://pchdoctors.com/consent-for-telehealth/): Telehealth risks, benefits, and patient consent
+- [Terms of Use](https://pchdoctors.com/terms-of-use/): Website and service terms
+- [Refund Policy](https://pchdoctors.com/refund-policy/): Refund eligibility for evaluations and program fees
+- [Accessibility Statement](https://pchdoctors.com/accessibility-statement/): Accessibility commitment and assistance
+- [Editorial Policy](https://pchdoctors.com/editorial-policy/): Content standards and review process
+- [Disclaimer](https://pchdoctors.com/disclaimer/): Medical and legal disclaimers for site content
+- [Shipping Policy](https://pchdoctors.com/shipping-policy/): Delivery terms for partner-pharmacy fulfillment
+
+## Contact
+
+- Website: https://pchdoctors.com/
+- Email: contact@pchdoctors.com
+- Phone: +1 (424) 424-1618
+- Address: 910 W Pacific Coast Hwy Unit D, Wilmington, CA 90744
+
+## Optional
+
+- [XML Sitemap](https://pchdoctors.com/sitemap.xml): Machine-readable sitemap for crawlers
+- [Robots](https://pchdoctors.com/robots.txt): Crawler access rules

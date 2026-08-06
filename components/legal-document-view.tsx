@@ -97,68 +97,68 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
   return (
     <>
       <div
-        className="pointer-events-none fixed top-0 left-0 z-[60] h-1 bg-gradient-to-r from-[#0d6e74] via-[#f2a83c] to-[#0d6e74] transition-[width] duration-150"
+        className="pointer-events-none fixed top-0 left-0 z-[60] h-1 bg-gradient-to-r from-[var(--ds-brand)] via-[var(--ds-warning)] to-[var(--ds-brand)] transition-[width] duration-150"
         style={{ width: `${progress}%` }}
       />
 
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#dcf0f1] via-[#eef6f6] to-white">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[var(--ds-brand-light)] via-[var(--ds-bg-subtle)] to-white">
         <div className="pointer-events-none absolute -left-24 top-10 size-72 rounded-full bg-white/70 blur-3xl" />
-        <div className="pointer-events-none absolute -right-16 top-24 size-80 rounded-full bg-[#0d6e74]/10 blur-3xl" />
-        <div className="pointer-events-none absolute left-1/3 top-0 size-64 rounded-full bg-[#f2a83c]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 top-24 size-80 rounded-full bg-[var(--ds-brand)]/10 blur-3xl" />
+        <div className="pointer-events-none absolute left-1/3 top-0 size-64 rounded-full bg-[var(--ds-warning)]/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-14 lg:pt-14 lg:pb-16">
           <nav
             aria-label="Breadcrumb"
-            className="flex flex-wrap items-center gap-1.5 text-sm text-[#0a2733]/55"
+            className="flex flex-wrap items-center gap-1.5 text-sm text-[var(--ds-ink)]/55"
           >
-            <Link href="/" className="transition-colors hover:text-[#0d6e74]">
+            <Link href="/" className="transition-colors hover:text-[var(--ds-brand)]">
               Home
             </Link>
             <ChevronRight className="size-3.5" />
             <span>Legal Policies</span>
             <ChevronRight className="size-3.5" />
-            <span className="font-medium text-[#0a2733]">{doc.title}</span>
+            <span className="font-medium text-[var(--ds-ink)]">{doc.title}</span>
           </nav>
 
           <div className="mt-8 grid gap-8 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-[#0a2733] shadow-sm ring-1 ring-[#0d6e74]/10 backdrop-blur">
-                <Sparkles className="size-3.5 text-[#f2a83c]" />
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1.5 text-xs font-semibold tracking-wide text-[var(--ds-ink)] shadow-sm ring-1 ring-[var(--ds-brand)]/10 backdrop-blur">
+                <Sparkles className="size-3.5 text-[var(--ds-warning)]" />
                 {doc.eyebrow}
               </span>
-              <h1 className="font-heading mt-5 text-4xl font-medium leading-[1.1] tracking-normal text-[#0a2733] sm:text-5xl">
+              <h1 className="font-heading mt-5 text-4xl font-medium leading-[1.1] tracking-normal text-[var(--ds-ink)] sm:text-5xl">
                 {doc.title}
               </h1>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-neutral-600">
                 {doc.description}
               </p>
-              <div className="mt-6 flex flex-wrap gap-3 text-xs font-medium text-[#0a2733]/70">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 ring-1 ring-[#0d6e74]/10">
-                  <CalendarDays className="size-3.5 text-[#0d6e74]" />
+              <div className="mt-6 flex flex-wrap gap-3 text-xs font-medium text-[var(--ds-ink)]/70">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 ring-1 ring-[var(--ds-brand)]/10">
+                  <CalendarDays className="size-3.5 text-[var(--ds-brand)]" />
                   Published {doc.published}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 ring-1 ring-[#0d6e74]/10">
-                  <FileText className="size-3.5 text-[#f2a83c]" />
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/80 px-3 py-1.5 ring-1 ring-[var(--ds-brand)]/10">
+                  <FileText className="size-3.5 text-[var(--ds-warning)]" />
                   Updated {doc.updated}
                 </span>
               </div>
             </div>
 
             <div className="rounded-3xl bg-white/70 p-5 shadow-sm ring-1 ring-white/80 backdrop-blur-sm sm:p-6">
-              <p className="text-xs font-semibold tracking-[0.16em] text-[#0d6e74] uppercase">
+              <p className="text-xs font-semibold tracking-[0.16em] text-[var(--ds-brand)] uppercase">
                 At a glance
               </p>
-              <ul className="mt-4 space-y-3 text-sm text-[#0a2733]/80">
+              <ul className="mt-4 space-y-3 text-sm text-[var(--ds-ink)]/80">
                 <li className="flex items-start gap-2.5">
-                  <ShieldCheck className="mt-0.5 size-4 shrink-0 text-[#0d6e74]" />
+                  <ShieldCheck className="mt-0.5 size-4 shrink-0 text-[var(--ds-brand)]" />
                   HIPAA-aligned handling of health information
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <FileText className="mt-0.5 size-4 shrink-0 text-[#f2a83c]" />
+                  <FileText className="mt-0.5 size-4 shrink-0 text-[var(--ds-warning)]" />
                   {doc.sections.length} clearly organized policy sections
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <Sparkles className="mt-0.5 size-4 shrink-0 text-[#0d6e74]" />
+                  <Sparkles className="mt-0.5 size-4 shrink-0 text-[var(--ds-brand)]" />
                   Jump to any section with the interactive guide
                 </li>
               </ul>
@@ -166,14 +166,14 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                 <button
                   type="button"
                   onClick={expandAll}
-                  className="rounded-full bg-[#0d6e74] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0a4f54]"
+                  className="rounded-full bg-[var(--ds-brand)] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[var(--ds-brand-dark)]"
                 >
                   Expand all
                 </button>
                 <button
                   type="button"
                   onClick={collapseAll}
-                  className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-[#0a2733] ring-1 ring-[#0d6e74]/15 transition hover:bg-[#eef6f6]"
+                  className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-[var(--ds-ink)] ring-1 ring-[var(--ds-brand)]/15 transition hover:bg-[var(--ds-bg-subtle)]"
                 >
                   Collapse all
                 </button>
@@ -186,29 +186,34 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
       <section className="relative bg-white pb-20">
         <div className="mx-auto grid max-w-6xl gap-10 px-6 pt-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-2xl bg-[#eef6f6] p-4 ring-1 ring-[#0d6e74]/10">
-              <p className="px-2 text-xs font-semibold tracking-[0.16em] text-[#0d6e74] uppercase">
+            <div className="rounded-2xl bg-[var(--ds-bg-subtle)] p-4 ring-1 ring-[var(--ds-brand)]/10">
+              <p className="px-2 text-xs font-semibold tracking-[0.16em] text-[var(--ds-brand)] uppercase">
                 On this page
               </p>
-              <nav className="mt-3 max-h-[min(70vh,28rem)] space-y-1 overflow-y-auto pr-1">
+              <nav
+                aria-label="On this page"
+                className="mt-3 max-h-[min(70vh,28rem)] space-y-1 overflow-y-auto pr-1"
+              >
                 {doc.sections.map((section) => (
                   <button
                     key={section.number}
                     type="button"
                     onClick={() => scrollToSection(section.number)}
+                    aria-label={`Go to section ${section.number}: ${section.title}`}
+                    aria-current={activeId === section.number ? "true" : undefined}
                     className={cn(
                       "flex w-full items-start gap-2.5 rounded-xl px-2.5 py-2 text-left text-sm transition-all",
                       activeId === section.number
-                        ? "bg-white text-[#0a2733] shadow-sm ring-1 ring-[#0d6e74]/10"
-                        : "text-[#0a2733]/65 hover:bg-white/70 hover:text-[#0a2733]"
+                        ? "bg-white text-[var(--ds-ink)] shadow-sm ring-1 ring-[var(--ds-brand)]/10"
+                        : "text-[var(--ds-ink)]/65 hover:bg-white/70 hover:text-[var(--ds-ink)]"
                     )}
                   >
                     <span
                       className={cn(
                         "mt-0.5 font-heading text-xs font-medium",
                         activeId === section.number
-                          ? "text-[#f2a83c]"
-                          : "text-[#0d6e74]/70"
+                          ? "text-[var(--ds-warning)]"
+                          : "text-[var(--ds-brand)]/70"
                       )}
                     >
                       {section.number}
@@ -221,8 +226,8 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
           </aside>
 
           <div className="min-w-0">
-            <div className="rounded-3xl bg-gradient-to-br from-[#eef6f6] to-white p-6 ring-1 ring-[#0d6e74]/10 sm:p-8">
-              <p className="text-xs font-semibold tracking-[0.16em] text-[#0d6e74] uppercase">
+            <div className="rounded-3xl bg-gradient-to-br from-[var(--ds-bg-subtle)] to-white p-6 ring-1 ring-[var(--ds-brand)]/10 sm:p-8">
+              <p className="text-xs font-semibold tracking-[0.16em] text-[var(--ds-brand)] uppercase">
                 Overview
               </p>
               <div className="mt-4 space-y-4 text-base leading-relaxed text-neutral-700">
@@ -246,12 +251,15 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                   className="scroll-mt-28 overflow-hidden rounded-2xl border-0 bg-white shadow-sm ring-1 ring-black/5 not-last:mb-0 not-last:border-b-0 data-open:bg-white"
                 >
                   <div className="flex items-stretch">
-                    <AccordionTrigger className="flex-1 px-5 py-5 text-left hover:no-underline sm:px-6 **:data-[slot=accordion-trigger-icon]:!size-8 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-[#eef6f6] **:data-[slot=accordion-trigger-icon]:p-2 **:data-[slot=accordion-trigger-icon]:text-[#0a2733]">
+                    <AccordionTrigger
+                      asHeading="h2"
+                      className="flex-1 px-5 py-5 text-left hover:no-underline sm:px-6 **:data-[slot=accordion-trigger-icon]:!size-8 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-[var(--ds-bg-subtle)] **:data-[slot=accordion-trigger-icon]:p-2 **:data-[slot=accordion-trigger-icon]:text-[var(--ds-ink)]"
+                    >
                       <span className="flex min-w-0 items-start gap-3 sm:gap-4">
-                        <span className="font-heading text-lg font-medium text-[#0d6e74] sm:text-xl">
+                        <span className="font-heading text-lg font-medium text-[var(--ds-brand)] sm:text-xl">
                           {section.number}
                         </span>
-                        <span className="font-heading text-base font-medium text-[#0a2733] sm:text-lg">
+                        <span className="font-heading text-base font-medium text-[var(--ds-ink)] sm:text-lg">
                           {section.title}
                         </span>
                       </span>
@@ -259,12 +267,12 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                     <button
                       type="button"
                       onClick={() => copySectionLink(section.number)}
-                      className="m-3 flex size-9 shrink-0 items-center justify-center self-center rounded-full text-[#0a2733]/45 transition hover:bg-[#eef6f6] hover:text-[#0d6e74]"
+                      className="m-3 flex size-9 shrink-0 items-center justify-center self-center rounded-full text-[var(--ds-ink)]/45 transition hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]"
                       aria-label={`Copy link to ${section.title}`}
                       title="Copy section link"
                     >
                       {copiedId === section.number ? (
-                        <Check className="size-4 text-[#0d6e74]" />
+                        <Check className="size-4 text-[var(--ds-brand)]" />
                       ) : (
                         <Link2 className="size-4" />
                       )}
@@ -272,7 +280,7 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                   </div>
 
                   <AccordionContent className="px-5 pb-6 sm:px-6">
-                    <div className="space-y-4 border-t border-[#0d6e74]/10 pt-5 text-base leading-relaxed text-neutral-700">
+                    <div className="space-y-4 border-t border-[var(--ds-brand)]/10 pt-5 text-base leading-relaxed text-neutral-700">
                       {section.paragraphs?.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                       ))}
@@ -282,9 +290,9 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                           {section.bullets.map((item) => (
                             <li
                               key={item}
-                              className="flex items-start gap-2.5 rounded-xl bg-[#eef6f6]/70 px-3.5 py-2.5"
+                              className="flex items-start gap-2.5 rounded-xl bg-[var(--ds-bg-subtle)]/70 px-3.5 py-2.5"
                             >
-                              <Check className="mt-0.5 size-4 shrink-0 text-[#0d6e74]" />
+                              <Check className="mt-0.5 size-4 shrink-0 text-[var(--ds-brand)]" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -300,9 +308,9 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                           {section.bulletsAfter.map((item) => (
                             <li
                               key={item}
-                              className="flex items-start gap-2.5 rounded-xl bg-[#eef6f6]/70 px-3.5 py-2.5"
+                              className="flex items-start gap-2.5 rounded-xl bg-[var(--ds-bg-subtle)]/70 px-3.5 py-2.5"
                             >
-                              <Check className="mt-0.5 size-4 shrink-0 text-[#0d6e74]" />
+                              <Check className="mt-0.5 size-4 shrink-0 text-[var(--ds-brand)]" />
                               <span>{item}</span>
                             </li>
                           ))}
@@ -318,9 +326,9 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                           {section.faqs.map((faq) => (
                             <div
                               key={faq.question}
-                              className="rounded-2xl bg-[#eef6f6] p-4 ring-1 ring-[#0d6e74]/10 sm:p-5"
+                              className="rounded-2xl bg-[var(--ds-bg-subtle)] p-4 ring-1 ring-[var(--ds-brand)]/10 sm:p-5"
                             >
-                              <p className="font-heading text-base font-medium text-[#0a2733]">
+                              <p className="font-heading text-base font-medium text-[var(--ds-ink)]">
                                 {faq.question}
                               </p>
                               <p className="mt-2 text-sm leading-relaxed text-neutral-700 sm:text-base">
@@ -375,7 +383,7 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
             {doc.next && (
               <Link
                 href={doc.next.href}
-                className="group mt-10 flex items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-[#0a2733] via-[#0d3f45] to-[#0a2733] p-6 text-white shadow-lg transition hover:shadow-xl sm:p-8"
+                className="group mt-10 flex items-center justify-between gap-4 rounded-3xl bg-gradient-to-r from-[var(--ds-brand-dark)] via-[var(--ds-brand-dark)] to-[var(--ds-brand-dark)] p-6 text-white shadow-lg transition hover:shadow-xl sm:p-8"
               >
                 <div>
                   <p className="text-xs font-semibold tracking-[0.18em] text-white/50 uppercase">
@@ -388,7 +396,7 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
                     Continue reviewing our legal and compliance policies.
                   </p>
                 </div>
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[#f2a83c] text-[#0a2733] transition-transform group-hover:translate-x-0.5">
+                <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-[var(--ds-warning)] text-[var(--ds-ink)] transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="size-5" />
                 </span>
               </Link>
@@ -401,7 +409,7 @@ export function LegalDocumentView({ doc }: LegalDocumentViewProps) {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         className={cn(
-          "fixed right-5 bottom-5 z-50 flex size-12 items-center justify-center rounded-full bg-[#0d6e74] text-white shadow-[0_12px_28px_rgba(13,110,116,0.35)] transition-all hover:bg-[#0a4f54]",
+          "fixed right-5 bottom-5 z-50 flex size-12 items-center justify-center rounded-full bg-[var(--ds-brand)] text-white shadow-[0_12px_28px_rgb(var(--ds-brand-rgb)/0.35)] transition-all hover:bg-[var(--ds-brand-dark)]",
           showTop
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
@@ -429,14 +437,14 @@ function ContactCard({
 }) {
   const content = (
     <>
-      <span className="flex size-9 items-center justify-center rounded-full bg-[#0d6e74]/10 text-[#0d6e74]">
+      <span className="flex size-9 items-center justify-center rounded-full bg-[var(--ds-brand)]/10 text-[var(--ds-brand)]">
         <Icon className="size-4" />
       </span>
       <span className="min-w-0">
-        <span className="block text-xs font-semibold tracking-wide text-[#0d6e74] uppercase">
+        <span className="block text-xs font-semibold tracking-wide text-[var(--ds-brand)] uppercase">
           {label}
         </span>
-        <span className="mt-0.5 block break-words text-sm font-medium text-[#0a2733]">
+        <span className="mt-0.5 block break-words text-sm font-medium text-[var(--ds-ink)]">
           {value}
         </span>
       </span>
@@ -448,7 +456,7 @@ function ContactCard({
       <a
         href={href}
         className={cn(
-          "flex items-start gap-3 rounded-2xl bg-[#eef6f6] p-4 ring-1 ring-[#0d6e74]/10 transition hover:bg-white hover:shadow-sm",
+          "flex items-start gap-3 rounded-2xl bg-[var(--ds-bg-subtle)] p-4 ring-1 ring-[var(--ds-brand)]/10 transition hover:bg-white hover:shadow-sm",
           className
         )}
       >
@@ -460,7 +468,7 @@ function ContactCard({
   return (
     <div
       className={cn(
-        "flex items-start gap-3 rounded-2xl bg-[#eef6f6] p-4 ring-1 ring-[#0d6e74]/10",
+        "flex items-start gap-3 rounded-2xl bg-[var(--ds-bg-subtle)] p-4 ring-1 ring-[var(--ds-brand)]/10",
         className
       )}
     >
