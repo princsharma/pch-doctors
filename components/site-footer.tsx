@@ -19,7 +19,7 @@ import { LEGAL_PAGES } from "@/lib/legal-pages";
 
 const quickLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },
   { label: "Process", href: "/#process" },
   { label: "Services", href: "/#services" },
@@ -34,8 +34,8 @@ const services = [
 
 const legalIcons = {
   "privacy-policy": EyeOff,
-  "hipaa-compliance": ShieldCheck,
-  "consent-for-telehealth": Video,
+  "hipaa-compliance-policy": ShieldCheck,
+  "consent-to-telehealth": Video,
   "terms-of-use": CheckCheck,
   "refund-policy": HandCoins,
   "accessibility-statement": Accessibility,
@@ -195,16 +195,6 @@ export function SiteFooter() {
         </p>
       </div>
 
-      <div className="pointer-events-none relative overflow-hidden pb-6" aria-hidden>
-        {/* Depth layer */}
-        <p className="font-heading absolute inset-x-0 top-[0.08em] select-none text-center text-[16vw] font-medium leading-none text-black/40 blur-[2px]">
-          PCH Doctors
-        </p>
-        {/* Embossed brand wordmark */}
-        <p className="font-heading relative select-none bg-[linear-gradient(185deg,#b8ecc9_0%,#52b788_28%,#2f8a62_58%,#1f6b4a_82%,#154c35_100%)] bg-clip-text text-center text-[16vw] font-medium leading-none text-transparent drop-shadow-[0_12px_24px_rgb(0_0_0/0.35)]">
-          PCH Doctors
-        </p>
-      </div>
     </footer>
   );
 }

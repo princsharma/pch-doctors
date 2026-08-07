@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { HomeHero } from "@/components/sections/home/hero";
 import { HomeProcess } from "@/components/sections/home/process";
 import { HomeServices } from "@/components/sections/home/services";
-import { HomeDoctors } from "@/components/sections/home/doctors";
+import { Doctors } from "@/components/sections/doctors";
 import { HomePricing } from "@/components/sections/home/pricing";
 import { HomeReviews } from "@/components/sections/home/reviews";
 import { HomeFaq, HOME_FAQS } from "@/components/sections/home/faq";
@@ -29,7 +29,7 @@ export default function Home() {
       <HomeHero />
       <HomeProcess />
       <HomeServices />
-      <HomeDoctors />
+      <Doctors />
       <HomePricing />
       <HomeReviews />
       <HomeFaq />

@@ -6,54 +6,57 @@ export const editorialPolicyDocument: LegalDocument = {
   title: "Editorial Policy",
   eyebrow: "Content Standards",
   description:
-    "How PCH Doctors creates, reviews, and maintains accurate medical and wellness content.",
+    "See the editorial standards behind PCH Doctors' content on medical marijuana consultations and GLP-1 weight loss, including our accuracy, ethics, and review process.",
   published: "January 1, 2026",
-  updated: "August 5, 2026",
+  updated: "August 7, 2026",
   next: {
     label: "Disclaimer",
     href: "/disclaimer",
   },
   intro: [
-    `At ${SITE.name}, we are committed to delivering accurate, reliable, and practical information about medical marijuana, clinician-guided GLP-1 weight management, cannabis wellness, and related legal and health topics. Our editorial process is designed so content meets high standards of credibility, clarity, and usefulness for our readers.`,
+    `At ${SITE.name}, we're committed to delivering accurate, reliable, and practical information about medical marijuana, GLP-1 weight loss, and related health and legal topics. Our editorial team holds every piece of content to a high standard of credibility, clarity, and usefulness for our readers.`,
   ],
   sections: [
     {
       number: "01",
       title: "Our Core Principles",
       paragraphs: [
-        "Vision: To make safe, legal, and effective information about medical marijuana and clinician-guided weight management accessible to patients and caregivers in the states we serve.",
-        "Mission: To provide clear guidance on medical marijuana use, GLP-1 treatment pathways, applicable regulations, and wellness applications in an accurate, ethical, and approachable manner.",
-        "Promise: We aim to follow applicable state and federal healthcare protocols, offering information supported by licensed medical professionals and credible research.",
+        "Vision: To make safe, legal, and effective medical marijuana and GLP-1 weight loss information accessible to every patient and caregiver.",
+        "Mission: To provide clear guidance on MMJ and GLP-1 usage, regulations, and wellness applications, delivered in an accurate, ethical, and approachable way.",
+        "Promise: We follow applicable medical and regulatory protocols, and every claim we publish is backed by licensed medical professionals and credible research.",
       ],
     },
     {
       number: "02",
-      title: "Editorial Standards",
-      paragraphs: [
-        "All content is created and reviewed by writers with experience in cannabis, weight management, and healthcare topics, and every piece is fact-checked against peer-reviewed studies, applicable state regulations, and official medical sources before publication.",
-        "We work to dispel misinformation about medical marijuana and GLP-1 medications, clarifying misconceptions around cannabis use, effects, prescription treatments, and legal guidelines. Any medical or legal guidance referenced in our content comes from licensed professionals in their respective fields, and only current, trustworthy sources are used to support what we publish.",
+      title: "Editorial Commitment",
+      paragraphs: ["Our editorial process is built around these standards:"],
+      bullets: [
+        "Expertly Written and Reviewed: All content is created and reviewed by a team experienced in cannabis and metabolic health, aiming for information that's informative, actionable, and factually correct.",
+        "Accuracy and Credibility: Content is fact checked against peer reviewed studies, state regulations, and official medical sources.",
+        "Debunking Myths: We work to clear up common misconceptions around medical marijuana and GLP-1 medications, including their effects and legal status.",
+        "Licensed Oversight: Any medical or legal guidance comes from licensed professionals in their field, so recommendations stay legitimate and trustworthy.",
+        "Meticulous Editing: Every piece goes through review before publishing, and we continually refine our process to improve accuracy over time.",
       ],
     },
     {
       number: "03",
       title: "Ethical Approach",
       paragraphs: [
-        "We avoid publishing content that criticizes individuals, dispensaries, pharmacies, or practitioners. Our focus is on educating readers with respect, not taking sides.",
-        "On medical, legal, and wellness topics, we approach the subject matter objectively, prioritizing patient safety, legal compliance, and factual accuracy above all else.",
+        "Kindness and Empathy: We don't publish content that criticizes individuals, providers, or practices. Our goal is to educate with respect for different perspectives.",
+        "Objectivity on Sensitive Topics: We approach medical, legal, and wellness topics objectively, always prioritizing patient safety and legal compliance.",
       ],
     },
     {
       number: "04",
-      title: "Review Process",
+      title: "Open to Suggestions",
       paragraphs: [
-        "Every piece of content is reviewed before publication for clarity, accuracy, and adherence to these standards. We recognize that no process is perfect. If you notice an error or have a suggestion, contact us using the information below.",
-        "Every report is reviewed, and content is updated when it improves accuracy or usefulness.",
+        `No system is perfect. If you spot an error or have a suggestion, reach out to us at ${SITE.email}. We take feedback seriously and update our content whenever it improves accuracy or usefulness.`,
       ],
       contact: {
         company: SITE.name,
         website: SITE.url,
         email: SITE.email,
-        phone: SITE.phoneDisplay,
+        phone: SITE.phone,
         address: SITE.address,
       },
     },
@@ -61,8 +64,7 @@ export const editorialPolicyDocument: LegalDocument = {
       number: "05",
       title: "Our Promise to You",
       paragraphs: [
-        `Our goal is to give patients, caregivers, and readers clear, actionable, and trustworthy information. Through our commitment to accuracy, ethics, and patient advocacy, we aim to be a resource people can rely on for medical marijuana and clinician-guided weight management information.`,
-        "Spot an error? Contact us using the details in the Review Process section above.",
+        `Our goal is to give patients and caregivers clear, actionable, and trustworthy information. Through our commitment to accuracy, ethics, and patient advocacy, ${SITE.name} aims to be a resource you can rely on for both medical marijuana and GLP-1 weight loss guidance.`,
       ],
     },
   ],

@@ -56,7 +56,7 @@ export function SafeSecure() {
             </h3>
             <p className="mt-4 max-w-md text-neutral-600">
               Connect with licensed physicians from anywhere in the USA
-              through our secure, HIPAA-compliant platform — available 24/7,
+              through our secure, HIPAA-compliant platform, available 24/7,
               guiding you at every step.
             </p>
 

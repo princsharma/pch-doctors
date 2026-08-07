@@ -118,7 +118,7 @@ export function GonePage({ requestedPath }: GonePageProps) {
                   </h2>
                   <p className="mt-3 text-sm leading-relaxed text-neutral-600 dark:text-white/65">
                     A 410 response tells search engines this URL is permanently
-                    retired — unlike a 404, it will not be treated as a temporary
+                    retired. Unlike a 404, it will not be treated as a temporary
                     miss.
                   </p>
                   <ul className="mt-5 space-y-2 text-sm text-[var(--ds-ink-mid)] dark:text-white/55">

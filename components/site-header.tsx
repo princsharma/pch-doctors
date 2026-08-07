@@ -28,7 +28,7 @@ const services = [
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services", children: services },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -82,7 +82,7 @@ export function SiteHeader() {
               width={1251}
               height={512}
               priority
-              className="h-9 w-auto"
+              className="h-12 w-auto sm:h-14"
             />
           </Link>
 

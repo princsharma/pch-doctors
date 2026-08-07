@@ -6,68 +6,59 @@ export const refundPolicyDocument: LegalDocument = {
   title: "Refund Policy",
   eyebrow: "Money-Back Guarantee",
   description:
-    "When refunds apply for PCH Doctors evaluation and program fees, and how to request one.",
+    "Learn when you qualify for a refund on PCH Doctors' medical marijuana evaluation and GLP-1 weight loss program, plus our missed appointment and refund process.",
   published: "January 1, 2026",
-  updated: "August 5, 2026",
+  updated: "August 7, 2026",
   next: {
     label: "Accessibility Statement",
     href: "/accessibility-statement",
   },
   intro: [
-    `${SITE.name} offers a 100% money-back guarantee for qualifying medical marijuana evaluation services, subject to the eligibility conditions outlined below. Where applicable, refund terms for clinician-guided GLP-1 weight management program fees are also described in this policy.`,
-    "Please review this policy carefully before scheduling your evaluation or enrolling in a program.",
+    `${SITE.name} offers a refund on your evaluation fee for medical marijuana consultations, subject to the conditions below. Our GLP-1 weight loss program follows a separate set of terms, since it involves prescription medication. Please review this policy before scheduling your evaluation.`,
   ],
   sections: [
     {
       number: "01",
-      title: "Eligibility for a Full Refund",
+      title: "Medical Marijuana Evaluation Refunds",
       paragraphs: [
-        "You are eligible for a 100% refund of your medical marijuana evaluation fee under the following circumstances:",
+        "You're eligible for a full refund of your evaluation fee if:",
       ],
       bullets: [
-        "Physician Denial: If the state-licensed clinician determines, in their professional judgment, that you do not qualify for a medical marijuana recommendation.",
-        "Failure to Deliver Recommendation Within Stated Timeframe: If we fail to provide your approved medical marijuana recommendation within the stated timeframe (typically 24–48 hours following completion of your clinician evaluation and approval).",
-        "Verification Failure: If your issued medical marijuana recommendation cannot be verified due to an error attributable to the issuing clinician or our platform.",
+        "Physician Denial: The licensed physician determines, in their professional judgment, that you don't qualify for a medical marijuana recommendation",
+        "Delayed Recommendation: We fail to deliver your approved recommendation within the stated timeframe, typically 24 to 48 hours after your evaluation is approved",
+        "Verification Failure: Your issued recommendation can't be verified due to an error on our end or the issuing physician's end",
       ],
       paragraphsAfter: [
-        `Refund eligibility applies only to the evaluation fee paid to ${SITE.name} and does not include any state application fees, registry fees, pharmacy costs, medication costs, or other third-party charges, if applicable.`,
-        "For GLP-1 weight management program fees, refund eligibility is determined based on enrollment status, clinical evaluation completion, and whether medication or ongoing care services have already been initiated. Program-specific refund details may also be disclosed at checkout or in your enrollment materials.",
+        `Refund eligibility applies only to the evaluation fee paid to ${SITE.name}, not to any state application fees, government fees, or third party charges.`,
+        "Refunds are not issued if you cancel after completing your evaluation but before the physician's decision, if you receive a valid recommendation and simply change your mind, if you provide false or misleading information during the evaluation, or if you're denied for failing to meet state eligibility requirements.",
       ],
     },
     {
       number: "02",
-      title: "Non-Refundable Situations",
+      title: "GLP-1 Weight Loss Program Refunds",
       paragraphs: [
-        "Refunds will not be issued under the following circumstances:",
-      ],
-      bullets: [
-        "If you request cancellation after completing your evaluation but before receiving a decision from the clinician",
-        "If you receive a valid medical marijuana recommendation or GLP-1 treatment plan and later change your mind",
-        "If you provide false, incomplete, or misleading information during the evaluation process",
-        "If services are denied due to your failure to meet applicable state eligibility requirements",
-        "If medication, pharmacy, shipping, or other third-party costs have already been incurred and are non-recoverable",
+        "If the evaluating physician determines you don't qualify for a GLP-1 prescription, your consultation fee is fully refundable.",
+        "Once a prescription is approved and your medication ships, it can't be refunded or returned. This follows standard pharmacy and FDA safety practices for prescription drugs. If your shipment arrives damaged, incorrect, or defective, see our Shipping Policy for how to request a replacement.",
       ],
     },
     {
       number: "03",
       title: "Missed Appointment Policy",
       paragraphs: [
-        "If you are unable to attend your scheduled appointment, you must contact our support team in advance to reschedule.",
-        "Failure to attend a scheduled evaluation without prior notice may result in a $30 missed appointment fee. This fee may be deducted from any eligible refund, where applicable.",
+        "If you can't make your scheduled appointment, contact our support team in advance to reschedule. Missing an appointment without notice may result in a fee of $30 in most states, or $25 for California residents. This fee may be deducted from any refund you're otherwise owed.",
       ],
     },
     {
       number: "04",
-      title: "Refund Request Process",
+      title: "How to Request a Refund",
       paragraphs: [
-        "To request a refund, please contact our support team using the information below.",
-        "Refund requests must include your full name, email address used at registration, and a brief explanation of your request.",
+        `Email our support team at ${SITE.email} with your full name, the email address used at registration, and a short explanation of your request.`,
       ],
       contact: {
         company: SITE.name,
         website: SITE.url,
         email: SITE.email,
-        phone: SITE.phoneDisplay,
+        phone: SITE.phone,
         address: SITE.address,
       },
     },
@@ -75,14 +66,14 @@ export const refundPolicyDocument: LegalDocument = {
       number: "05",
       title: "Refund Processing",
       paragraphs: [
-        "Approved refunds are typically processed within 7–10 business days, depending on your payment method.",
+        "Approved refunds are typically processed within 7 to 10 business days, depending on your payment method.",
       ],
     },
     {
       number: "06",
       title: "Final Determination",
       paragraphs: [
-        `${SITE.name} reserves the right to review and determine refund eligibility in accordance with this Refund Policy and applicable law.`,
+        `${SITE.name} reserves the right to review and determine refund eligibility in accordance with this policy and applicable law.`,
       ],
     },
   ],

@@ -264,18 +264,18 @@ export function aboutPageSchemas(options: {
     webPageSchema({
       title: options.title,
       description: options.description,
-      path: "/about",
+      path: "/about-us",
       type: "AboutPage",
     }),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "About", path: "/about" },
+      { name: "About Us", path: "/about-us" },
     ]),
     {
       "@context": "https://schema.org",
       "@type": "AboutPage",
-      "@id": `${absoluteUrl("/about")}#aboutpage`,
-      url: absoluteUrl("/about"),
+      "@id": `${absoluteUrl("/about-us")}#aboutpage`,
+      url: absoluteUrl("/about-us"),
       name: options.title,
       description: options.description,
       mainEntity: {
@@ -345,7 +345,7 @@ export function sitemapPageSchemas(options: {
           "@type": "ListItem",
           position: 2,
           name: "About",
-          url: absoluteUrl("/about"),
+          url: absoluteUrl("/about-us"),
         },
         {
           "@type": "ListItem",

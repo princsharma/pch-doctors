@@ -13,7 +13,7 @@ const pricingPlans = [
     features: [
       "Quick online consultation with a licensed doctor",
       "State-recognized certification, delivered digitally",
-      "Same-day approval — or a full refund",
+      "Same-day approval or a full refund",
     ],
   },
   {
@@ -50,9 +50,9 @@ export function Pricing() {
             Know Your <span className="text-[var(--service-accent)]">Consultation</span> Costs
           </h2>
           <p className="max-w-md text-sm text-white/60 lg:mb-1">
-            We know every patient&rsquo;s needs are unique — that&rsquo;s why
-            PCH Doctors keeps pricing transparent. Choose a plan for your
-            first certification or a fast, affordable renewal.
+            We know every patient&rsquo;s needs are unique, so PCH Doctors
+            keeps pricing transparent. Choose a plan for your first
+            certification or a fast, affordable renewal.
           </p>
         </div>
 

@@ -73,7 +73,7 @@ export function Glp1Pricing() {
         </div>
 
         <p className="mt-6 text-center text-xs text-[var(--ds-ink-soft)]">
-          Brand-Name Medications: Variable Pricing — cost varies based on
+          Brand-Name Medications: Variable Pricing. Cost varies based on
           your insurance coverage and preferred pharmacy selection. Final
           pricing depends on insurance coverage, pharmacy selection, and
           prescribed dosage.

@@ -59,13 +59,13 @@ export function HomeFaq() {
           </h2>
         </div>
 
-        <Accordion className="gap-4 rounded-none border-none">
+        <Accordion className="gap-4 overflow-visible rounded-none border-none">
           {HOME_FAQS.map((faq, index) => (
             <AccordionItem
               key={faq.question}
               value={faq.question}
               data-service={index % 2 === 0 ? "mmj" : "glp1"}
-              className="rounded-2xl bg-white px-6 shadow-sm ring-1 ring-[var(--service-border)] not-last:mb-4 not-last:border-b-0 data-open:bg-[var(--service-section-bg)]"
+              className="rounded-2xl border border-[var(--service-border)] bg-white px-6 shadow-sm not-last:mb-4 data-open:bg-[var(--service-section-bg)]"
             >
               <AccordionTrigger className="py-6 text-base font-medium text-[var(--ds-ink)] hover:no-underline **:data-[slot=accordion-trigger-icon]:!size-8 **:data-[slot=accordion-trigger-icon]:shrink-0 **:data-[slot=accordion-trigger-icon]:rounded-full **:data-[slot=accordion-trigger-icon]:bg-[var(--service-brand-light)] **:data-[slot=accordion-trigger-icon]:p-2 **:data-[slot=accordion-trigger-icon]:text-[var(--service-brand-dark)]">
                 {faq.question}

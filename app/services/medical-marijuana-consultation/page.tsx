@@ -6,6 +6,7 @@ import { Hero } from "@/components/sections/hero";
 import { Process } from "@/components/sections/process";
 import { SafeSecure } from "@/components/sections/safe-secure";
 import { Reviews } from "@/components/sections/reviews";
+import { Doctors } from "@/components/sections/doctors";
 import { Pricing } from "@/components/sections/pricing";
 import { Faq, MMJ_FAQS } from "@/components/sections/faq";
 import { PAGE_METADATA, buildPageMetadata } from "@/lib/metadata";
@@ -34,6 +35,7 @@ export default function MedicalMarijuanaPage() {
         <Process />
         <SafeSecure />
         <Reviews />
+        <Doctors />
         <Pricing />
         <Faq />
       </div>

@@ -113,7 +113,7 @@ export function HomeServices() {
                 Medical Marijuana Cert
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-white/85">
-                Same-day recommendations from state-licensed physicians — 100%
+                Same-day recommendations from state-licensed physicians, 100%
                 online.
               </p>
               <p className="mt-4 text-xs font-semibold tracking-wide text-white/75 uppercase">
@@ -235,10 +235,10 @@ export function HomeServices() {
             </div>
             <div className="relative min-h-[280px] flex-1 overflow-hidden rounded-xl shadow-inner">
               <Image
-                src="/glp-1-hero-section.webp"
-                alt="Patient receiving clinician-guided GLP-1 weight loss care"
+                src="/images/glp1-hero-banner.webp"
+                alt="Clinician-guided GLP-1 weight management care"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
                 sizes="(min-width: 768px) 30vw, 100vw"
               />
             </div>
@@ -253,7 +253,7 @@ export function HomeServices() {
             </h3>
             <p className="mt-2 text-neutral-600">
               Online medical marijuana certifications and GLP-1 weight loss
-              programs — check availability for your state by service.
+              programs. Check availability for your state by service.
             </p>
           </div>
           <div className="flex flex-1 flex-wrap items-center justify-center gap-2 md:justify-end">

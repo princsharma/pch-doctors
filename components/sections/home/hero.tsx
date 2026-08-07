@@ -72,7 +72,7 @@ export function HomeHero() {
   return (
     <section className="home-hero relative overflow-hidden">
       <h1 className="sr-only">
-        PCH Doctors — Medical Marijuana Certifications and GLP-1 Weight Loss
+        PCH Doctors: Medical Marijuana Certifications and GLP-1 Weight Loss
       </h1>
 
       <div className="relative flex min-h-[min(960px,calc(100svh-4.5rem))] flex-col md:flex-row">
@@ -135,7 +135,7 @@ export function HomeHero() {
               <span className="text-white">Certifications</span>
             </h2>
             <p className="mt-4 max-w-md text-[15px] font-medium leading-relaxed text-white/95">
-              Fast, legal recommendations from state-licensed physicians — from
+              Fast, legal recommendations from state-licensed physicians from
               home, same day.
             </p>
 
@@ -207,19 +207,6 @@ export function HomeHero() {
             />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_20%,rgb(231_111_81/0.22)_0%,transparent_40%),linear-gradient(210deg,rgb(255_251_245/0.96)_0%,rgb(252_228_220/0.68)_48%,rgb(255_244_236/0.9)_100%)]" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_85%,rgb(244_169_120/0.2)_0%,transparent_35%)]" />
-          </div>
-
-          <div className="pointer-events-none absolute -right-2 bottom-40 z-[1] hidden w-[160px] sm:block md:bottom-44 md:w-[200px] lg:w-[220px]">
-            <div className="home-hero-float relative">
-              <div className="absolute inset-x-6 bottom-2 h-8 rounded-full bg-[rgb(231_111_81/0.25)] blur-2xl" aria-hidden />
-              <Image
-                src="/images/wegovy-semaglutide-prefilled-injection-pen-with-medication-box-for-chronic-weight-management.webp"
-                alt=""
-                width={240}
-                height={300}
-                className="relative drop-shadow-[0_28px_40px_rgb(120_60_40/0.35)]"
-              />
-            </div>
           </div>
 
           <div className="relative z-10 flex flex-wrap gap-2.5 md:justify-end">

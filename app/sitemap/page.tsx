@@ -11,7 +11,7 @@ export const metadata = buildPageMetadata("sitemap");
 
 const siteLinks = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },
   { label: "Process", href: "/#process" },
   { label: "Services", href: "/#services" },

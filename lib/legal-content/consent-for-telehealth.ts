@@ -2,140 +2,93 @@ import type { LegalDocument } from "@/lib/legal-pages";
 import { SITE } from "@/lib/site";
 
 export const consentForTelehealthDocument: LegalDocument = {
-  slug: "consent-for-telehealth",
+  slug: "consent-to-telehealth",
   title: "Consent to Telehealth",
   eyebrow: "Informed Consent",
   description:
-    "How telehealth consultations work at PCH Doctors and what you agree to when receiving remote care.",
+    "Understand how telehealth works at PCH Doctors, including the benefits, risks, and privacy protections for our medical marijuana and GLP-1 weight loss consultations.",
   published: "January 1, 2026",
-  updated: "August 5, 2026",
+  updated: "August 7, 2026",
   next: {
     label: "Terms of Use",
     href: "/terms-of-use",
   },
   intro: [
-    `This Consent to Telehealth explains how telehealth services work when you use ${SITE.name}. Telehealth allows patients to communicate with licensed healthcare professionals remotely using secure electronic communication technologies.`,
-    `By using telehealth services through ${SITE.name}, you acknowledge that you have read and agree to receive healthcare services through telehealth technologies where permitted under applicable U.S. state law.`,
+    `This Consent to Telehealth explains how telehealth services work when you use ${SITE.name}. Telehealth lets you connect with licensed healthcare professionals remotely, using secure electronic communication.`,
+    "By using our telehealth services, you confirm that you've read and understood this consent, and you agree to receive care through telehealth technologies where permitted by law.",
   ],
   sections: [
     {
       number: "01",
       title: "Telehealth Services",
       paragraphs: [
-        "Telehealth services use electronic communications to enable healthcare providers to evaluate, diagnose, and provide medical guidance remotely.",
-        "Telehealth consultations may include:",
-      ],
-      bullets: [
-        "Live video consultations",
-        "Audio or telephone communication",
-        "Secure electronic messaging",
-        "Digital transmission of medical information and records",
-      ],
-      paragraphsAfter: [
-        `${SITE.name} operates a technology platform that helps connect patients with independent, state-licensed clinicians for medical marijuana evaluations and clinician-guided GLP-1 weight management programs, where permitted by applicable state law. Additional information about the platform and our services can be found in our Terms of Use.`,
+        "Telehealth uses electronic communication to let healthcare providers evaluate you and offer medical guidance remotely. This may include live video, phone or audio calls, secure messaging, and digital transmission of your medical information.",
+        `${SITE.name} operates a technology platform that connects you with independent licensed physicians for medical marijuana evaluations and GLP-1 weight loss consultations, where permitted by applicable law. More detail on how the platform works is in our Terms of Use.`,
       ],
     },
     {
       number: "02",
       title: "Nature of Telehealth Consultations",
       paragraphs: [
-        "Telehealth consultations differ from traditional in-person medical visits. Because telehealth is conducted remotely, healthcare providers rely on the information you provide during the consultation to evaluate your condition.",
-        "Certain medical conditions or circumstances may require an in-person examination, and a clinician may determine that telehealth services are not appropriate for your situation.",
+        "Telehealth differs from an in person visit. Because it's conducted remotely, your provider relies on the information you share during the consultation to evaluate you. Some conditions may require an in person exam, and your physician may determine telehealth isn't appropriate for your situation.",
       ],
     },
     {
       number: "03",
-      title: "Potential Benefits of Telehealth",
-      paragraphs: ["Telehealth services may offer several benefits, including:"],
-      bullets: [
-        "Improved access to healthcare services",
-        "Convenience and reduced travel time",
-        "Faster communication with licensed healthcare providers",
+      title: "Benefits and Risks of Telehealth",
+      paragraphs: [
+        "Telehealth can offer real advantages, including easier access to care, more convenience, less travel, and faster communication with your provider.",
+        "It also comes with some limitations, such as technical interruptions, restrictions on physical examination, and possible delays in diagnosis or treatment if the information provided is incomplete or inaccurate. You acknowledge these limitations may affect your evaluation.",
       ],
     },
     {
       number: "04",
-      title: "Potential Risks and Limitations",
+      title: "Not for Emergency Situations",
       paragraphs: [
-        "As with any medical service, telehealth may involve certain limitations, including:",
-      ],
-      bullets: [
-        "Technical interruptions or delays during communication",
-        "Limitations in conducting physical examinations remotely",
-        "Possible delays in diagnosis or treatment due to incomplete or inaccurate information",
-      ],
-      paragraphsAfter: [
-        "You acknowledge that these limitations may affect the evaluation process.",
+        `Telehealth through ${SITE.name} is not intended for medical or psychiatric emergencies. If you're experiencing one, call 911 or go to the nearest emergency department right away.`,
       ],
     },
     {
       number: "05",
-      title: "Not for Emergency Medical Situations",
+      title: "Provider-Patient Relationship",
       paragraphs: [
-        `Telehealth services provided through ${SITE.name} are not intended for emergency medical or psychiatric situations.`,
-        "If you are experiencing a medical emergency, call 911 or go to the nearest emergency department immediately.",
+        "A provider-patient relationship starts only once a licensed physician agrees to evaluate you and begins your consultation. Submitting information or booking an appointment does not, on its own, create that relationship.",
       ],
     },
     {
       number: "06",
-      title: "Provider-Patient Relationship",
+      title: "Accuracy of Information",
       paragraphs: [
-        "A provider-patient relationship is established only after a licensed clinician agrees to evaluate you and begins the medical assessment process through the telehealth consultation.",
-        "Submitting information or scheduling an appointment does not automatically establish a provider-patient relationship.",
+        "Your provider relies on what you share during registration and your consultation. You agree to give accurate, complete, and truthful information about your health history, symptoms, and conditions. Inaccurate or incomplete information can affect the quality and safety of your care.",
       ],
     },
     {
       number: "07",
-      title: "Accuracy of Information",
+      title: "Privacy and Data Security",
       paragraphs: [
-        "Healthcare providers rely on the information you provide during registration and consultation. You agree to provide accurate, complete, and truthful information regarding your health history, symptoms, and medical conditions.",
-        "Providing inaccurate or incomplete information may affect the quality and safety of your care.",
+        "Telehealth involves communicating through electronic systems like messaging and video platforms. While we use reasonable safeguards to protect your information, electronic communication carries some inherent risk, including technical failures or unauthorized access.",
+        `${SITE.name} handles your health information in line with healthcare privacy standards, including HIPAA. You can find more detail in our Privacy Policy and our HIPAA Compliance page.`,
       ],
     },
     {
       number: "08",
-      title: "Communication Through Electronic Systems",
+      title: "Voluntary Consent",
       paragraphs: [
-        "Telehealth services may involve communication through electronic systems, including messaging platforms, video conferencing tools, and other digital technologies.",
-        "While reasonable safeguards are used to protect your information, electronic communications may carry inherent risks, including technical failures and unauthorized access.",
-        "Information about how your personal data is handled can be found in our Privacy Policy.",
+        "By using our telehealth services, you confirm that you understand how telehealth works, along with its benefits and limitations, that you're voluntarily choosing to receive care this way, and that you've had a chance to review our Terms of Use and Privacy Policy.",
+        "Note: If you don't agree with this Consent to Telehealth, please don't proceed with telehealth services through our platform.",
       ],
     },
     {
       number: "09",
-      title: "Privacy and Compliance",
-      paragraphs: [
-        `${SITE.name} is committed to protecting the privacy and security of patient health information. Telehealth consultations and related medical communications are handled in accordance with healthcare privacy standards, including the Health Insurance Portability and Accountability Act (HIPAA).`,
-        "For more information about how we protect patient health information, please review our HIPAA Compliance Policy.",
-      ],
-    },
-    {
-      number: "10",
-      title: "Voluntary Consent",
-      paragraphs: [
-        `By using telehealth services through ${SITE.name}, you acknowledge and agree that:`,
-      ],
-      bullets: [
-        "You understand the nature of telehealth services",
-        "You understand the potential benefits and limitations of telehealth consultations",
-        "You voluntarily consent to receive healthcare services through telehealth technologies",
-        "You have had the opportunity to review related policies, including the Terms of Use and Privacy Policy",
-      ],
-      paragraphsAfter: [
-        "If you do not agree with this Consent to Telehealth, you should not proceed with telehealth services through the platform.",
-      ],
-    },
-    {
-      number: "11",
       title: "Questions",
       paragraphs: [
-        `If you have any questions about this Consent to Telehealth or the telehealth services offered through ${SITE.name}, please contact us using the information below.`,
+        "If you have questions about this consent or our telehealth services, contact us through the information on our Contact Us page.",
       ],
       contact: {
         company: SITE.name,
         website: SITE.url,
         email: SITE.email,
-        phone: SITE.phoneDisplay,
+        phone: SITE.phone,
         address: SITE.address,
       },
     },

@@ -32,10 +32,10 @@ export const PAGE_METADATA = {
       "Clinician-guided GLP-1 weight management with online evaluations. Care may include Wegovy, Ozempic, or Mounjaro when appropriate.",
   },
   about: {
-    path: "/about",
-    title: "About PCH Doctors | Telehealth Care Team",
+    path: "/about-us",
+    title: "About Us | PCH Doctors",
     description:
-      "Learn about PCH Doctors — licensed clinicians, HIPAA-conscious telehealth, MMJ certifications, and GLP-1 weight care.",
+      "Learn about PCH Doctors, an online telehealth platform connecting patients with licensed physicians for medical marijuana consultations and GLP-1 weight loss care.",
   },
   contact: {
     path: "/contact",
@@ -51,51 +51,51 @@ export const PAGE_METADATA = {
   },
   "privacy-policy": {
     path: "/privacy-policy",
-    title: "Privacy Policy | Patient Data Rights | PCH Doctors",
+    title: "Privacy Policy | PCH Doctors",
     description:
-      "Learn how PCH Doctors collects, uses, and protects personal and health information when you use our website and medical services.",
+      "See how PCH Doctors collects, uses, and protects your personal and health information across our medical marijuana consultation and GLP-1 weight loss services.",
   },
-  "hipaa-compliance": {
-    path: "/hipaa-compliance",
-    title: "HIPAA Compliance Policy | Patient Privacy | PCH Doctors",
+  "hipaa-compliance-policy": {
+    path: "/hipaa-compliance-policy",
+    title: "HIPAA Compliance | PCH Doctors",
     description:
-      "See how PCH Doctors protects health information under HIPAA with administrative, technical, and physical security safeguards.",
+      "See how PCH Doctors protects patient health information and meets HIPAA standards across our medical marijuana consultation and GLP-1 weight loss telehealth services.",
   },
-  "consent-for-telehealth": {
-    path: "/consent-for-telehealth",
-    title: "Telehealth Consent Policy | Patient Terms | PCH Doctors",
+  "consent-to-telehealth": {
+    path: "/consent-to-telehealth",
+    title: "Consent to Telehealth | PCH Doctors",
     description:
-      "Review telehealth benefits, risks, and limits before your visit, and how consent applies to online care with PCH Doctors.",
+      "Understand how telehealth works at PCH Doctors, including the benefits, risks, and privacy protections for our medical marijuana and GLP-1 weight loss consultations.",
   },
   "terms-of-use": {
     path: "/terms-of-use",
-    title: "Terms of Use | Online Care Rules | PCH Doctors Inc",
+    title: "Terms of Use | PCH Doctors",
     description:
-      "Read the terms that govern PCH Doctors website and services, including acceptable use, liability limits, and platform role.",
+      "Read the terms governing your use of PCH Doctors' medical marijuana consultation and GLP-1 weight loss telehealth services, including eligibility, fees, and liability.",
   },
   "refund-policy": {
     path: "/refund-policy",
-    title: "Refund Policy | Evaluation Fees | PCH Doctors Care",
+    title: "Refund Policy | PCH Doctors",
     description:
-      "Learn when refunds apply for MMJ evaluations and GLP-1 program fees, and how to request a refund from PCH Doctors support.",
+      "Learn when you qualify for a refund on PCH Doctors' medical marijuana evaluation and GLP-1 weight loss program, plus our missed appointment and refund process.",
   },
   "accessibility-statement": {
     path: "/accessibility-statement",
-    title: "Accessibility Statement | Inclusive Care | PCH Doctors",
+    title: "Accessibility Statement | PCH Doctors",
     description:
-      "Our commitment to accessible digital care, the standards we aim to meet, and how to request help if you need assistance.",
+      "PCH Doctors' commitment to accessible telehealth, covering our accessibility standards, website features, and how to get assistance or share feedback.",
   },
   "editorial-policy": {
     path: "/editorial-policy",
-    title: "Editorial Policy | Content Standards | PCH Doctors",
+    title: "Editorial Policy | PCH Doctors",
     description:
-      "How PCH Doctors creates, reviews, and updates medical content so information stays accurate, clear, and useful for patients.",
+      "See the editorial standards behind PCH Doctors' content on medical marijuana consultations and GLP-1 weight loss, including our accuracy, ethics, and review process.",
   },
   disclaimer: {
     path: "/disclaimer",
-    title: "Medical Disclaimer | Important Notices | PCH Doctors",
+    title: "Disclaimer & Policies | PCH Doctors",
     description:
-      "Key disclaimers on educational content and platform role. PCH Doctors information is not a substitute for professional care.",
+      "Important disclaimers about PCH Doctors' medical marijuana consultation and GLP-1 weight loss telehealth services, including limits on medical guidance.",
   },
   "shipping-policy": {
     path: "/shipping-policy",

@@ -130,8 +130,8 @@ function ServicePanel({
       </div>
 
       <div className="mt-4 space-y-2">
-        <div className="ds-alert ds-alert-success">Success — evaluation confirmed.</div>
-        <div className="ds-alert ds-alert-info">Info — bring your medication list.</div>
+        <div className="ds-alert ds-alert-success">Success: evaluation confirmed.</div>
+        <div className="ds-alert ds-alert-info">Info: bring your medication list.</div>
       </div>
 
       <div className="mt-8 flex flex-wrap gap-3">

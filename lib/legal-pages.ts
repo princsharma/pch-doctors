@@ -64,14 +64,14 @@ export const LEGAL_PAGES: LegalPageMeta[] = [
     document: privacyPolicyDocument,
   },
   {
-    slug: "hipaa-compliance",
+    slug: "hipaa-compliance-policy",
     title: "HIPAA Compliance",
     description: hipaaComplianceDocument.description,
     document: hipaaComplianceDocument,
   },
   {
-    slug: "consent-for-telehealth",
-    title: "Consent for Telehealth",
+    slug: "consent-to-telehealth",
+    title: "Consent to Telehealth",
     description: consentForTelehealthDocument.description,
     document: consentForTelehealthDocument,
   },

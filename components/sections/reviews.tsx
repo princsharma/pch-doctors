@@ -137,7 +137,7 @@ export function Reviews() {
             What Our <span className="text-[var(--service-brand)]">Customers</span> Say?
           </h2>
           <p className="mt-4 text-neutral-600">
-            Trusted by thousands – real stories of fast, affordable, and
+            Trusted by thousands. Real stories of fast, affordable, and
             stress-free medical marijuana evaluations online.
           </p>
         </div>

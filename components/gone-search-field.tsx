@@ -50,7 +50,7 @@ export function GoneSearchField() {
         </button>
       </div>
       <p className="mt-2 text-xs text-[var(--ds-ink-mid)] dark:text-white/50">
-        Search is a quick link to our sitemap — it does not restore removed pages.
+        Search is a quick link to our sitemap. It does not restore removed pages.
       </p>
     </form>
   );

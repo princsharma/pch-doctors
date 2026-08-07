@@ -35,9 +35,12 @@ const doctors = [
   },
 ];
 
-export function HomeDoctors() {
+export function Doctors() {
   return (
-    <section className="relative overflow-hidden bg-white py-20">
+    <section
+      id="doctors"
+      className="relative overflow-hidden bg-white py-20"
+    >
       <div
         data-service="mmj"
         className="pointer-events-none absolute -left-24 top-0 size-72 rounded-full bg-[var(--service-brand)]/10 blur-3xl"

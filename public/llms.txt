@@ -1,13 +1,13 @@
 # PCH Doctors
 
-> Secure, HIPAA-compliant telehealth for medical marijuana certifications and clinician-guided GLP-1 weight management — 100% online.
+> Secure, HIPAA-compliant telehealth for medical marijuana certifications and clinician-guided GLP-1 weight management, 100% online.
 
 PCH Doctors connects patients with state-licensed clinicians for medical marijuana recommendations and GLP-1 weight loss programs. Care is provided through a modern telehealth platform; recommendations and prescriptions are made only by licensed healthcare professionals when clinically appropriate.
 
 ## Main pages
 
 - [Home](https://pchdoctors.com/): Combined overview of medical marijuana certifications and GLP-1 weight loss programs
-- [About](https://pchdoctors.com/about/): Who PCH Doctors is, care values, clinicians, and services
+- [About](https://pchdoctors.com/about-us/): Who PCH Doctors is, care values, team, and services
 - [Contact](https://pchdoctors.com/contact/): Phone, email, and Wilmington CA address for PCH Doctors
 - [Medical Marijuana Consultation](https://pchdoctors.com/services/medical-marijuana-consultation/): Same-day online MMJ evaluations with state-licensed physicians
 - [GLP-1 Medications](https://pchdoctors.com/services/glp-1-medications/): Clinician-guided GLP-1 weight management and medication options
@@ -16,8 +16,8 @@ PCH Doctors connects patients with state-licensed clinicians for medical marijua
 ## Legal & compliance
 
 - [Privacy Policy](https://pchdoctors.com/privacy-policy/): How personal and health information is collected and used
-- [HIPAA Compliance](https://pchdoctors.com/hipaa-compliance/): How protected health information is safeguarded
-- [Consent for Telehealth](https://pchdoctors.com/consent-for-telehealth/): Telehealth risks, benefits, and patient consent
+- [HIPAA Compliance](https://pchdoctors.com/hipaa-compliance-policy/): How protected health information is safeguarded
+- [Consent to Telehealth](https://pchdoctors.com/consent-to-telehealth/): Telehealth risks, benefits, and patient consent
 - [Terms of Use](https://pchdoctors.com/terms-of-use/): Website and service terms
 - [Refund Policy](https://pchdoctors.com/refund-policy/): Refund eligibility for evaluations and program fees
 - [Accessibility Statement](https://pchdoctors.com/accessibility-statement/): Accessibility commitment and assistance
