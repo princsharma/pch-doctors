@@ -53,7 +53,11 @@ export function SiteFooter() {
       <div className="relative mx-auto max-w-6xl px-6 pt-16">
         <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
           <div>
-            <div className="w-fit rounded-lg bg-white p-2">
+            <Link
+              href="/"
+              className="inline-flex w-fit rounded-lg bg-white p-2 transition-opacity hover:opacity-90"
+              aria-label="PCH Doctors home"
+            >
               <Image
                 src="/pch-doctors-logo.png"
                 alt="PCH Doctors logo"
@@ -61,7 +65,7 @@ export function SiteFooter() {
                 height={512}
                 className="h-9 w-auto"
               />
-            </div>
+            </Link>
             <p className="mt-4 text-sm text-white/60">
               Providing high-standard clinician-guided medical solutions through
               a modern, secure telehealth ecosystem.
