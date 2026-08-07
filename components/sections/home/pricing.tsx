@@ -101,7 +101,7 @@ export function HomePricing() {
                 ) : (
                   <Glp1LeadModal
                     trigger={
-                      <Button className="h-auto w-full rounded-full bg-[var(--service-accent)] py-5 text-sm font-semibold text-white hover:bg-[var(--service-warm)]">
+                      <Button className="h-auto w-full rounded-full border-0 bg-[#f59e0b] py-5 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[#f59e0b]/90">
                         {plan.cta}
                       </Button>
                     }

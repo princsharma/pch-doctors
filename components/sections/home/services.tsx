@@ -40,8 +40,8 @@ export function HomeServices() {
           data-service="mmj"
           className="grid gap-6 rounded-3xl bg-[var(--service-section-bg)] p-4 md:grid-cols-12 md:items-stretch md:p-6"
         >
-          <div className="flex flex-col gap-8 overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[var(--service-border)] md:col-span-8 md:flex-row md:items-center md:p-12">
-            <div className="flex-1 space-y-6">
+          <div className="grid overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[var(--service-border)] md:col-span-8 md:grid-cols-[1.15fr_0.85fr] md:items-stretch">
+            <div className="space-y-6 p-8 md:p-12">
               <h2 className="font-heading text-3xl font-medium tracking-normal text-[var(--ds-ink)]">
                 Medical Marijuana{" "}
                 <span className="relative inline-block">
@@ -95,7 +95,7 @@ export function HomeServices() {
                 </li>
               </ul>
             </div>
-            <div className="relative min-h-[280px] flex-1 overflow-hidden rounded-xl shadow-inner">
+            <div className="relative min-h-[240px] overflow-hidden md:min-h-full">
               <Image
                 src="/hero-section.webp"
                 alt="Licensed physician consulting with a patient for a medical marijuana evaluation"
@@ -160,7 +160,7 @@ export function HomeServices() {
             </div>
             <div className="relative mt-6 min-h-[160px] flex-1 overflow-hidden rounded-xl ring-1 ring-white/20">
               <Image
-                src="/glp-1-hero-section.webp"
+                src="/images/glp1-hero-banner.webp"
                 alt="Patient using GLP-1 medication for clinician-guided weight loss"
                 fill
                 className="object-cover object-center"
@@ -176,8 +176,8 @@ export function HomeServices() {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-8 overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-[var(--service-border)] md:col-span-8 md:order-2 md:flex-row md:items-center md:p-12">
-            <div className="flex-1 space-y-6">
+          <div className="grid overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-[var(--service-border)] md:col-span-8 md:order-2 md:grid-cols-[1.15fr_0.85fr] md:items-stretch">
+            <div className="space-y-6 p-8 md:p-12">
               <h2 className="font-heading text-3xl font-medium tracking-normal text-[var(--ds-ink)]">
                 Clinician-Guided{" "}
                 <span className="relative inline-block">
@@ -233,9 +233,9 @@ export function HomeServices() {
                 </li>
               </ul>
             </div>
-            <div className="relative min-h-[280px] flex-1 overflow-hidden rounded-xl shadow-inner">
+            <div className="relative min-h-[240px] overflow-hidden md:min-h-full">
               <Image
-                src="/images/glp1-hero-banner.webp"
+                src="/glp-1-hero-section.webp"
                 alt="Clinician-guided GLP-1 weight management care"
                 fill
                 className="object-cover object-center"
