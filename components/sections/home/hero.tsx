@@ -141,7 +141,7 @@ export function HomeHero() {
 
             <div className="mt-8 rounded-[1.35rem] bg-[linear-gradient(160deg,rgb(255_255_255/0.35)_0%,rgb(255_255_255/0.08)_100%)] p-px shadow-[0_24px_60px_rgb(0_0_0/0.2)]">
               <div className="rounded-[1.3rem] border border-white/20 bg-[rgb(255_255_255/0.08)] p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.25)] backdrop-blur-2xl sm:p-7">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {mmjFeatures.map((feature) => (
                     <div
                       key={feature.label}
@@ -224,10 +224,12 @@ export function HomeHero() {
             <p className="mb-4 text-[11px] font-semibold tracking-[0.22em] text-[var(--service-accent)] uppercase">
               Clinician-guided weight care
             </p>
-            <h2 className="font-heading text-[2.6rem] font-medium leading-[1.02] tracking-[-0.03em] text-[var(--ds-ink)] sm:text-5xl lg:text-[3.35rem]">
-              GLP-1{" "}
-              <span className="bg-[linear-gradient(120deg,#e76f51_0%,#ee8a4f_55%,#d97441_100%)] bg-clip-text text-transparent">
-                Weight Loss
+            <h2 className="font-heading text-[2.35rem] font-medium leading-[1.02] tracking-[-0.03em] text-[var(--ds-ink)] sm:text-5xl lg:text-[3.35rem]">
+              <span className="whitespace-nowrap">
+                GLP-1{" "}
+                <span className="bg-[linear-gradient(120deg,#e76f51_0%,#ee8a4f_55%,#d97441_100%)] bg-clip-text text-transparent">
+                  Weight Loss
+                </span>
               </span>
               <br />
               Program
@@ -239,7 +241,7 @@ export function HomeHero() {
 
             <div className="mt-8 rounded-[1.35rem] bg-[linear-gradient(160deg,rgb(255_255_255/0.95)_0%,rgb(252_228_220/0.55)_100%)] p-px shadow-[0_30px_80px_rgb(231_111_81/0.18)]">
               <div className="rounded-[1.3rem] bg-white/70 p-5 backdrop-blur-2xl sm:p-7">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   {glp1Features.map((feature) => (
                     <div
                       key={feature.label}

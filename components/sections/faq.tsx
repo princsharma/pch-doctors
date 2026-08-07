@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 import {
   Accordion,
@@ -70,12 +71,15 @@ export function Faq() {
                 Need clarity before booking? Speak with our support team and
                 get direct answers tailored to your situation.
               </p>
-              <button className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[var(--service-accent)] py-1 pl-1 pr-6 text-base font-semibold text-[var(--ds-ink)] transition-colors hover:bg-[var(--service-accent)]/90">
+              <Link
+                href="/contact"
+                className="group mt-6 flex w-fit items-center gap-3 rounded-full bg-[var(--service-accent)] py-1 pl-1 pr-6 text-base font-semibold text-white transition-colors hover:bg-[var(--service-accent)]/90"
+              >
                 <span className="flex size-11 items-center justify-center rounded-full bg-white text-[var(--ds-ink)] transition-transform group-hover:translate-x-0.5">
                   <ArrowRight className="size-4.5" />
                 </span>
                 Contact Us
-              </button>
+              </Link>
             </div>
           </div>
 

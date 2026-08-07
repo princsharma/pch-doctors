@@ -78,13 +78,18 @@ export function SafeSecure() {
               ))}
             </div>
 
-            <MmjLeadModal
-              trigger={
-                <Button className="mt-10 rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90">
-                  Schedule Your Consultation Now
-                </Button>
-              }
-            />
+            <div className="mt-10 flex justify-center lg:justify-start">
+              <MmjLeadModal
+                trigger={
+                  <Button className="h-auto w-full max-w-full rounded-full border-0 bg-[var(--service-accent)] px-6 py-5 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90 sm:w-auto sm:px-7 sm:py-6">
+                    <span className="sm:hidden">Book Your Consultation</span>
+                    <span className="hidden sm:inline">
+                      Schedule Your Consultation Now
+                    </span>
+                  </Button>
+                }
+              />
+            </div>
           </div>
 
           <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">

@@ -12,8 +12,8 @@ export function Glp1Hero() {
       <div className="pointer-events-none absolute -right-16 top-40 size-80 rounded-full bg-[var(--service-brand)]/10 blur-3xl" />
 
       <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-20 lg:grid-cols-2 lg:py-28">
-        <div>
-          <div className="mb-5 flex flex-wrap gap-3">
+        <div className="text-center lg:text-left">
+          <div className="mb-5 flex flex-wrap justify-center gap-3 lg:justify-start">
             <Badge variant="outline" className="h-8 gap-1.5 rounded-full bg-white/80 px-4 text-xs shadow-sm backdrop-blur">
               <ShieldCheck className="size-3.5 text-[var(--service-brand)]" /> HIPAA Compliant
             </Badge>
@@ -27,18 +27,21 @@ export function Glp1Hero() {
             <span className="text-[var(--service-brand)]">GLP-1 Weight Management</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-neutral-600">
+          <p className="mx-auto mt-6 max-w-lg text-neutral-600 lg:mx-0">
             Start with a personalized, online, clinician-guided GLP-1
             evaluation based on your medical history and health goals.
             Treatment is prescribed only when clinically appropriate by your
             provider.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-6">
+          <div className="mt-8 flex flex-col items-center gap-5 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6 lg:justify-start">
             <Glp1LeadModal
               trigger={
-                <Button className="rounded-full bg-[var(--service-accent)] px-9 py-7 text-base font-semibold text-white shadow-[0_8px_24px_rgb(var(--service-accent-rgb)/0.35)] hover:bg-[var(--service-warm)]">
-                  Schedule Medical Evaluation
+                <Button className="h-auto w-full max-w-full rounded-full border-0 bg-[var(--service-accent)] px-6 py-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgb(var(--service-accent-rgb)/0.35)] hover:bg-[var(--service-warm)] sm:w-auto sm:px-9 sm:py-7 sm:text-base">
+                  <span className="sm:hidden">Book Your Consultation</span>
+                  <span className="hidden sm:inline">
+                    Schedule Medical Evaluation
+                  </span>
                 </Button>
               }
             />
@@ -53,7 +56,7 @@ export function Glp1Hero() {
                   </span>
                 ))}
               </div>
-              <div>
+              <div className="text-left">
                 <div className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star key={i} className="size-3 fill-[var(--service-accent)] text-[var(--service-accent)]" />

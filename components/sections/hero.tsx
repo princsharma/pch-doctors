@@ -43,8 +43,11 @@ export function Hero() {
 
         <MmjLeadModal
           trigger={
-            <Button className="mt-8 rounded-full bg-[var(--service-accent)] px-9 py-7 text-base font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90">
-              Book Your Doctor Consultation Today
+            <Button className="mt-8 h-auto w-full max-w-full rounded-full border-0 bg-[var(--service-accent)] px-6 py-5 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90 sm:w-auto sm:px-9 sm:py-7 sm:text-base">
+              <span className="sm:hidden">Book Your Consultation</span>
+              <span className="hidden sm:inline">
+                Book Your Doctor Consultation Today
+              </span>
             </Button>
           }
         />

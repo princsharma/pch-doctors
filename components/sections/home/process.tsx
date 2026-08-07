@@ -91,9 +91,12 @@ export function HomeProcess() {
         <div className="mt-16 text-center">
           <ConsultationModal
             trigger={
-              <Button className="h-auto rounded-full bg-[var(--ds-brand)] px-10 py-6 text-base font-semibold text-white shadow-[0_8px_24px_rgb(var(--ds-brand-rgb)/0.35)] hover:bg-[var(--ds-brand-dark)]">
-                Start Your Online Consultation
-                <ArrowRight className="size-4" />
+              <Button className="h-auto w-full max-w-md gap-2 rounded-full bg-[var(--ds-brand)] px-6 py-5 text-sm font-semibold text-white shadow-[0_8px_24px_rgb(var(--ds-brand-rgb)/0.35)] hover:bg-[var(--ds-brand-dark)] sm:w-auto sm:px-10 sm:py-6 sm:text-base">
+                <span className="sm:hidden">Start Your Consultation</span>
+                <span className="hidden sm:inline">
+                  Start Your Online Consultation
+                </span>
+                <ArrowRight className="size-4 shrink-0" />
               </Button>
             }
           />

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Sparkles, ArrowRight } from "lucide-react";
 import {
   Accordion,
@@ -79,12 +80,15 @@ export function HomeFaq() {
 
         <div className="mt-12 text-center">
           <p className="mb-4 text-neutral-600">Still have questions?</p>
-          <button className="group inline-flex items-center gap-3 rounded-full bg-[var(--ds-brand)] py-1 pl-1 pr-6 text-sm font-semibold text-white transition-colors hover:bg-[var(--ds-brand-dark)]">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-3 rounded-full bg-[var(--ds-brand)] py-1 pl-1 pr-6 text-sm font-semibold text-white transition-colors hover:bg-[var(--ds-brand-dark)]"
+          >
             <span className="flex size-11 items-center justify-center rounded-full bg-white text-[var(--ds-brand)] transition-transform group-hover:translate-x-0.5">
               <ArrowRight className="size-4.5" />
             </span>
             Contact Our Support Team
-          </button>
+          </Link>
         </div>
       </div>
     </section>

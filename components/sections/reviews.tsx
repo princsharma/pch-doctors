@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -157,7 +158,11 @@ export function Reviews() {
         </div>
 
         <div className="mt-4 flex flex-col items-center gap-3">
-          <Button className="rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90">
+          <Button
+            nativeButton={false}
+            render={<Link href="/contact" />}
+            className="rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90"
+          >
             Read More Reviews
           </Button>
           <p className="text-xs text-neutral-500">

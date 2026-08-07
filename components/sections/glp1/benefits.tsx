@@ -71,19 +71,21 @@ export function Glp1Benefits() {
             ))}
           </div>
 
-          <Glp1LeadModal
-            trigger={
-              <Button
-                className="mt-8 rounded-full px-7 py-6 text-sm font-semibold text-white hover:opacity-95"
-                style={{ background: "var(--service-cta)" }}
-              >
-                Schedule Medical Evaluation
-              </Button>
-            }
-          />
-          <p className="mt-3 text-xs text-neutral-500">
-            Weight Loss Program Enrollment Fee: $75
-          </p>
+          <div className="mt-8 flex flex-col items-center text-center lg:items-start lg:text-left">
+            <Glp1LeadModal
+              trigger={
+                <Button
+                  className="h-auto w-full max-w-full rounded-full border-0 px-6 py-5 text-sm font-semibold text-white hover:opacity-95 sm:w-auto sm:px-7 sm:py-6"
+                  style={{ background: "var(--service-cta)" }}
+                >
+                  Schedule Medical Evaluation
+                </Button>
+              }
+            />
+            <p className="mt-3 text-xs text-neutral-500">
+              Weight Loss Program Enrollment Fee: $75
+            </p>
+          </div>
         </div>
 
         <div className="relative">

@@ -84,24 +84,24 @@ export function Process() {
           ))}
         </div>
 
-        <div className="mt-8 flex flex-col items-center gap-4 rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 sm:flex-row sm:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-3">
+        <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl bg-white/5 px-4 py-3.5 ring-1 ring-white/10 sm:flex-row sm:justify-between sm:gap-4 sm:px-5 sm:py-4">
+          <div className="flex items-center gap-2.5">
+            <div className="flex -space-x-2.5">
               {["bg-[var(--service-brand)]", "bg-[var(--service-accent)]", "bg-[#e0342a]", "bg-[var(--service-brand-dark)]"].map(
                 (bg, i) => (
                   <span
                     key={i}
                     className={cn(
-                      "flex size-9 items-center justify-center rounded-full text-white ring-2 ring-[var(--service-brand-dark)]",
+                      "flex size-7 items-center justify-center rounded-full text-white ring-2 ring-[var(--service-brand-dark)]",
                       bg
                     )}
                   >
-                    <UserPlus className="size-4" />
+                    <UserPlus className="size-3.5" />
                   </span>
                 )
               )}
             </div>
-            <p className="text-sm text-white/80">
+            <p className="text-xs text-white/80 sm:text-sm">
               100% Money-Back Guarantee{" "}
               <span className="font-semibold text-white">if not approved</span>
             </p>
@@ -109,11 +109,14 @@ export function Process() {
 
           <MmjLeadModal
             trigger={
-              <Button className="group gap-3 rounded-full bg-white py-7 pl-2 pr-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-white/90">
-                <span className="flex size-10 items-center justify-center rounded-full bg-[var(--service-accent)] text-[var(--ds-ink)] transition-transform group-hover:translate-x-0.5">
-                  <ArrowRight className="size-4.5" />
+              <Button className="group h-auto w-full max-w-full gap-2.5 rounded-full border-0 bg-white py-2.5 pl-1.5 pr-4 text-sm font-semibold text-[var(--ds-ink)] hover:bg-white/90 sm:w-auto sm:py-3 sm:pr-5">
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--service-accent)] text-[var(--ds-ink)] transition-transform group-hover:translate-x-0.5">
+                  <ArrowRight className="size-4" />
                 </span>
-                Start Your Certification Process
+                <span className="sm:hidden">Start Your Certification</span>
+                <span className="hidden sm:inline">
+                  Start Your Certification Process
+                </span>
               </Button>
             }
           />
