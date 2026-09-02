@@ -648,11 +648,10 @@ export default function AboutPage() {
             <div className="absolute inset-0">
               <Image
                 src="/glp-1-hero-section.webp"
-                alt=""
+                alt="Doctor in telehealth consultation for online medical marijuana and GLP-1 weight loss care"
                 fill
                 className="object-cover"
                 sizes="100vw"
-                aria-hidden
               />
               <div className="absolute inset-0 bg-[var(--ds-brand-dark)]/90" />
               <div

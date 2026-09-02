@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
-import { buildPageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +26,6 @@ export const metadata: Metadata = {
   verification: {
     google: "WQ-kc6twMNvglAy1P5IBpPZl7GOX_Wolyy2Aba9H5rI",
   },
-  ...buildPageMetadata("home"),
 };
 
 export default function RootLayout({

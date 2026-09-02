@@ -31,7 +31,7 @@ export function Hero() {
           <span className="text-[var(--ds-ink)]">Get Your Medical</span>{" "}
           <span className="text-[var(--service-brand)]">Marijuana</span>
           <br />
-          <span className="text-[var(--service-brand)]">Certification</span>{" "}
+          <span className="text-[var(--service-brand)]">{" "}Certification</span>{" "}
           <span className="text-[var(--ds-ink)]">Online</span>
         </h1>
 

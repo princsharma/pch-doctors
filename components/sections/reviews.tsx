@@ -3,6 +3,7 @@ import { Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { SITE } from "@/lib/site";
 
 const reviews = [
   {
@@ -160,7 +161,13 @@ export function Reviews() {
         <div className="mt-4 flex flex-col items-center gap-3">
           <Button
             nativeButton={false}
-            render={<Link href="/contact" />}
+            render={
+              <Link
+                href={SITE.googleReviews}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            }
             className="rounded-full bg-[var(--service-accent)] px-7 py-6 text-sm font-semibold text-[var(--ds-ink)] hover:bg-[var(--service-accent)]/90"
           >
             Read More Reviews

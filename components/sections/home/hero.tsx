@@ -90,7 +90,7 @@ export function HomeHero() {
           <div className="pointer-events-none absolute inset-0">
             <Image
               src="/images/effective-pills.webp"
-              alt=""
+              alt="Medical marijuana pills and capsules for MMJ certification"
               fill
               className="object-cover object-center saturate-[1.05] contrast-[1.02]"
               sizes="50vw"
@@ -199,7 +199,7 @@ export function HomeHero() {
           <div className="pointer-events-none absolute inset-0">
             <Image
               src="/images/glp1-hero-banner.webp"
-              alt=""
+              alt="Doctor consulting patient for GLP-1 weight loss program"
               fill
               className="object-cover object-center saturate-[0.9]"
               sizes="50vw"

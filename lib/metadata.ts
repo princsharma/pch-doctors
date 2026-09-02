@@ -33,9 +33,9 @@ export const PAGE_METADATA = {
   },
   about: {
     path: "/about-us",
-    title: "About Us | PCH Doctors",
+    title: "About PCH Doctors | Online MMJ & GLP-1 Telehealth",
     description:
-      "Learn about PCH Doctors, an online telehealth platform connecting patients with licensed physicians for medical marijuana consultations and GLP-1 weight loss care.",
+      "Learn about PCH Doctors, a telehealth platform connecting patients with licensed physicians for MMJ and GLP-1 weight loss care.",
   },
   contact: {
     path: "/contact",
@@ -53,49 +53,49 @@ export const PAGE_METADATA = {
     path: "/privacy-policy",
     title: "Privacy Policy | PCH Doctors",
     description:
-      "See how PCH Doctors collects, uses, and protects your personal and health information across our medical marijuana consultation and GLP-1 weight loss services.",
+      "See how PCH Doctors collects, uses, and protects your personal and health information for MMJ and GLP-1 telehealth services.",
   },
   "hipaa-compliance-policy": {
     path: "/hipaa-compliance-policy",
     title: "HIPAA Compliance | PCH Doctors",
     description:
-      "See how PCH Doctors protects patient health information and meets HIPAA standards across our medical marijuana consultation and GLP-1 weight loss telehealth services.",
+      "See how PCH Doctors meets HIPAA standards to protect patient health information across our MMJ and GLP-1 telehealth services.",
   },
   "consent-to-telehealth": {
     path: "/consent-to-telehealth",
     title: "Consent to Telehealth | PCH Doctors",
     description:
-      "Understand how telehealth works at PCH Doctors, including the benefits, risks, and privacy protections for our medical marijuana and GLP-1 weight loss consultations.",
+      "Understand how telehealth works at PCH Doctors: benefits, risks, and privacy protections for MMJ and GLP-1 consultations.",
   },
   "terms-of-use": {
     path: "/terms-of-use",
     title: "Terms of Use | PCH Doctors",
     description:
-      "Read the terms governing your use of PCH Doctors' medical marijuana consultation and GLP-1 weight loss telehealth services, including eligibility, fees, and liability.",
+      "Read the terms governing PCH Doctors' MMJ and GLP-1 telehealth services, including eligibility, fees, and liability.",
   },
   "refund-policy": {
     path: "/refund-policy",
     title: "Refund Policy | PCH Doctors",
     description:
-      "Learn when you qualify for a refund on PCH Doctors' medical marijuana evaluation and GLP-1 weight loss program, plus our missed appointment and refund process.",
+      "Learn when you qualify for a refund on PCH Doctors' MMJ evaluations and GLP-1 program, including our refund process.",
   },
   "accessibility-statement": {
     path: "/accessibility-statement",
     title: "Accessibility Statement | PCH Doctors",
     description:
-      "PCH Doctors' commitment to accessible telehealth, covering our accessibility standards, website features, and how to get assistance or share feedback.",
+      "PCH Doctors' commitment to accessible telehealth, covering our accessibility standards, website features, and assistance.",
   },
   "editorial-policy": {
     path: "/editorial-policy",
     title: "Editorial Policy | PCH Doctors",
     description:
-      "See the editorial standards behind PCH Doctors' content on medical marijuana consultations and GLP-1 weight loss, including our accuracy, ethics, and review process.",
+      "See the editorial standards behind PCH Doctors' MMJ and GLP-1 content, including our accuracy, ethics, and review process.",
   },
   disclaimer: {
     path: "/disclaimer",
     title: "Disclaimer & Policies | PCH Doctors",
     description:
-      "Important disclaimers about PCH Doctors' medical marijuana consultation and GLP-1 weight loss telehealth services, including limits on medical guidance.",
+      "Important disclaimers about PCH Doctors' MMJ and GLP-1 telehealth services, including limits on medical guidance.",
   },
   "shipping-policy": {
     path: "/shipping-policy",
