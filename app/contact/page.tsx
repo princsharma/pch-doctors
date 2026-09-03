@@ -269,7 +269,7 @@ export default function ContactPage() {
                     <span className="flex size-9 items-center justify-center rounded-full bg-[#0e8140]/12 text-[#0e8140]">
                       <Leaf className="size-4" aria-hidden />
                     </span>
-                    Medical Marijuana Certs
+                    Medical Marijuana Certifications
                   </span>
                   <ChevronRight className="size-4 text-[var(--ds-ink-soft)] transition-transform group-hover:translate-x-0.5" aria-hidden />
                 </Link>

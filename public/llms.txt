@@ -8,6 +8,8 @@ PCH Doctors connects patients with state-licensed clinicians for medical marijua
 
 - [Home](https://pchdoctors.com/): Combined overview of medical marijuana certifications and GLP-1 weight loss programs
 - [About](https://pchdoctors.com/about-us/): Who PCH Doctors is, care values, team, and services
+- [MMJ Doctors](https://pchdoctors.com/our-doctors/): Licensed MMJ clinicians, credentials you can look up, and how a video visit works
+- [Ongo Weight Loss Doctors](https://pchdoctors.com/weight-loss-doctors/): Licensed physicians for GLP-1 visits through PCH Doctors and the Ongo program
 - [Contact](https://pchdoctors.com/contact/): Phone, email, and Wilmington CA address for PCH Doctors
 - [Medical Marijuana Consultation](https://pchdoctors.com/services/medical-marijuana-consultation/): Same-day online MMJ evaluations with state-licensed physicians
 - [GLP-1 Medications](https://pchdoctors.com/services/glp-1-medications/): Clinician-guided GLP-1 weight management and medication options

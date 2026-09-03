@@ -43,6 +43,18 @@ export const PAGE_METADATA = {
     description:
       "Reach PCH Doctors by phone, email, or mail in Wilmington, CA for MMJ certifications and GLP-1 weight loss support.",
   },
+  doctors: {
+    path: "/our-doctors",
+    title: "Medical Team | Licensed MMJ Clinicians | PCH Doctors",
+    description:
+      "Meet the licensed physicians and nurse practitioners who evaluate medical marijuana patients at PCH Doctors. See credentials, states, and book a private video visit.",
+  },
+  "weight-loss-doctors": {
+    path: "/weight-loss-doctors",
+    title: "Ongo Weight Loss Doctors | PCH Doctors",
+    description:
+      "Meet the licensed physicians who run GLP-1 visits through PCH Doctors and Ongo. See training, then book a private online evaluation.",
+  },
   sitemap: {
     path: "/sitemap",
     title: "Full Website Sitemap | Pages & Legal | PCH Doctors",

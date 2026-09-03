@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { LEGAL_PAGES } from "@/lib/legal-pages";
 import { isRemovedPath } from "@/lib/removed-routes";
 import { absoluteUrl } from "@/lib/seo";
+import { GLP1_DOCTORS, MMJ_DOCTORS } from "@/lib/doctors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -32,6 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: absoluteUrl("/our-doctors"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: absoluteUrl("/weight-loss-doctors"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: absoluteUrl("/contact"),
       lastModified,
       changeFrequency: "monthly",
@@ -45,6 +58,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const doctorRoutes: MetadataRoute.Sitemap = [
+    ...MMJ_DOCTORS.map((doctor) => ({
+      url: absoluteUrl(`/our-doctors/${doctor.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...GLP1_DOCTORS.map((doctor) => ({
+      url: absoluteUrl(`/weight-loss-doctors/${doctor.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
+
   const legalRoutes: MetadataRoute.Sitemap = LEGAL_PAGES.map((page) => ({
     url: absoluteUrl(`/${page.slug}`),
     lastModified,
@@ -53,7 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Never advertise permanently removed URLs to crawlers.
-  return [...staticRoutes, ...legalRoutes].filter((entry) => {
+  return [...staticRoutes, ...doctorRoutes, ...legalRoutes].filter((entry) => {
     try {
       const pathname = new URL(entry.url).pathname;
       return !isRemovedPath(pathname);

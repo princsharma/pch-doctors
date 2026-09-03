@@ -95,12 +95,12 @@ export function HomeServices() {
                 </li>
               </ul>
             </div>
-            <div className="relative min-h-[240px] overflow-hidden md:min-h-full">
+            <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[5/4] md:aspect-auto md:min-h-full">
               <Image
-                src="/hero-section.webp"
+                src="/images/hero-section.webp"
                 alt="Licensed physician consulting with a patient for a medical marijuana evaluation"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_20%] md:object-center"
                 sizes="(min-width: 768px) 30vw, 100vw"
               />
             </div>
@@ -110,7 +110,7 @@ export function HomeServices() {
             <div>
               <Leaf className="mb-4 size-8" />
               <h3 className="font-heading text-xl font-medium">
-                Medical Marijuana Cert
+                Medical Marijuana Certification
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-white/85">
                 Same-day recommendations from state-licensed physicians, 100%
@@ -120,12 +120,12 @@ export function HomeServices() {
                 {mmjCount}+ states · from $149
               </p>
             </div>
-            <div className="relative mt-6 min-h-[160px] flex-1 overflow-hidden rounded-xl ring-1 ring-white/20">
+            <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl ring-1 ring-white/20 md:aspect-auto md:min-h-[160px] md:flex-1">
               <Image
-                src="/secure-sections.webp"
+                src="/images/mmj-service-card.webp"
                 alt="Secure online medical marijuana consultation"
                 fill
-                className="object-cover"
+                className="object-cover object-[center_20%] md:object-center"
                 sizes="(min-width: 768px) 25vw, 100vw"
               />
             </div>
@@ -158,12 +158,12 @@ export function HomeServices() {
                 {glp1Count} states · from $75 consult
               </p>
             </div>
-            <div className="relative mt-6 min-h-[160px] flex-1 overflow-hidden rounded-xl ring-1 ring-white/20">
+            <div className="relative mt-6 aspect-[4/3] w-full overflow-hidden rounded-xl ring-1 ring-white/20 md:aspect-auto md:min-h-[160px] md:flex-1">
               <Image
-                src="/images/glp1-hero-banner.webp"
-                alt="Patient using GLP-1 medication for clinician-guided weight loss"
+                src="/images/glp1-service-card.webp"
+                alt="Patient using a Wegovy GLP-1 injection pen"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-[center_20%] md:object-center"
                 sizes="(min-width: 768px) 25vw, 100vw"
               />
             </div>
@@ -233,12 +233,12 @@ export function HomeServices() {
                 </li>
               </ul>
             </div>
-            <div className="relative min-h-[240px] overflow-hidden md:min-h-full">
+            <div className="relative aspect-[4/5] w-full overflow-hidden sm:aspect-[5/4] md:aspect-auto md:min-h-full">
               <Image
-                src="/glp-1-hero-section.webp"
-                alt="Clinician-guided GLP-1 weight management care"
+                src="/images/glp1-weight-management.webp"
+                alt="Patient measuring waist progress during a GLP-1 weight management program"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-[center_20%] md:object-center"
                 sizes="(min-width: 768px) 30vw, 100vw"
               />
             </div>

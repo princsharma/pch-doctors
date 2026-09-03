@@ -62,7 +62,7 @@ export function ConsultationModal({ trigger }: ConsultationModalProps) {
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center justify-between gap-2">
                     <span className="font-heading text-base font-medium text-[var(--ds-ink)]">
-                      Medical Marijuana Cert
+                      Medical Marijuana Certification
                     </span>
                     <ArrowRight className="size-4 shrink-0 text-[var(--ds-ink)]/40 transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--service-accent)]" />
                   </span>

@@ -12,6 +12,8 @@ export const metadata = buildPageMetadata("sitemap");
 const siteLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-us" },
+  { label: "MMJ Doctors", href: "/our-doctors" },
+  { label: "Ongo Weight Loss Doctors", href: "/weight-loss-doctors" },
   { label: "Contact", href: "/contact" },
   { label: "Process", href: "/#process" },
   { label: "Services", href: "/#services" },

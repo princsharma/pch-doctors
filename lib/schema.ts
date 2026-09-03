@@ -2,6 +2,7 @@ import { SITE } from "@/lib/site";
 import { absoluteUrl, SITE_URL } from "@/lib/seo";
 import { LEGAL_PAGES } from "@/lib/legal-pages";
 import { SERVICE_PAGES } from "@/lib/service-pages";
+import { doctorsByService } from "@/lib/doctors";
 
 type FaqItem = {
   question: string;
@@ -255,6 +256,114 @@ export function legalPageSchemas(options: {
   ];
 }
 
+export function mmjDoctorsPageSchemas(options: {
+  title: string;
+  description: string;
+  faqs: FaqItem[];
+}) {
+  const path = "/our-doctors";
+  const physicians = doctorsByService("mmj");
+
+  return [
+    organizationSchema(),
+    webPageSchema({
+      title: options.title,
+      description: options.description,
+      path,
+      type: "MedicalWebPage",
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Medical Team", path },
+    ]),
+    faqPageSchema(options.faqs, path),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${absoluteUrl(path)}#physicians`,
+      name: "PCH Doctors medical team",
+      itemListElement: physicians.map((doctor, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Physician",
+          name: doctor.name,
+          jobTitle: doctor.credential,
+          description: doctor.bio,
+          ...(doctor.image ? { image: absoluteUrl(doctor.image) } : {}),
+          ...(doctor.npi
+            ? {
+                identifier: {
+                  "@type": "PropertyValue",
+                  propertyID: "NPI",
+                  value: doctor.npi,
+                },
+              }
+            : {}),
+          medicalSpecialty: "Medical marijuana evaluation",
+          worksFor: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+        },
+      })),
+    },
+  ];
+}
+
+export function glp1DoctorsPageSchemas(options: {
+  title: string;
+  description: string;
+  faqs: FaqItem[];
+}) {
+  const path = "/weight-loss-doctors";
+  const physicians = doctorsByService("glp1");
+
+  return [
+    organizationSchema(),
+    webPageSchema({
+      title: options.title,
+      description: options.description,
+      path,
+      type: "MedicalWebPage",
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Ongo Weight Loss", path },
+    ]),
+    faqPageSchema(options.faqs, path),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${absoluteUrl(path)}#physicians`,
+      name: "Ongo Weight Loss doctors",
+      itemListElement: physicians.map((doctor, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Physician",
+          name: doctor.name,
+          jobTitle: doctor.credential,
+          description: doctor.bio,
+          ...(doctor.image ? { image: absoluteUrl(doctor.image) } : {}),
+          ...(doctor.npi
+            ? {
+                identifier: {
+                  "@type": "PropertyValue",
+                  propertyID: "NPI",
+                  value: doctor.npi,
+                },
+              }
+            : {}),
+          medicalSpecialty: "Weight management",
+          worksFor: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+        },
+      })),
+    },
+  ];
+}
+
 export function aboutPageSchemas(options: {
   title: string;
   description: string;
@@ -356,18 +465,30 @@ export function sitemapPageSchemas(options: {
         {
           "@type": "ListItem",
           position: 4,
+          name: "Medical Marijuana Doctors",
+          url: absoluteUrl("/our-doctors"),
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "Ongo Weight Loss Doctors",
+          url: absoluteUrl("/weight-loss-doctors"),
+        },
+        {
+          "@type": "ListItem",
+          position: 6,
           name: "Medical Marijuana Consultation",
           url: absoluteUrl("/services/medical-marijuana-consultation"),
         },
         {
           "@type": "ListItem",
-          position: 5,
+          position: 7,
           name: "GLP-1 Medications",
           url: absoluteUrl("/services/glp-1-medications"),
         },
         ...LEGAL_PAGES.map((page, index) => ({
           "@type": "ListItem",
-          position: index + 6,
+          position: index + 8,
           name: page.title,
           url: absoluteUrl(`/${page.slug}`),
         })),

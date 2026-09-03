@@ -19,15 +19,23 @@ const headerMobileCtaClassName =
 
 const MMJ_PATH = "/services/medical-marijuana-consultation";
 const GLP1_PATH = "/services/glp-1-medications";
+const MMJ_DOCTORS_PATH = "/our-doctors";
+const GLP1_DOCTORS_PATH = "/weight-loss-doctors";
 
 const services = [
   { label: "Medical Marijuana Consultation", href: MMJ_PATH },
   { label: "GLP-1 Medications", href: GLP1_PATH },
 ];
 
+const medicalTeam = [
+  { label: "MMJ Doctor", href: MMJ_DOCTORS_PATH },
+  { label: "Ongo Weight Loss", href: GLP1_DOCTORS_PATH },
+];
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services", children: services },
+  { label: "Medical Team", href: MMJ_DOCTORS_PATH, children: medicalTeam },
   { label: "About", href: "/about-us" },
   { label: "Contact", href: "/contact" },
 ] as const;
@@ -40,13 +48,19 @@ function isActivePath(pathname: string | null, href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const isGlp1 =
+  const isGlp1Service =
     pathname?.startsWith(GLP1_PATH) ||
     pathname?.startsWith("/services/glp-1-weight-loss-treatment");
-  const isMmj = pathname?.startsWith(MMJ_PATH);
+  const isMmjService = pathname?.startsWith(MMJ_PATH);
+  const isMmjTeam = pathname?.startsWith(MMJ_DOCTORS_PATH);
+  const isGlp1Team = pathname?.startsWith(GLP1_DOCTORS_PATH);
+  const isServicePage = Boolean(isMmjService || isGlp1Service);
+  const isTeamPage = Boolean(isMmjTeam || isGlp1Team);
+  const isMmj = Boolean(isMmjService || isMmjTeam);
+  const isGlp1 = Boolean(isGlp1Service || isGlp1Team);
 
   const [open, setOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   return (
     <header className="sticky top-0 z-50 w-full">
@@ -95,14 +109,15 @@ export function SiteHeader() {
                 <div
                   key={link.label}
                   className="relative"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
+                  onMouseEnter={() => setOpenMenu(link.label)}
+                  onMouseLeave={() => setOpenMenu(null)}
                 >
                   <a
                     href={link.href}
                     className={cn(
                       "flex items-center gap-1 rounded-full px-4 py-2 transition-colors hover:bg-[var(--ds-bg-subtle)] hover:text-[var(--ds-brand)]",
-                      (isMmj || isGlp1) && "bg-white text-[var(--ds-brand)]"
+                      (link.label === "Services" ? isServicePage : isTeamPage) &&
+                        "bg-white text-[var(--ds-brand)]"
                     )}
                   >
                     {link.label}
@@ -110,7 +125,7 @@ export function SiteHeader() {
                       aria-hidden
                       className={cn(
                         "size-3.5 transition-transform",
-                        servicesOpen && "rotate-180"
+                        openMenu === link.label && "rotate-180"
                       )}
                     />
                   </a>
@@ -118,17 +133,21 @@ export function SiteHeader() {
                   <div
                     className={cn(
                       "absolute left-1/2 top-full w-64 -translate-x-1/2 pt-2 transition-all",
-                      servicesOpen
+                      openMenu === link.label
                         ? "pointer-events-auto opacity-100"
                         : "pointer-events-none translate-y-1 opacity-0"
                     )}
                   >
-                    <div className="overflow-hidden rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
+                    <div className="flex flex-col gap-2 overflow-hidden rounded-xl bg-white p-2 shadow-lg ring-1 ring-black/5">
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block rounded-lg px-3 py-2.5 text-sm text-[var(--ds-ink)]/80 transition-colors hover:bg-[var(--ds-brand)] hover:text-white"
+                          className={cn(
+                            "block rounded-lg px-3 py-2.5 text-sm text-[var(--ds-ink)]/80 transition-colors hover:bg-[var(--ds-brand)] hover:text-white",
+                            isActivePath(pathname, child.href) &&
+                              "bg-[var(--ds-brand)] text-white"
+                          )}
                         >
                           {child.label}
                         </Link>
@@ -201,7 +220,7 @@ export function SiteHeader() {
           aria-label="Primary"
           className={cn(
             "mx-4 flex flex-col gap-1 overflow-hidden rounded-2xl bg-white/90 px-4 shadow-md ring-1 ring-[var(--ds-brand)]/15 backdrop-blur-md transition-all lg:hidden",
-            open ? "mb-2 max-h-[32rem] py-3" : "max-h-0 py-0"
+            open ? "mb-2 max-h-[42rem] py-3" : "max-h-0 py-0"
           )}
         >
           {navLinks.map((link) =>
