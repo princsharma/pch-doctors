@@ -12,8 +12,15 @@ export type Doctor = {
   experienceYears?: number;
 };
 
-export const MMJ_DOCTORS: Doctor[] = [
+function compareDoctorsByName(a: Doctor, b: Doctor): number {
+  return a.name.localeCompare(b.name, "en", { sensitivity: "base" });
+}
 
+function sortedDoctors(doctors: Doctor[]): Doctor[] {
+  return doctors.slice().sort(compareDoctorsByName);
+}
+
+export const MMJ_DOCTORS: Doctor[] = sortedDoctors([
   {
     slug: "anshi-thapliyal",
     name: "Anshi Thapliyal",
@@ -168,14 +175,12 @@ export const MMJ_DOCTORS: Doctor[] = [
   },
 ].map((doctor) => ({
   ...doctor,
+  service: "mmj" as const,
   image: `/images/doctor/${doctor.slug}.webp`,
-})).sort(compareDoctorsByName);
+}))
+);
 
-function compareDoctorsByName(a: Doctor, b: Doctor): number {
-  return a.name.localeCompare(b.name, "en", { sensitivity: "base" });
-}
-
-export const GLP1_DOCTORS: Doctor[] = [
+export const GLP1_DOCTORS: Doctor[] = sortedDoctors([
   {
     slug: "benjamin-krasne",
     name: "Benjamin H. Krasne",
@@ -217,7 +222,7 @@ export const GLP1_DOCTORS: Doctor[] = [
     service: "glp1",
     image: "/images/doctor/vanessa-niles.png",
   },
-].sort(compareDoctorsByName);
+]);
 
 export const DOCTORS: Doctor[] = [...MMJ_DOCTORS, ...GLP1_DOCTORS];
 
