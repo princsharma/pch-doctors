@@ -91,7 +91,7 @@ export function Glp1Benefits() {
         <div className="relative">
           <div className="relative aspect-4/5 w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
             <Image
-              src="/hero-section.webp"
+              src="/images/glp1-weight-management.webp"
               alt="Physician reviewing a personalized GLP-1 weight loss treatment plan"
               fill
               className="object-cover"

@@ -61,7 +61,7 @@ export function Hero() {
 
           <div className="relative aspect-16/9 w-full bg-neutral-900">
             <Image
-              src="/hero-section.webp"
+              src="/images/hero-section.webp"
               alt="Licensed physician consulting via video call"
               fill
               className="object-cover"
