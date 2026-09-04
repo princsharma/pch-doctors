@@ -31,7 +31,17 @@ function DoctorPhoto({ doctor }: { doctor: Doctor }) {
   );
 }
 
-export function Glp1DoctorsGrid() {
+type Glp1DoctorsGridProps = {
+  heading?: string;
+  intro?: string;
+  showDirectoryLink?: boolean;
+};
+
+export function Glp1DoctorsGrid({
+  heading = "Three physicians. One kind of visit.",
+  intro = "Read a profile, then book. You will not get a random assignment without knowing who is on the call.",
+  showDirectoryLink = false,
+}: Glp1DoctorsGridProps) {
   return (
     <section id="weight-loss-doctors" className="bg-[#f4f1ec] py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -41,12 +51,11 @@ export function Glp1DoctorsGrid() {
               The roster
             </p>
             <h2 className="font-heading mt-3 text-3xl font-medium tracking-tight text-[var(--ds-ink)] sm:text-4xl">
-              Four physicians. One kind of visit.
+              {heading}
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-neutral-600 lg:mb-1">
-            Read a profile, then book. You will not get a random assignment
-            without knowing who is on the call.
+            {intro}
           </p>
         </div>
 
@@ -85,6 +94,17 @@ export function Glp1DoctorsGrid() {
             </article>
           ))}
         </div>
+        {showDirectoryLink ? (
+          <div className="mt-10 text-center">
+            <Link
+              href="/weight-loss-doctors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--service-brand)] hover:text-[var(--service-brand-dark)]"
+            >
+              See the full Ongo team
+              <ArrowRight className="size-4" aria-hidden />
+            </Link>
+          </div>
+        ) : null}
       </div>
     </section>
   );

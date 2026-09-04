@@ -18,7 +18,7 @@ export function organizationSchema() {
     url: absoluteUrl("/"),
     email: SITE.email,
     telephone: SITE.phone,
-    logo: absoluteUrl("/pch-doctors-logo.png"),
+    logo: absoluteUrl("/pch-logo.webp"),
     image: absoluteUrl("/opengraph-image"),
     description:
       "Secure, HIPAA-compliant telehealth for medical marijuana certifications and clinician-guided GLP-1 weight management.",

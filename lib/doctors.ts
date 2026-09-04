@@ -212,16 +212,6 @@ export const GLP1_DOCTORS: Doctor[] = sortedDoctors([
     service: "glp1",
     image: "/images/doctor/johnathan-miller.webp",
   },
-  {
-    slug: "vanessa-niles",
-    name: "Vanessa Niles",
-    credential: "MD",
-    licensed: ["CA", "GA", "SC"],
-    experienceYears: 30,
-    bio: "Thirty years in practice and board-certified in OB/GYN. She has taught other doctors, and she still does the visit herself.",
-    service: "glp1",
-    image: "/images/doctor/vanessa-niles.png",
-  },
 ]);
 
 export const DOCTORS: Doctor[] = [...MMJ_DOCTORS, ...GLP1_DOCTORS];

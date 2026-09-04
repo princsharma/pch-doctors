@@ -8,7 +8,7 @@ import { Glp1Medications } from "@/components/sections/glp1/medications";
 import { Glp1Benefits } from "@/components/sections/glp1/benefits";
 import { Glp1WhyChooseUs } from "@/components/sections/glp1/why-choose-us";
 import { Glp1Timeline } from "@/components/sections/glp1/timeline";
-import { Doctors } from "@/components/sections/doctors";
+import { Glp1DoctorsGrid } from "@/components/sections/glp1-doctors/grid";
 import { Glp1Pricing } from "@/components/sections/glp1/pricing";
 import { Glp1Faq, GLP1_FAQS } from "@/components/sections/glp1/faq";
 import { Glp1Cta } from "@/components/sections/glp1/cta";
@@ -40,7 +40,11 @@ export default function Glp1MedicationsPage() {
         <Glp1Benefits />
         <Glp1WhyChooseUs />
         <Glp1Timeline />
-        <Doctors />
+        <Glp1DoctorsGrid
+          heading="The doctors who run your GLP-1 visit"
+          intro="Licensed physicians on the Ongo weight loss program. Read a profile, then book."
+          showDirectoryLink
+        />
         <Glp1Pricing />
         <Glp1Faq />
         <Glp1Cta />

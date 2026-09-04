@@ -91,12 +91,12 @@ export function SiteHeader() {
         <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <Link href="/" className="flex items-center" aria-label="PCH Doctors home">
             <Image
-              src="/pch-doctors-logo.png"
+              src="/pch-logo.webp"
               alt="PCH Doctors logo"
-              width={1251}
-              height={512}
+              width={800}
+              height={320}
               priority
-              className="h-12 w-auto sm:h-14"
+              className="h-12 w-auto rounded-lg sm:h-14"
             />
           </Link>
 

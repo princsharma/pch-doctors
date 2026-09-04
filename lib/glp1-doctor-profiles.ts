@@ -61,27 +61,6 @@ const PROFILES: Record<string, Omit<Glp1DoctorProfile, keyof Doctor>> = {
       "Appetite and craving regulation",
     ],
   },
-  "vanessa-niles": {
-    specialty: "Evidence-based weight loss and women's health",
-    education: [
-      "Doctor of Medicine (M.D.)",
-      "Registered Nurse (R.N.)",
-      "Assistant Clinical Professor, Morehouse School of Medicine, Atlanta",
-      "Assistant Clinical Professor, Pikeville College School of Medicine, Kentucky",
-      "Board certified, American Board of Obstetrics and Gynecology",
-    ],
-    about:
-      "Dr. Vanessa Niles has more than 30 years in practice. She is a licensed physician in California, Georgia, and South Carolina, board certified in obstetrics and gynecology, and has taught at Morehouse and Pikeville. She came up as a nurse before she became a physician, and it still shows in how she talks with people.",
-    role: "She sees Ongo weight loss patients on a private video visit. Plans are built around your health history, not a one-size protocol.",
-    conditions: [
-      "Obesity and overweight",
-      "Type 2 diabetes",
-      "Prediabetes",
-      "Weight-related hypertension",
-      "PCOS",
-      "Pregnancy-related weight changes",
-    ],
-  },
 };
 
 export function getGlp1DoctorProfile(

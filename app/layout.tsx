@@ -24,6 +24,10 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: {
+    icon: [{ url: "/favicon.webp", type: "image/webp" }],
+    apple: [{ url: "/favicon.webp", type: "image/webp" }],
+  },
   verification: {
     google: "WQ-kc6twMNvglAy1P5IBpPZl7GOX_Wolyy2Aba9H5rI",
   },

@@ -61,11 +61,11 @@ export function SiteFooter() {
               aria-label="PCH Doctors home"
             >
               <Image
-                src="/pch-doctors-logo.png"
+                src="/pch-logo.webp"
                 alt="PCH Doctors logo"
-                width={1251}
-                height={512}
-                className="h-9 w-auto"
+                width={800}
+                height={320}
+                className="h-10 w-auto rounded-md"
               />
             </Link>
             <p className="mt-4 text-sm text-white/60">
