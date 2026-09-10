@@ -29,7 +29,7 @@ const services = [
 
 const medicalTeam = [
   { label: "MMJ Doctor", href: MMJ_DOCTORS_PATH },
-  { label: "Ongo Weight Loss", href: GLP1_DOCTORS_PATH },
+  { label: "Weight Loss", href: GLP1_DOCTORS_PATH },
 ];
 
 const navLinks = [
