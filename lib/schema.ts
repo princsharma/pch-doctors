@@ -328,14 +328,14 @@ export function glp1DoctorsPageSchemas(options: {
     }),
     breadcrumbSchema([
       { name: "Home", path: "/" },
-      { name: "Ongo Weight Loss", path },
+      { name: "Weight Loss Doctors", path },
     ]),
     faqPageSchema(options.faqs, path),
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
       "@id": `${absoluteUrl(path)}#physicians`,
-      name: "Ongo Weight Loss doctors",
+      name: "Weight Loss Doctors",
       itemListElement: physicians.map((doctor, index) => ({
         "@type": "ListItem",
         position: index + 1,
@@ -471,7 +471,7 @@ export function sitemapPageSchemas(options: {
         {
           "@type": "ListItem",
           position: 5,
-          name: "Ongo Weight Loss Doctors",
+          name: "Weight Loss Doctors",
           url: absoluteUrl("/weight-loss-doctors"),
         },
         {

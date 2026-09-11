@@ -18,7 +18,7 @@ const PROFILES: Record<string, Omit<Glp1DoctorProfile, keyof Doctor>> = {
     ],
     about:
       "Dr. Benjamin Krasne has spent about 10 years seeing patients. He went to the University of Florida, earned his M.D. at the University of Miami, and finished residency at Jackson Memorial Hospital. On a visit he is practical: what you have tried, what your labs say, and whether a GLP-1 medication is even the right next step.",
-    role: "He evaluates patients in the Ongo weight loss program through PCH Doctors. A prescription is written only after that review, and only if it is medically appropriate.",
+    role: "He evaluates patients in the PCH Doctors weight loss program. A prescription is written only after that review, and only if it is medically appropriate.",
     conditions: [
       "Obesity and overweight",
       "Type 2 diabetes",
@@ -33,7 +33,7 @@ const PROFILES: Record<string, Omit<Glp1DoctorProfile, keyof Doctor>> = {
       "Board certified, American Board of Pediatrics",
     ],
     about:
-      "Dr. Cheryl Bugailiskis was one of the first physicians to see patients on the Ongo weight loss program. She trained at the University of Illinois at Chicago and is board certified in pediatrics. She still treats the visit like a real clinic appointment: history, metabolic picture, then a plan that fits that person.",
+      "Dr. Cheryl Bugailiskis was one of the first physicians to see patients on the PCH Doctors weight loss program. She trained at the University of Illinois at Chicago and is board certified in pediatrics. She still treats the visit like a real clinic appointment: history, metabolic picture, then a plan that fits that person.",
     role: "She reviews whether GLP-1 medication belongs in your plan. If it does not, she will say so and talk through what else might help.",
     conditions: [
       "Obesity and overweight",
@@ -52,7 +52,7 @@ const PROFILES: Record<string, Omit<Glp1DoctorProfile, keyof Doctor>> = {
     ],
     about:
       "Dr. Johnathan Miller earned his M.D. at Columbia and interned at Washington University in St. Louis. He also holds a B.A. from UAB and speaks Spanish. Patients tend to like that he explains the plan in regular English, including when a GLP-1 is not the move.",
-    role: "On Ongo weight loss visits through PCH Doctors, he reviews your history and goals, then decides whether medication, lifestyle work, or both belong in the plan.",
+    role: "On weight loss visits through PCH Doctors, he reviews your history and goals, then decides whether medication, lifestyle work, or both belong in the plan.",
     conditions: [
       "Obesity and overweight",
       "Type 2 diabetes",

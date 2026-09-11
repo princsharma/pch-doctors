@@ -30,7 +30,7 @@ export async function generateMetadata({
   const doctor = getGlp1DoctorProfile(slug);
   if (!doctor) return {};
 
-  const title = `${doctor.name}, ${doctor.credential} | Ongo Weight Loss`;
+  const title = `${doctor.name}, ${doctor.credential} | Weight Loss Doctors`;
   const description = doctor.bio;
   const url = absoluteUrl(`/weight-loss-doctors/${doctor.slug}`);
 
@@ -59,7 +59,7 @@ export default async function Glp1DoctorProfilePage({ params }: PageProps) {
   const doctor = getGlp1DoctorProfile(slug);
   if (!doctor) notFound();
 
-  const title = `${doctor.name}, ${doctor.credential} | Ongo Weight Loss`;
+  const title = `${doctor.name}, ${doctor.credential} | Weight Loss Doctors`;
 
   return (
     <div className="flex flex-1 flex-col bg-white">
@@ -74,7 +74,7 @@ export default async function Glp1DoctorProfilePage({ params }: PageProps) {
           }),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Ongo Weight Loss", path: "/weight-loss-doctors" },
+            { name: "Weight Loss Doctors", path: "/weight-loss-doctors" },
             {
               name: doctor.name,
               path: `/weight-loss-doctors/${doctor.slug}`,
@@ -106,7 +106,7 @@ export default async function Glp1DoctorProfilePage({ params }: PageProps) {
                   href="/weight-loss-doctors"
                   className="transition-colors hover:text-[var(--service-brand)]"
                 >
-                  Ongo Weight Loss
+                  Weight Loss Doctors
                 </Link>
               </li>
               <li aria-hidden className="flex items-center">

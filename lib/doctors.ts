@@ -197,7 +197,7 @@ export const GLP1_DOCTORS: Doctor[] = sortedDoctors([
     name: "Cheryl Bugailiskis",
     credential: "MD",
     licensed: [],
-    bio: "One of the first physicians on the Ongo weight loss program. Board-certified in pediatrics, with a close eye on metabolic health.",
+    bio: "One of the first physicians on the PCH Doctors weight loss program. Board-certified in pediatrics, with a close eye on metabolic health.",
     service: "glp1",
     image: "/images/doctor/cheryl-bugailiskis.webp",
   },

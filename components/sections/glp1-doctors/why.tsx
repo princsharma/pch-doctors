@@ -39,7 +39,7 @@ export function Glp1DoctorsWhy() {
             A visit that still feels like medicine
           </h2>
           <p className="mt-4 text-neutral-600">
-            The Ongo weight loss program is clinician-guided. That means a
+            The weight loss program is clinician-guided. That means a
             person with a license looks at your case before anyone talks about
             a pen or a refill.
           </p>

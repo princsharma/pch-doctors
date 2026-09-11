@@ -42,7 +42,7 @@ export default function Glp1MedicationsPage() {
         <Glp1Timeline />
         <Glp1DoctorsGrid
           heading="The doctors who run your GLP-1 visit"
-          intro="Licensed physicians on the Ongo weight loss program. Read a profile, then book."
+          intro="Licensed physicians on the PCH Doctors weight loss program. Read a profile, then book."
           showDirectoryLink
         />
         <Glp1Pricing />

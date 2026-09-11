@@ -10,7 +10,7 @@ export function Glp1DoctorsCta() {
         <div className="relative overflow-hidden rounded-[2rem] bg-[linear-gradient(135deg,#24553f_0%,#3e8d69_52%,#e76f51_100%)] px-8 py-14 text-white sm:px-12">
           <div className="relative max-w-2xl">
             <p className="text-[11px] font-semibold tracking-[0.22em] text-white/80 uppercase">
-              Ongo Weight Loss
+              Weight loss program
             </p>
             <h2 className="font-heading mt-3 text-3xl font-medium tracking-tight sm:text-4xl">
               Sit down with a physician this week

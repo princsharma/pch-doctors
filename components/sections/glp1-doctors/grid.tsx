@@ -100,7 +100,7 @@ export function Glp1DoctorsGrid({
               href="/weight-loss-doctors"
               className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--service-brand)] hover:text-[var(--service-brand-dark)]"
             >
-              See the full Ongo team
+              See the full weight loss team
               <ArrowRight className="size-4" aria-hidden />
             </Link>
           </div>

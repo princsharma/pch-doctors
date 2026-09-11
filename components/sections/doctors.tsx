@@ -190,10 +190,10 @@ export function Doctors() {
           />
           <ServiceRoster
             service="glp1"
-            kicker="Ongo Weight Loss"
+            kicker="Weight loss"
             title="GLP-1 physicians"
             href="/weight-loss-doctors"
-            linkLabel="Full Ongo team"
+            linkLabel="Full weight loss team"
             doctors={GLP1_DOCTORS}
             variant="featured"
           />

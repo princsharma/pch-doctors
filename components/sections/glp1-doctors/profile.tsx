@@ -49,7 +49,7 @@ export function Glp1DoctorProfile({ slug }: { slug: string }) {
 
           <div>
             <p className="text-[11px] font-semibold tracking-[0.22em] text-[var(--service-accent)] uppercase">
-              Ongo Weight Loss
+              Weight loss program
             </p>
             <h1 className="font-heading mt-3 text-3xl font-medium tracking-tight sm:text-4xl lg:text-[2.75rem]">
               {name}
@@ -121,7 +121,7 @@ export function Glp1DoctorProfile({ slug }: { slug: string }) {
             <p className="text-[11px] font-semibold tracking-wide text-neutral-500 uppercase">
               Program
             </p>
-            <p className="mt-2 text-lg text-[var(--ds-ink)]">Ongo Weight Loss</p>
+            <p className="mt-2 text-lg text-[var(--ds-ink)]">Weight loss program</p>
           </div>
         </div>
 
@@ -198,7 +198,7 @@ export function Glp1DoctorProfile({ slug }: { slug: string }) {
             href="/weight-loss-doctors"
             className="text-sm font-semibold text-[var(--service-brand)] hover:underline"
           >
-            Back to Ongo weight loss doctors
+            Back to weight loss doctors
           </Link>
         </p>
       </section>

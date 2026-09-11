@@ -53,7 +53,7 @@ export default function WeightLossDoctorsPage() {
                   className="font-medium text-[var(--ds-ink)]"
                   aria-current="page"
                 >
-                  Ongo Weight Loss
+                  Weight Loss Doctors
                 </span>
               </li>
             </ol>

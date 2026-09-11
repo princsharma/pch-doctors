@@ -21,7 +21,7 @@ export function Glp1DoctorsHero() {
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(231_111_81/0.18)_0%,rgb(36_85_63/0.25)_100%)]" />
           <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/93 p-5 shadow-xl backdrop-blur-md sm:max-w-sm">
             <p className="font-heading text-lg font-medium text-[var(--ds-ink)]">
-              Ongo Weight Loss clinicians
+              Weight loss clinicians
             </p>
             <p className="mt-1 text-sm text-neutral-600">
               Licensed physicians. GLP-1 medication only after a real medical
@@ -38,8 +38,8 @@ export function Glp1DoctorsHero() {
             The doctors on your GLP-1 visit
           </h1>
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-neutral-600">
-            These physicians see patients through PCH Doctors and the Ongo
-            weight loss program. You get a private video visit, a straight
+            These physicians see patients through PCH Doctors for GLP-1
+            weight loss care. You get a private video visit, a straight
             answer, and a plan that matches your health, not a sales script.
           </p>
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[var(--ds-ink)]">

@@ -1,4 +1,4 @@
-/** Ongo weight-loss scheduling portal */
+/** GLP-1 weight-loss scheduling portal */
 export const ONGO_UTM_SOURCE = "ongo-weight-loss-home";
 
 export const ONGO_WEIGHT_LOSS_URL =

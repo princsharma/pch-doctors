@@ -11,7 +11,7 @@ export const GLP1_TEAM_FAQS = [
   {
     question: "Who are these doctors?",
     answer:
-      "Licensed U.S. physicians who see weight loss patients through PCH Doctors and the Ongo program. Each profile lists training we have on file. If an NPI is listed, you can look it up in the federal registry.",
+      "Licensed U.S. physicians who see weight loss patients through PCH Doctors. Each profile lists training we have on file. If an NPI is listed, you can look it up in the federal registry.",
   },
   {
     question: "Can I pick who I see?",

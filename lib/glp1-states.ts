@@ -4,7 +4,7 @@ export type Glp1State = {
   timezone: string;
 };
 
-/** States available for GLP-1 / Ongo weight-loss scheduling. */
+/** States available for GLP-1 weight-loss scheduling. */
 export const GLP1_STATES: Glp1State[] = [
   { code: "CO", name: "Colorado", timezone: "MST" },
   { code: "FL", name: "Florida", timezone: "EST" },

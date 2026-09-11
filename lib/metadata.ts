@@ -51,9 +51,9 @@ export const PAGE_METADATA = {
   },
   "weight-loss-doctors": {
     path: "/weight-loss-doctors",
-    title: "Ongo Weight Loss Doctors | PCH Doctors",
+    title: "Weight Loss Doctors | GLP-1 Clinicians | PCH Doctors",
     description:
-      "Meet the licensed physicians who run GLP-1 visits through PCH Doctors and Ongo. See training, then book a private online evaluation.",
+      "Meet the licensed physicians who run GLP-1 visits through PCH Doctors. See training, then book a private online evaluation.",
   },
   sitemap: {
     path: "/sitemap",
