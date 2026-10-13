@@ -55,6 +55,12 @@ export const PAGE_METADATA = {
     description:
       "Meet the licensed physicians who run GLP-1 visits through PCH Doctors. See training, then book a private online evaluation.",
   },
+  contributors: {
+    path: "/our-contributors",
+    title: "Meet Our Medical Writers & Reviewers",
+    description:
+      "Meet the PCH Doctors medical authors and reviewers. See credentials, background, and expertise behind our patient-focused healthcare content.",
+  },
   sitemap: {
     path: "/sitemap",
     title: "Full Website Sitemap | Pages & Legal | PCH Doctors",

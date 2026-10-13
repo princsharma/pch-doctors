@@ -3,6 +3,7 @@ import { LEGAL_PAGES } from "@/lib/legal-pages";
 import { isRemovedPath } from "@/lib/removed-routes";
 import { absoluteUrl } from "@/lib/seo";
 import { GLP1_DOCTORS, MMJ_DOCTORS } from "@/lib/doctors";
+import { CONTRIBUTORS } from "@/lib/contributors";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -45,6 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: absoluteUrl("/our-contributors"),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: absoluteUrl("/contact"),
       lastModified,
       changeFrequency: "monthly",
@@ -70,6 +77,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.6,
+    })),
+    ...CONTRIBUTORS.map((person) => ({
+      url: absoluteUrl(`/our-contributors/${person.slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
     })),
   ];
 

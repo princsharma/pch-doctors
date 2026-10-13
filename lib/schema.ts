@@ -3,6 +3,7 @@ import { absoluteUrl, SITE_URL } from "@/lib/seo";
 import { LEGAL_PAGES } from "@/lib/legal-pages";
 import { SERVICE_PAGES } from "@/lib/service-pages";
 import { doctorsByService } from "@/lib/doctors";
+import { CONTRIBUTORS, type Contributor } from "@/lib/contributors";
 
 type FaqItem = {
   question: string;
@@ -364,6 +365,77 @@ export function glp1DoctorsPageSchemas(options: {
   ];
 }
 
+export function contributorPersonSchema(person: Contributor) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${absoluteUrl(`/our-contributors/${person.slug}`)}#person`,
+    name: person.displayName,
+    givenName: person.name.split(/\s+/)[0],
+    familyName: person.name.split(/\s+/).filter(Boolean).at(-1),
+    jobTitle: person.roleLabel,
+    description: person.bio,
+    url: absoluteUrl(`/our-contributors/${person.slug}`),
+    ...(person.image ? { image: absoluteUrl(person.image) } : {}),
+    knowsAbout: person.expertise,
+    ...(person.credentials.length
+      ? {
+          hasCredential: person.credentials.map((credential) => ({
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: credential,
+            name: credential,
+          })),
+        }
+      : {}),
+    worksFor: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+  };
+}
+
+export function contributorsPageSchemas(options: {
+  title: string;
+  description: string;
+}) {
+  const path = "/our-contributors";
+
+  return [
+    organizationSchema(),
+    webPageSchema({
+      title: options.title,
+      description: options.description,
+      path,
+      type: "CollectionPage",
+    }),
+    breadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Medical Content Team", path },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "@id": `${absoluteUrl(path)}#contributors`,
+      name: "PCH Doctors medical content team",
+      itemListElement: CONTRIBUTORS.map((person, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Person",
+          name: person.displayName,
+          jobTitle: person.roleLabel,
+          description: person.bio,
+          url: absoluteUrl(`/our-contributors/${person.slug}`),
+          ...(person.image ? { image: absoluteUrl(person.image) } : {}),
+          knowsAbout: person.expertise,
+          worksFor: {
+            "@id": `${SITE_URL}/#organization`,
+          },
+        },
+      })),
+    },
+  ];
+}
+
 export function aboutPageSchemas(options: {
   title: string;
   description: string;
@@ -477,18 +549,24 @@ export function sitemapPageSchemas(options: {
         {
           "@type": "ListItem",
           position: 6,
+          name: "Medical Content Team",
+          url: absoluteUrl("/our-contributors"),
+        },
+        {
+          "@type": "ListItem",
+          position: 7,
           name: "Medical Marijuana Consultation",
           url: absoluteUrl("/services/medical-marijuana-consultation"),
         },
         {
           "@type": "ListItem",
-          position: 7,
+          position: 8,
           name: "GLP-1 Medications",
           url: absoluteUrl("/services/glp-1-medications"),
         },
         ...LEGAL_PAGES.map((page, index) => ({
           "@type": "ListItem",
-          position: index + 8,
+          position: index + 9,
           name: page.title,
           url: absoluteUrl(`/${page.slug}`),
         })),

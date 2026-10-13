@@ -14,6 +14,7 @@ const siteLinks = [
   { label: "About", href: "/about-us" },
   { label: "MMJ Doctors", href: "/our-doctors" },
   { label: "Weight Loss Doctors", href: "/weight-loss-doctors" },
+  { label: "Medical Content Team", href: "/our-contributors" },
   { label: "Contact", href: "/contact" },
   { label: "Process", href: "/#process" },
   { label: "Services", href: "/#services" },

@@ -21,6 +21,7 @@ const MMJ_PATH = "/services/medical-marijuana-consultation";
 const GLP1_PATH = "/services/glp-1-medications";
 const MMJ_DOCTORS_PATH = "/our-doctors";
 const GLP1_DOCTORS_PATH = "/weight-loss-doctors";
+const CONTRIBUTORS_PATH = "/our-contributors";
 
 const services = [
   { label: "Medical Marijuana Consultation", href: MMJ_PATH },
@@ -30,6 +31,7 @@ const services = [
 const medicalTeam = [
   { label: "MMJ Doctor", href: MMJ_DOCTORS_PATH },
   { label: "Weight Loss", href: GLP1_DOCTORS_PATH },
+  { label: "Medical Content Team", href: CONTRIBUTORS_PATH },
 ];
 
 const navLinks = [
@@ -54,8 +56,9 @@ export function SiteHeader() {
   const isMmjService = pathname?.startsWith(MMJ_PATH);
   const isMmjTeam = pathname?.startsWith(MMJ_DOCTORS_PATH);
   const isGlp1Team = pathname?.startsWith(GLP1_DOCTORS_PATH);
+  const isContributorsTeam = pathname?.startsWith(CONTRIBUTORS_PATH);
   const isServicePage = Boolean(isMmjService || isGlp1Service);
-  const isTeamPage = Boolean(isMmjTeam || isGlp1Team);
+  const isTeamPage = Boolean(isMmjTeam || isGlp1Team || isContributorsTeam);
   const isMmj = Boolean(isMmjService || isMmjTeam);
   const isGlp1 = Boolean(isGlp1Service || isGlp1Team);
 
